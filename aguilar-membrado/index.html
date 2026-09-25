@@ -8,247 +8,295 @@
 <body>
 <title>Els Aguilar i Membrado</title>
 <style>
-  :root{
-    --paper:#EDEAE1; --card:#F8F6F0; --ink:#1C1A17; --muted:#5C5750;
-    --rule:#BAB3A1; --rule-strong:#8A8271; --accent:#2A4472; --accent-soft:#DDE3EF; --shadow:rgba(32,30,26,.07);
-    --display:"Superclarendon","Rockwell","Bookman Old Style",Georgia,serif;
-    --body:"Charter","Iowan Old Style","Palatino Linotype",Georgia,serif;
-    --data:ui-sans-serif,-apple-system,"Helvetica Neue","Segoe UI",sans-serif;
+:root{
+  --paper:#EDEAE1; --card:#F8F6F0; --ink:#1C1A17; --muted:#5C5750;
+  --rule:#B9B2A0; --accent:#2A4472; --doc-fill:#D7E1F3; --warn:#7A4E22;
+  --display:"Superclarendon","Bookman Old Style","Bitstream Charter",Georgia,serif;
+  --body:"Charter","Bitstream Charter","Iowan Old Style",Georgia,serif;
+  --sans:"Avenir Next","Segoe UI",Inter,system-ui,-apple-system,sans-serif;
+  --data:var(--sans);
+  --rule-strong:#8A8271; --shadow:rgba(32,30,26,.07); --accent-soft:#DDE3EF;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#14161A; --card:#1C1F24; --ink:#EDEAE2; --muted:#B8B3A8;
+    --rule:#4C525C; --accent:#9CBBE6; --doc-fill:#26344C; --warn:#E0B678;
+    --rule-strong:#756F5D; --shadow:rgba(0,0,0,.4); --accent-soft:#242B38;
   }
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      --paper:#17150F; --card:#221F18; --ink:#EDEAE2; --muted:#B0A899;
-      --rule:#4A4539; --rule-strong:#756F5D; --accent:#9CBBE6; --accent-soft:#242B38; --shadow:rgba(0,0,0,.4);
-    }
-  }
-  :root[data-theme="dark"]{
-    --paper:#17150F; --card:#221F18; --ink:#EDEAE2; --muted:#B0A899;
-    --rule:#4A4539; --rule-strong:#756F5D; --accent:#9CBBE6; --accent-soft:#242B38; --shadow:rgba(0,0,0,.4);
-  }
+}
+:root[data-theme="dark"]{
+  --paper:#14161A; --card:#1C1F24; --ink:#EDEAE2; --muted:#B8B3A8;
+  --rule:#4C525C; --accent:#9CBBE6; --doc-fill:#26344C; --warn:#E0B678;
+  --rule-strong:#756F5D; --shadow:rgba(0,0,0,.4); --accent-soft:#242B38;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink); font-family:var(--body);
+  font-size:17px; line-height:1.62; margin:0; padding:0 24px 96px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px;margin:0 auto}
+.wide{max-width:1180px;margin:0 auto}
 
-  *{box-sizing:border-box}
-  body{
-    margin:0; background:var(--paper); color:var(--ink);
-    font-family:var(--body); font-size:17px; line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:1180px; margin:0 auto; padding:56px 28px 90px}
+header.top{padding:72px 0 30px;border-bottom:1px solid var(--rule);margin-bottom:38px}
+.eyebrow{font-family:var(--sans);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+h1{font-family:var(--display);font-size:clamp(38px,6.4vw,62px);line-height:1.02;margin:0 0 16px;font-weight:600;letter-spacing:-.015em;text-wrap:balance}
+.standfirst{font-size:19px;color:var(--muted);margin:0;max-width:56ch}
+.stamp{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:22px;letter-spacing:.03em}
 
-  header{border-bottom:1px solid var(--rule); padding-bottom:26px; margin-bottom:34px}
-  .eyebrow{
-    font-family:var(--data); font-size:12px; letter-spacing:.16em; text-transform:uppercase;
-    color:var(--muted); margin:0 0 14px;
-  }
-  h1{
-    font-family:var(--display); font-weight:400; font-size:clamp(34px,6vw,54px);
-    line-height:1.05; margin:0 0 12px; text-wrap:balance; letter-spacing:-.01em;
-  }
-  .standfirst{margin:0; max-width:62ch; color:var(--muted); font-size:18px}
+h2{font-family:var(--display);font-size:29px;font-weight:600;line-height:1.18;margin:60px 0 6px;letter-spacing:-.01em;text-wrap:balance}
+h2 + .dek{color:var(--muted);margin:0 0 22px;font-size:16px}
+h3{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:36px 0 12px}
+p{margin:0 0 18px}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+strong{font-weight:600}
+em{font-style:italic}
 
-  h2{
-    font-family:var(--display); font-weight:400; font-size:25px; line-height:1.2;
-    margin:0 0 6px; text-wrap:balance;
-  }
-  section{margin-top:56px}
-  .lede{max-width:66ch; margin:0 0 22px}
-  .lede strong{font-weight:600}
+.rule{height:1px;background:var(--rule);border:0;margin:52px 0}
 
-  figure{margin:0}
-  .scroller{
-    overflow-x:auto; border:1px solid var(--rule); border-radius:4px;
-    background:var(--card); padding:18px 14px; box-shadow:0 1px 2px var(--shadow);
-  }
-  .scroller svg{display:block; min-width:1732px; width:100%; height:auto; color:var(--ink)}
-  figcaption{
-    font-family:var(--data); font-size:13.5px; color:var(--muted);
-    margin-top:12px; max-width:66ch;
-  }
-  .hint{
-    font-family:var(--data); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--muted); margin:0 0 10px;
-  }
+/* índice fijo: las mismas secciones en los cuatro árboles */
+nav.toc{
+  position:sticky;top:0;z-index:10;margin:0 -24px;padding:0 24px;
+  background:color-mix(in srgb,var(--paper) 90%,transparent);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+nav.toc ul{
+  max-width:1180px;margin:0 auto;padding:0;list-style:none;display:flex;gap:0 22px;
+  overflow-x:auto;scrollbar-width:none;font-family:var(--sans);font-size:13.5px;white-space:nowrap;
+}
+nav.toc ul::-webkit-scrollbar{display:none}
+nav.toc a{display:block;padding:13px 0 11px;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent}
+nav.toc a:hover{color:var(--ink)}
+nav.toc a[aria-current="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+section.sec{scroll-margin-top:52px;padding-top:8px}
+section.sec + section.sec{border-top:1px solid var(--rule);margin-top:64px}
+section.sec > div > h2:first-child{margin-top:48px}
+.pendiente{font-family:var(--sans);font-size:14.5px;color:var(--muted);border:1px dashed var(--rule);border-radius:8px;padding:16px 20px;margin:0 0 18px}
 
-  .legend{
-    display:flex; flex-wrap:wrap; gap:10px 26px; margin-top:18px;
-    font-family:var(--data); font-size:13.5px; color:var(--muted);
-  }
-  .legend span{display:flex; align-items:center; gap:8px}
-  .sw{width:26px; height:0; border-top:1.5px solid var(--rule); flex:none}
-  .sw.acc{border-top:2px solid var(--accent)}
-  .sw.box{width:15px; height:11px; border:1px solid var(--rule); background:var(--card); flex:none}
-  .sw.box.dash{border-style:dashed}
-  .sw.box.acc2{border:1.5px solid var(--accent)}
-  .pt{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
-  .pt.buit{background:none;border:1.4px solid var(--muted)}
+/* leyenda */
+.legend{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:26px 28px;margin:0 0 14px}
+.legend p{font-size:16px}
+.legend p:last-child{margin-bottom:0}
+.keys{display:grid;gap:13px;margin:20px 0 22px;padding:0;list-style:none}
+.keys li{display:grid;grid-template-columns:82px 1fr;gap:16px;align-items:start;font-size:15px;line-height:1.45}
+.keys .sw{height:34px;border-radius:6px;display:block}
+.k-doc{background:var(--doc-fill);border:1.6px solid var(--accent)}
+.k-fam{background:var(--card);border:1.6px solid var(--accent)}
+.k-web{background:var(--card);border:1px solid var(--rule)}
+.k-grp{background:none;border:1px dashed var(--rule)}
+.keys b{font-weight:600}
+.keys span.n{color:var(--muted)}
+.marks{display:grid;gap:9px;margin:0;padding:16px 0 0;list-style:none;border-top:1px solid var(--rule);font-size:15px}
+.marks li{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:baseline}
+.marks .g{font-family:var(--sans);font-size:15px;color:var(--accent);text-align:center}
 
-  .gen{margin-top:34px}
-  .gen-head{
-    display:flex; align-items:baseline; gap:12px; border-bottom:1px solid var(--rule);
-    padding-bottom:7px; margin-bottom:18px; flex-wrap:wrap;
-  }
-  .gen-head h3{font-family:var(--display); font-weight:400; font-size:19px; margin:0}
-  .gen-head span{font-family:var(--data); font-size:13px; color:var(--muted); letter-spacing:.05em}
-  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(258px,1fr)); gap:16px}
-  .p{
-    background:var(--card); border:1px solid var(--rule); border-radius:3px;
-    padding:15px 16px 14px; box-shadow:0 1px 2px var(--shadow);
-  }
-  .p.unknown{border-style:dashed; background:transparent}
-  .p h4{font-family:var(--body); font-weight:600; font-size:16px; margin:0 0 2px; line-height:1.25}
-  .p .alias{font-family:var(--display); font-size:14px; color:var(--accent); margin:0 0 7px}
-  .p .yrs{
-    font-family:var(--data); font-variant-numeric:tabular-nums; font-size:13.5px;
-    color:var(--muted); margin:0 0 9px; letter-spacing:.02em;
-  }
-  .p p.note{margin:0; font-size:15px; line-height:1.55}
-  .p .addr{
-    font-family:var(--data); font-size:13px; color:var(--muted); margin:9px 0 0; line-height:1.55;
-  }
-  .p .src{
-    font-family:var(--data); font-size:12px; color:var(--muted); margin:9px 0 0;
-    padding-top:8px; border-top:1px solid var(--rule);
-  }
+/* árbol */
+.scroller{
+  overflow-x:auto;background:var(--card);border:1px solid var(--rule);
+  border-radius:10px;padding:20px;margin:0 0 12px;
+}
+.scroller svg{min-width:var(--tree-w,1200px);max-width:var(--tree-max,none);margin:0 auto;width:100%;height:auto;display:block;color:var(--ink)}
+.hint{font-family:var(--sans);font-size:13px;color:var(--muted);margin:0 0 8px}
 
-  ol.time{list-style:none; margin:0; padding:0; border-left:1px solid var(--rule)}
-  ol.time li{position:relative; padding:0 0 20px 26px; line-height:1.5}
-  ol.time li::before{
-    content:""; position:absolute; left:-4px; top:9px; width:7px; height:7px;
-    border-radius:50%; background:var(--rule);
-  }
-  ol.time li.key::before{background:var(--accent); width:9px; height:9px; left:-5px}
-  ol.time .when{
-    font-family:var(--data); font-variant-numeric:tabular-nums; font-size:12px;
-    letter-spacing:.06em; text-transform:uppercase; color:var(--muted); display:block;
-  }
-  ol.time .what{display:block; margin-top:1px}
-  ol.time li.key .what{font-weight:600}
+/* tablas */
+table{width:100%;border-collapse:collapse;font-size:15px;margin:0 0 22px}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--sans);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.data{font-family:var(--sans);font-size:13.5px;min-width:1020px;line-height:1.45}
+table.data th{position:sticky;top:0;background:var(--paper);z-index:1}
+table.data td{padding:10px 14px 10px 0}
+table.data tr:hover td{background:var(--card)}
+table.data .yr{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
+table.data .who{font-weight:600;color:var(--ink)}
+table.data .dash{color:var(--rule)}
+table.data .flag{color:var(--warn);font-weight:600}
+table.data .hit{color:var(--accent);font-weight:700}
 
-  footer{
-    margin-top:64px; padding-top:22px; border-top:1px solid var(--rule);
-    font-family:var(--data); font-size:13.5px; color:var(--muted); max-width:70ch;
-  }
-  footer p{margin:0 0 8px}
-  a{color:var(--accent)}
-  .dek{color:var(--muted); margin:0 0 26px; font-size:17px; max-width:62ch}
-  h3.nh{
-    font-family:var(--display); font-weight:400; font-size:22px; line-height:1.25;
-    margin:40px 0 10px; text-wrap:balance; max-width:34ch;
-  }
-  .nar{max-width:66ch}
-  .nar p{margin:0 0 15px}
-  .nar p:last-child{margin-bottom:0}
-  .pull{
-    border-left:2px solid var(--accent); padding:3px 0 3px 22px; margin:24px 0;
-    font-family:var(--display); font-size:19px; line-height:1.4; color:var(--ink); max-width:52ch;
-  }
-  .pull span{
-    display:block; font-family:var(--data); font-size:12px; letter-spacing:.13em;
-    text-transform:uppercase; color:var(--muted); margin-top:10px; font-style:normal;
-  }
-  .curio{
-    background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--accent);
-    border-radius:3px; padding:20px 24px; margin-top:30px; box-shadow:0 1px 2px var(--shadow);
-  }
-  .curio .kicker{
-    font-family:var(--data); font-size:11px; letter-spacing:.15em; text-transform:uppercase;
-    color:var(--accent); margin:0 0 10px;
-  }
-  .curio h3{font-family:var(--display); font-weight:400; font-size:20px; margin:0 0 10px; line-height:1.25}
-  .curio p{margin:0 0 14px; max-width:64ch}
-  .curio p:last-child{margin-bottom:0}
-  .curio .fullname{
-    font-family:var(--display); font-size:19px; color:var(--ink); text-align:center;
-    padding:14px 10px; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); margin:16px 0;
-  }
-  ul.naming{list-style:none; margin:0 0 14px; padding:0; display:grid; gap:9px}
-  ul.naming li{
-    display:grid; grid-template-columns:96px 1fr; gap:14px; align-items:baseline;
-    font-size:15px; line-height:1.45;
-  }
-  ul.naming .nm{
-    font-family:var(--display); font-size:16px; color:var(--accent); font-weight:600;
-  }
-  @media (max-width:520px){ ul.naming li{grid-template-columns:74px 1fr; gap:10px} }
+/* capítulos cronológicos */
+.chap{display:flex;align-items:baseline;gap:15px;margin:46px 0 14px;border-bottom:1px solid var(--rule);padding-bottom:8px;flex-wrap:wrap}
+.chap-yr{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);font-weight:700;flex:none}
+.chap-t{font-family:var(--display);font-size:22px;font-weight:600;line-height:1.2;margin:0;letter-spacing:-.005em;text-transform:none;color:var(--ink)}
 
-  .figcap-src{
-    font-family:var(--data); font-size:13.5px; color:var(--muted);
-    margin:14px 0 0; max-width:70ch; line-height:1.6;
-  }
-  .inst{
-    border:1px solid var(--rule); border-radius:3px; background:var(--card);
-    box-shadow:0 1px 2px var(--shadow); overflow:hidden; margin-top:18px;
-  }
-  .inst > div{padding:15px 17px; border-top:1px solid var(--rule)}
-  .inst > div:first-child{border-top:0}
-  .inst .top{
-    display:flex; align-items:baseline; gap:11px; flex-wrap:wrap; margin-bottom:5px;
-  }
-  .inst h4{font-family:var(--body); font-weight:600; font-size:15.5px; margin:0; line-height:1.3}
-  .mode{
-    font-family:var(--data); font-size:11px; letter-spacing:.11em; text-transform:uppercase;
-    border:1px solid var(--rule); border-radius:2px; padding:2px 7px; color:var(--muted); flex:none;
-  }
-  .mode.online{border-color:var(--accent); color:var(--accent)}
-  .inst p{margin:0; font-size:14.5px; line-height:1.5}
-  .inst p.opens{
-    font-family:var(--data); font-size:13px; color:var(--muted); margin-top:8px; line-height:1.55;
-  }
-  .inst .opens-h{
-    font-family:var(--data); font-size:11px; letter-spacing:.13em; text-transform:uppercase;
-    color:var(--muted); margin:13px 0 6px;
-  }
-  .inst ul.opens{
-    margin:0; padding-left:17px; font-family:var(--data); font-size:13.5px;
-    color:var(--muted); line-height:1.5;
-  }
-  .inst ul.opens li{margin:0 0 5px}
-  .inst ul.opens li:last-child{margin-bottom:0}
-  .inst ul.opens strong{color:var(--ink); font-weight:600}
+h4.sub{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:30px 0 10px}
 
-  table{width:100%; border-collapse:collapse; font-size:15px; margin:0 0 8px}
-  th,td{text-align:left; padding:8px 14px 8px 0; border-bottom:1px solid var(--rule); vertical-align:top}
-  th{
-    font-family:var(--data); font-size:12px; letter-spacing:.13em; text-transform:uppercase;
-    color:var(--muted); font-weight:600;
-  }
-  td.num{font-family:var(--data); font-variant-numeric:tabular-nums; white-space:nowrap; font-size:13.5px}
-  td.lnk{font-family:var(--data); font-size:13.5px}
-  .tw{overflow-x:auto; margin-bottom:24px}
-  h3.fh{
-    font-family:var(--data); font-size:13px; font-weight:700; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--muted); margin:32px 0 4px;
-  }
-  h3.fh + p{font-size:15px; margin:0 0 14px; max-width:66ch}
-  @media (max-width:640px){ .wrap{padding:38px 18px 70px} body{font-size:16px} }
+/* piezas */
+.pull{border-left:2px solid var(--accent);padding:2px 0 2px 20px;margin:26px 0;font-size:18px;color:var(--ink)}
+.pull span{display:block;font-family:var(--sans);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:9px}
+.note{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--warn);border-radius:8px;padding:16px 20px;margin:24px 0;font-size:15.5px}
+.note b{color:var(--warn)}
+.quote{font-family:var(--display);font-size:17px;background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:18px 22px;margin:22px 0;color:var(--ink)}
+ul.plain{list-style:none;padding:0;margin:0 0 20px}
+ul.plain li{padding:8px 0;border-bottom:1px solid var(--rule);font-size:15.5px}
+ul.plain li:last-child{border-bottom:0}
+.src{font-family:var(--sans);font-size:13px;color:var(--muted);display:block;margin-top:3px}
+
+/* vidas y mudanzas */
+.life{border-top:1px solid var(--rule);padding:26px 0 4px}
+.life:first-of-type{border-top:0;padding-top:6px}
+.life-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.life-head h4{font-family:var(--display);font-weight:600;font-size:21px;margin:0;line-height:1.2;letter-spacing:-.005em}
+.life-head .yrs{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.life p{font-size:16.5px;margin:0 0 16px;max-width:66ch}
+.life .why{color:var(--muted);font-style:italic}
+ol.moves{list-style:none;margin:0 0 6px;padding:0;border-top:1px solid var(--rule)}
+ol.moves li{
+  display:grid;grid-template-columns:84px minmax(150px,1.05fr) minmax(0,1.55fr);
+  gap:6px 16px;padding:10px 0;border-bottom:1px solid var(--rule);
+  font-family:var(--sans);font-size:14.5px;line-height:1.5;align-items:baseline;
+}
+ol.moves .yr{font-variant-numeric:tabular-nums;color:var(--muted);letter-spacing:.04em;font-size:13px}
+ol.moves .ad{font-weight:600;color:var(--ink)}
+ol.moves .ev{color:var(--muted)}
+ol.moves li.gap{grid-template-columns:78px 1fr;color:var(--muted);font-style:italic}
+ol.moves li.gap .ev{grid-column:2}
+a.map{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+a.map:hover{border-bottom-color:var(--accent)}
+a.map::after{content:"\2197";font-size:.8em;margin-left:3px;vertical-align:.15em;opacity:.75}
+
+/* qué falta */
+.lede{max-width:66ch;margin:0 0 20px}
+.gen{margin-top:42px}
+.gen-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:20px;flex-wrap:wrap}
+.gen-head h3{font-family:var(--display);font-weight:600;font-size:20px;margin:0;letter-spacing:0;text-transform:none;color:var(--ink)}
+.gen-head span{font-family:var(--sans);font-size:12px;color:var(--muted);letter-spacing:.05em}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.p{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:18px 20px 16px}
+.p.unknown{border-style:dashed;background:transparent}
+.p h4{font-family:var(--body);font-weight:600;font-size:16.5px;margin:0 0 4px;line-height:1.3}
+.p .alias{font-family:var(--sans);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 11px}
+.p .desc{margin:0;font-size:15px;line-height:1.55;background:none;border:0;padding:0}
+.p .ask{font-family:var(--sans);font-size:13.5px;color:var(--ink);margin:13px 0 0;padding-top:12px;border-top:1px solid var(--rule);line-height:1.5}
+.p .ask b{color:var(--accent);letter-spacing:.06em;text-transform:uppercase;font-size:11.5px;display:block;margin-bottom:3px}
+.opens{font-family:var(--sans);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:14px 0 6px}
+ul.abre{margin:0;padding:0;list-style:none;font-family:var(--sans);font-size:13.5px;line-height:1.5}
+ul.abre li{position:relative;padding:3px 0 3px 17px;color:var(--muted)}
+ul.abre li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+ul.abre li b{color:var(--ink);font-weight:600}
+ol.time{list-style:none;margin:0;padding:0;border-left:1px solid var(--rule)}
+ol.time li{position:relative;padding:0 0 24px 26px}
+ol.time li::before{content:"";position:absolute;left:-4px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--rule)}
+ol.time li.key::before{background:var(--accent);width:9px;height:9px;left:-5px}
+ol.time .when{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px}
+ol.time .what{display:block;font-size:15.5px;line-height:1.55}
+.inst{border:1px solid var(--rule);border-radius:8px;background:var(--card);overflow:hidden}
+.inst > div{padding:16px 19px;border-top:1px solid var(--rule)}
+.inst > div:first-child{border-top:0}
+.inst .top{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;margin-bottom:5px}
+.inst h4{font-family:var(--body);font-weight:600;font-size:15.5px;margin:0;line-height:1.3}
+.mode{font-family:var(--sans);font-size:11px;letter-spacing:.11em;text-transform:uppercase;border:1px solid var(--rule);border-radius:3px;padding:2px 7px;color:var(--muted);flex:none}
+.mode.online{border-color:var(--accent);color:var(--accent)}
+.inst p{margin:0;font-size:15px;line-height:1.5}
+/* piezas que venían de la página de Aguilar; sirven para cualquier árbol */
+.tree-legend{display:flex;flex-wrap:wrap;gap:10px 26px;margin:0 0 12px;font-family:var(--sans);font-size:13.5px;color:var(--muted)}
+.tree-legend span{display:flex;align-items:center;gap:8px}
+.tsw{width:26px;height:0;border-top:1.5px solid var(--rule);flex:none}
+.tsw.acc{border-top:2px solid var(--accent)}
+.tsw.box{width:15px;height:11px;border:1px solid var(--rule);background:var(--card)}
+.tsw.box.dash{border-style:dashed}
+.tsw.box.acc2{border:1.5px solid var(--accent)}
+.pt{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
+.pt.buit{background:none;border:1.4px solid var(--muted)}
+figure{margin:0}
+figcaption,.figcap-src{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin:12px 0 0;max-width:70ch;line-height:1.6}
+h3.nh{font-family:var(--display);font-weight:600;font-size:22px;line-height:1.25;margin:40px 0 10px;text-wrap:balance;max-width:34ch;letter-spacing:-.005em;text-transform:none;color:var(--ink)}
+.nar{max-width:66ch}
+.nar p{margin:0 0 15px}
+.p .yrs{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:13.5px;color:var(--muted);margin:0 0 9px;letter-spacing:.02em}
+.p p.note{margin:0;font-size:15px;line-height:1.55;background:none;border:0;padding:0}
+.p .addr{font-family:var(--sans);font-size:13px;color:var(--muted);margin:9px 0 0;line-height:1.55}
+.p .src{font-size:12px;margin:9px 0 0;padding-top:8px;border-top:1px solid var(--rule)}
+.curio{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:8px;padding:20px 24px;margin-top:30px}
+.curio .kicker{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.curio h3{font-family:var(--display);font-weight:600;font-size:20px;margin:0 0 10px;line-height:1.25;letter-spacing:0;text-transform:none;color:var(--ink)}
+.curio p{margin:0 0 14px;max-width:64ch}
+.curio p:last-child{margin-bottom:0}
+.curio .fullname{font-family:var(--display);font-size:19px;color:var(--ink);text-align:center;padding:14px 10px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:16px 0}
+ul.naming{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:9px}
+ul.naming li{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:baseline;font-size:15px;line-height:1.45}
+ul.naming .nm{font-family:var(--display);font-size:16px;color:var(--accent);font-weight:600}
+.inst{margin-top:18px}
+.inst p.opens{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:8px;line-height:1.55;text-transform:none;letter-spacing:0}
+.inst .opens-h{font-family:var(--sans);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:13px 0 6px}
+.inst ul.opens{margin:0;padding-left:17px;font-family:var(--sans);font-size:13.5px;color:var(--muted);line-height:1.5}
+.inst ul.opens li{margin:0 0 5px}
+.inst ul.opens strong{color:var(--ink);font-weight:600}
+td.lnk{font-family:var(--sans);font-size:13.5px}
+h3.fh{margin:32px 0 4px}
+h3.fh + p{font-size:15px;margin:0 0 14px;max-width:66ch}
+
+/* contexto histórico: el mundo general, siempre atado a un hecho de la familia */
+.ctx{border-top:1px solid var(--rule);padding:22px 0 6px}
+.ctx:first-of-type{border-top:0;padding-top:4px}
+.ctx h3{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.25;margin:0 0 10px;letter-spacing:-.005em;text-transform:none;color:var(--ink)}
+.ctx .liga{font-family:var(--sans);font-size:14px;line-height:1.5;color:var(--ink);background:var(--card);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;padding:10px 14px;margin:0 0 14px}
+.ctx .liga b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+.ctx p{font-size:16.5px;max-width:66ch}
+.ctx .fuentes{font-family:var(--sans);font-size:13px;color:var(--muted);margin:0 0 12px}
+
+/* quién es quién: el nivel de prueba de cada dato, a la vista */
+.lvl{font-family:var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;padding:1px 6px;margin-left:6px;white-space:nowrap;vertical-align:.1em}
+.lvl.doc{background:var(--doc-fill);color:var(--accent)}
+.lvl.fam{border:1px solid var(--accent);color:var(--accent)}
+.lvl.ded{border:1px solid var(--warn);color:var(--warn)}
+.lvl.no{border:1px dashed var(--rule);color:var(--muted)}
+
+footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-family:var(--sans);font-size:12.5px;color:var(--muted)}
+@media (max-width:640px){
+  body{padding:0 18px 72px;font-size:16px}
+  nav.toc{margin:0 -18px;padding:0 18px}
+  ul.naming li{grid-template-columns:74px 1fr;gap:10px}
+  .keys li{grid-template-columns:60px 1fr}
+  .legend{padding:20px}
+  ol.moves li{grid-template-columns:70px 1fr}
+  ol.moves .ev{grid-column:2}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
 </style>
 
 <div class="wrap">
-
-<header>
-  <p class="eyebrow">Forcall · Ortells · Villores · Barcelona</p>
-  <h1>La casa d'Alta&nbsp;44</h1>
-  <p class="standfirst">Cinc generacions d'Aguilar i de Membrado, amb on va néixer cadascú, on va morir, amb quina edat i a quines cases va viure. Reconstruït amb les 438 llistes electorals dels quinze pobles dels Ports, la partida de naixement de l'Avi a Barcelona i <strong>set actes del Registre Civil de Forcall</strong>, que el setembre de 2026 van obrir la branca dos segles enrere.</p>
+<header class="top">
+<p class="eyebrow">Forcall · Ortells · Villores · Barcelona</p>
+<h1>La casa d'Alta&nbsp;44</h1>
+<p class="standfirst">Cinc generacions d'Aguilar i de Membrado, amb on va néixer cadascú, on va morir, amb quina edat i a quines cases va viure. Reconstruït amb les 438 llistes electorals dels quinze pobles dels Ports, la partida de naixement de l'Avi a Barcelona i <strong>set actes del Registre Civil de Forcall</strong>, que el setembre de 2026 van obrir la branca dos segles enrere.</p>
 </header>
+</div>
 
-<section style="margin-top:0">
-  <h2>Com llegir aquest arbre</h2>
-  <p class="lede">La forma d'aquesta família no és la d'un arbre corrent. <strong>Al mig hi ha quatre persones enllaçades per tres matrimonis.</strong> En Josep Aguilar Martí i la Joaquina Carceller Mampel van quedar vidus tots dos i es van casar entre ells cap al 1918. Ell hi portava un fill del primer matrimoni; ella, una filla. <strong>I aquests dos fills, que van créixer sota el mateix sostre com a germanastres, es van casar cap al 1922</strong>: són l'Avi i l'Àvia. Per això la línia blava de sota tanca el dibuix d'una punta a l'altra.</p>
-  <p class="lede"><strong>La banda esquerra és de Forcall, i ara arriba fins on arriba el paper.</strong> L'Avi va néixer a Barcelona el <strong>25 de febrer de 1902, a les cinc de la tarda, al carrer d'en Grassot 112</strong>, però els seus pares eren tots dos de Forcall i s'hi havien casat el <strong>10 de novembre de 1894</strong>. De les dues files de dalt —els quatre avis de l'Avi i els vuit besavis— <strong>no en teníem res fa un mes</strong>: les va donar el Registre Civil de Forcall el setembre de 2026.</p>
-  <p class="lede">La fila de dalt de tot és <strong>gent nascuda cap al 1810-1820</strong>, i n'hi ha dos que no són de Forcall: la <strong>María Sanz era de Luco</strong> —molt probablement Luco de Bordón, al Baix Aragó— i en <strong>Pascual Martí era de Morella</strong>. D'ells només en sabem el nom i d'on eren, perquè el Registre Civil de Forcall comença el 1871 i tota aquesta gent hi surt només de retruc, nomenada a les actes dels fills.</p>
-  <p class="lede">Per la banda de l'Àvia l'arrel és <strong>Ortells</strong>, el poble del costat, i <strong>s'atura dues generacions abans</strong>: el pare d'en Ramón era un Membrado d'allà i la mare, una Sebastià del carrer Capdevila. D'aquests dos en tenim les cases però no els noms. La diferència d'alçada entre les dues bandes de l'arbre no és un capritx del dibuix: <strong>és exactament el que sabem i el que no.</strong></p>
-  <p class="lede"><strong>Els parentius es compten des de l'Avi</strong>, que és de qui va aquesta història. Quan una fitxa diu «besavis paterns de l'Avi», per als seus besnéts aquella gent són <strong>quadravis</strong>: dues generacions més amunt del que sembla.</p>
-  <p class="lede"><strong>Les fitxes de traç discontinu</strong> són persones que van existir amb tota seguretat però de qui encara no tenim el nom o les dates. Les de traç continu estan documentades. On posa «c.» la data és aproximada: surt de l'edat declarada en un cens o en una acta de defunció, que pot ballar un any o dos.</p>
-</section>
+<nav class="toc" aria-label="Seccions"><ul>
+  <li><a href="#como-leer">Com llegir</a></li>
+  <li><a href="#arbol">Arbre</a></li>
+  <li><a href="#quien">Qui és qui</a></li>
+  <li><a href="#historia">Història</a></li>
+  <li><a href="#tiempo">Línia del temps</a></li>
+  <li><a href="#contexto">Context</a></li>
+  <li><a href="#falta">El que falta</a></li>
+  <li><a href="#fuentes">Fonts</a></li>
+</ul></nav>
 
-<section>
-  <div class="legend">
-    <span><i class="sw box"></i> documentat</span>
-    <span><i class="sw box acc2"></i> línia directa</span>
-    <span><i class="sw box dash"></i> sense nom o sense dates</span>
-    <span><i class="sw acc"></i> els dos matrimonis que expliquen la família</span>
-    <span><i class="sw"></i> matrimoni o filiació</span>
+<section class="sec" id="como-leer"><div class="wide">
+<h2>Com llegir aquest arbre</h2>
+<p class="lede">La forma d'aquesta família no és la d'un arbre corrent. <strong>Al mig hi ha quatre persones enllaçades per tres matrimonis.</strong> En Josep Aguilar Martí i la Joaquina Carceller Mampel van quedar vidus tots dos i es van casar entre ells cap al 1918. Ell hi portava un fill del primer matrimoni; ella, una filla. <strong>I aquests dos fills, que van créixer sota el mateix sostre com a germanastres, es van casar cap al 1922</strong>: són l'Avi i l'Àvia. Per això la línia blava de sota tanca el dibuix d'una punta a l'altra.</p>
+<p class="lede"><strong>La banda esquerra és de Forcall, i ara arriba fins on arriba el paper.</strong> L'Avi va néixer a Barcelona el <strong>25 de febrer de 1902, a les cinc de la tarda, al carrer d'en Grassot 112</strong>, però els seus pares eren tots dos de Forcall i s'hi havien casat el <strong>10 de novembre de 1894</strong>. De les dues files de dalt —els quatre avis de l'Avi i els vuit besavis— <strong>no en teníem res fa un mes</strong>: les va donar el Registre Civil de Forcall el setembre de 2026.</p>
+<p class="lede">La fila de dalt de tot és <strong>gent nascuda cap al 1810-1820</strong>, i n'hi ha dos que no són de Forcall: la <strong>María Sanz era de Luco</strong> —molt probablement Luco de Bordón, al Baix Aragó— i en <strong>Pascual Martí era de Morella</strong>. D'ells només en sabem el nom i d'on eren, perquè el Registre Civil de Forcall comença el 1871 i tota aquesta gent hi surt només de retruc, nomenada a les actes dels fills.</p>
+<p class="lede">Per la banda de l'Àvia l'arrel és <strong>Ortells</strong>, el poble del costat, i <strong>s'atura dues generacions abans</strong>: el pare d'en Ramón era un Membrado d'allà i la mare, una Sebastià del carrer Capdevila. D'aquests dos en tenim les cases però no els noms. La diferència d'alçada entre les dues bandes de l'arbre no és un capritx del dibuix: <strong>és exactament el que sabem i el que no.</strong></p>
+<p class="lede"><strong>Els parentius es compten des de l'Avi</strong>, que és de qui va aquesta història. Quan una fitxa diu «besavis paterns de l'Avi», per als seus besnéts aquella gent són <strong>quadravis</strong>: dues generacions més amunt del que sembla.</p>
+<p class="lede"><strong>Les fitxes de traç discontinu</strong> són persones que van existir amb tota seguretat però de qui encara no tenim el nom o les dates. Les de traç continu estan documentades. On posa «c.» la data és aproximada: surt de l'edat declarada en un cens o en una acta de defunció, que pot ballar un any o dos.</p>
+</div></section>
+
+<section class="sec" id="arbol"><div class="wide">
+<h2>L'arbre</h2>
+<div class="tree-legend">
+    <span><i class="tsw box"></i> documentat</span>
+    <span><i class="tsw box acc2"></i> línia directa</span>
+    <span><i class="tsw box dash"></i> sense nom o sense dates</span>
+    <span><i class="tsw acc"></i> els dos matrimonis que expliquen la família</span>
+    <span><i class="tsw"></i> matrimoni o filiació</span>
   </div>
-  <div class="legend" style="margin-top:12px">
+  <div class="tree-legend" style="margin-top:12px">
     <span style="font-family:var(--data);font-size:12px;letter-spacing:.09em;text-transform:uppercase">Els pobles</span>
     <span><i class="pt" style="background:#B0543A"></i> Forcall</span>
     <span><i class="pt" style="background:#2E7A61"></i> Villores</span>
@@ -257,11 +305,11 @@
     <span><i class="pt buit"></i> fora dels Ports — Barcelona, Luco de Bordón</span>
   </div>
   <p class="figcap-src" style="margin-top:10px">Els quatre pobles dels Ports són <strong>a menys de deu quilòmetres l'un de l'altre</strong>. Seguint els punts de dalt a baix es veu la forma de la història: <strong>tot comença de color i acaba en blanc</strong>, quan la família baixa a Barcelona.</p>
- <p class="figcap-src">Cada fitxa acaba amb una línia <strong>Font:</strong> — <a href="#fonts">subratllada i clicable</a> quan el document és a internet, i en gris quan la dada surt del que recorda la família. Cap nom d'aquest arbre hi és sense dir d'on ve.</p>
+ <p class="figcap-src">Cada fitxa acaba amb una línia <strong>Font:</strong> — <a href="#fuentes">subratllada i clicable</a> quan el document és a internet, i en gris quan la dada surt del que recorda la família. Cap nom d'aquest arbre hi és sense dir d'on ve.</p>
 
   <p class="hint">Arrossega de costat per veure'l sencer</p>
   <figure>
-    <div class="scroller">
+    <div class="scroller" style="--tree-w:1732px">
       <svg viewBox="0 0 1732 1448" role="img" aria-label="Arbre genealogic de cinc generacions dels Aguilar i Membrado. Cada fitxa porta, sempre en el mateix ordre: data i lloc de naixement, data i lloc de mort amb l'edat, ofici, adreces i font. El que no se sap hi consta escrit. Un punt de color davant de cada toponim marca els pobles dels Ports: Forcall, Villores, Ortells i Morella; els llocs de fora, com Barcelona i Luco de Bordon, porten un cercle buit.">
       <text x="500" y="26" text-anchor="middle" font-family="var(--data)" font-size="12" letter-spacing="1.4" fill="var(--muted)">LA GENERACIÓ MÉS ANTIGA · NASCUTS CAP AL 1810-1820</text>
       <text x="1445" y="238" text-anchor="middle" font-family="var(--data)" font-size="12" letter-spacing="1.4" fill="var(--muted)">L'ARREL D'ORTELLS</text>
@@ -582,542 +630,614 @@
     </div>
     <figcaption>Les dues línies blaves són el mecanisme de la família: al mig, el segon matrimoni entre dos vidus; a baix, el matrimoni dels seus fills, que els va fer marit i muller havent estat germanastres. Les fitxes amb vora blava són les quatre persones de la línia directa.</figcaption>
   </figure>
+</div></section>
 
-</section>
+<section class="sec" id="quien"><div class="wide">
+<h2>Qui és qui</h2>
+<p class="lede">Quatre pobles i una ciutat, en tres generacions: <strong>Forcall</strong> i <strong>Ortells</strong> a dalt, <strong>Villores</strong> al mig, <strong>Barcelona</strong> als dos extrems — el naixement de l'Avi el 1902 i la marxa de la família el 1947.</p>
 
-<section>
-  <h2>El que diuen els papers</h2>
-  <p class="dek">Deu coses que la família no sabia, o sabia a mitges. Totes surten de documents, i van en ordre.</p>
-
-  <div class="nar">
-    <h3 class="nh">Dos de Forcall que baixen a Barcelona</h3>
-    <p>A casa sempre s'havia dit que l'Avi era de Barcelona, del carrer d'en Grassot. El que ningú no sabia és <strong>d'on venien els seus pares</strong>. La partida de 1902 ho diu en dues paraules: <strong>«naturales de Forcall»</strong>, ell de 29 anys i ella de 27.</p>
-    <p>Forcall és a <strong>tres quilòmetres de Villores</strong>. O sigui que la família no va aparèixer al poble sortint del no-res el 1920, com semblava pel cens: <strong>venien del poble del costat, i havien fet una volta per Barcelona pel camí.</strong></p>
-    <p>Ara sabem quan va començar aquella volta. Es van casar a <strong>Forcall el 10 de novembre de 1894</strong>, a l'església de l'Assumpció: ell tenia <strong>22 anys</strong> i era jornaler, ella en tenia <strong>20</strong>, i tots dos hi constaven com a <em>veïns</em>. El primer fill que coneixem neix a Barcelona <strong>set anys i tres mesos després</strong>. Entremig van baixar a la ciutat, i encara no sabem quin any.</p>
-    <p>Hi ha un detall d'aquell dia que diu molt. L'acta acaba dient que la firmen el jutge i el nuvi, «<strong>y no ella ni los testigos porque dicen no saber</strong>». <strong>La besàvia no sabia escriure el seu nom el dia que es va casar.</strong> El seu fill, nascut vuit anys després a Barcelona, sabria llegir i escriure tota la vida, i això consta a set censos seguits.</p>
-
-    <h3 class="nh">No baixaven sols</h3>
-    <p>Buscant el matrimoni dels besavis a l'índex de Barcelona va sortir una cosa que no buscàvem. A la <strong>lletra A d'un sol any</strong> —el 1899— hi ha <strong>tres Aguilar</strong> que s'hi casen, i els tres vénen del mateix racó de món: <strong>Mas de las Matas</strong>, <strong>Berge</strong> i <strong>Luco de Bordón</strong>, tots tres al Baix Aragó, a tocar dels Ports. Un noi de Berge es casa amb una noia de Luco de Bordón a tres-cents quilòmetres de casa, a la mateixa parròquia de Barcelona.</p>
-    <p>I val la pena mirar els cognoms: la mare del primer és una <strong>Ejarque</strong>; la núvia del segon és filla d'una <strong>Ramona Carceller</strong>. Són els cognoms que surten una vegada i una altra a Forcall i a Villores. <strong>Aquella gent no eren desconeguts entre ells.</strong> Cap al 1900 hi havia a Barcelona una colònia sencera dels Ports i del Baix Aragó, prou nombrosa perquè en una sola lletra d'un sol any hi apareguin tres casaments, i prou tancada perquè es casessin entre ells. Una família de Forcall que baixava a la ciutat <strong>no anava a un lloc desconegut: anava on ja hi havia els seus.</strong></p>
-    <p>Amb un matís que val la pena. Aquells tres es casen a <strong>Santa Madrona, jutjat de l'Hospital</strong>: el Raval, on parava la immigració aragonesa més pobra. <strong>Els nostres no eren allà</strong> — l'Avi neix al carrer d'en Grassot i l'inscriuen al <strong>jutjat de Gràcia</strong>, a l'altra punta de la ciutat. Hi havia més d'un nucli, i el de la família era el de Gràcia.</p>
-    <p><em>Nota de prudència: això surt de la lletra A d'un sol any. Marca un patró, no una estadística.</em></p>
-
-    <h3 class="nh">La segona colònia: Villores al Vallès</h3>
-    <p>Quaranta anys més tard el poble torna a marxar, però en una altra direcció. Buscant la frase <strong>«natural de Villores»</strong> als arxius digitalitzats surten una vintena de documents de <strong>Terrassa</strong> entre 1916 i 1952, i uns quants de <strong>Martorell</strong> i de Vilanova. Els cognoms que hi apareixen —Balaguer, Mampel, Bonet, Carbó, Adell— <strong>són exactament els del tram del carrer Alta</strong>. Villores sencer va anar a parar al Vallès i al Baix Llobregat.</p>
-    <p>No hi ha cap dels nostres en aquella llista, però els <strong>expedients matrimonials de Martorell</strong> ensenyen una cosa que val per a tota la recerca: el de 1933 diu literalment «<em>es nieto por línea paterna de Matías Balaguer Mampel… y de Rosa Bonet Gargallo</em>». <strong>Tres generacions en un sol document.</strong> Si algun dels nostres es va casar al Vallès, n'hi ha d'haver un d'igual.</p>
-
-    <h3 class="nh">Les dues cases de Forcall</h3>
-    <p>Els pares de l'Avi van sortir de dues cases que eren a cinc minuts l'una de l'altra, i de totes dues en sabem ara la mateixa cosa: <strong>quants fills van tenir i quants en van enterrar.</strong></p>
-    <p>A <strong>San Antonio 13</strong> hi vivia en <strong>Manuel Aguilar Sanz</strong>, jornaler. Va tenir <strong>set fills</strong>. Quan va morir, el 26 d'octubre de 1913, als 70 anys, l'acta diu que només n'hi quedava <strong>un de viu</strong>: en Josep, el nostre.</p>
-    <p>Al carrer <strong>Mossén Carceller</strong> hi vivia en <strong>Manuel Escorihuela Bordàs</strong>, espardenyer primer i jornaler després, amb la <strong>Bàrbara Eixarch Eixarch</strong>. Van tenir <strong>vuit fills</strong>. El 1912 ja n'havien enterrat <strong>quatre</strong>, i la Consuelo seria el cinquè.</p>
-    <div class="pull">Quinze fills entre les dues cases. Dels que van arribar a grans se'n compten amb els dits d'una mà.<span>Forcall, entre 1860 i 1890</span></div>
-    <p>Aquella gent tampoc no era tota de Forcall. La mare d'en Manuel Aguilar, la <strong>María Sanz</strong>, era de <strong>Luco de Bordón</strong>, al Baix Aragó; el pare de la Joaquina, en <strong>Pascual Martí</strong>, era de <strong>Morella</strong>. La comarca es casava entre pobles molt abans que ningú baixés a la ciutat.</p>
-
-    <h3 class="nh">La Consuelo va morir jove</h3>
-    <p>De la mare de l'Avi en sabem la vida sencera en quatre dates, i totes quatre caben en trenta-set anys.</p>
-    <p>Neix a <strong>Forcall el 21 de novembre de 1874, a les sis del matí</strong>. Es casa als <strong>20 anys</strong>, el 10 de novembre de 1894, i l'acta d'aquell dia acaba dient que la firmen el jutge i el nuvi «<strong>y no ella… porque dice no saber</strong>»: <strong>no sabia escriure el seu nom.</strong> Als <strong>27</strong> té un fill a Barcelona, al carrer d'en Grassot. I abans de fer-ne <strong>38</strong> ja és morta.</p>
-    <p>No sabem el dia ni el lloc. El que ho diu és l'acta de la seva mare, del <strong>gener de 1912</strong>, on el seu germà Antonio declara quins dels vuit germans ja han mort i la nomena entre ells. <strong>És l'únic paper que la torna a esmentar després del part.</strong></p>
-    <p>El seu fill, criat sense ella, sabria llegir i escriure tota la vida: consta a set censos seguits, en un poble on la majoria de veïns hi surten com a analfabets.</p>
-
-    <h3 class="nh">Com un foraster acaba casat amb la vídua del poble</h3>
-    <p>En <strong>Ramón Membrado mor el 1916</strong>: consta a la llista d'aquell any i ja no hi és a la del següent. La Joaquina es queda vídua cap als 32 anys, amb una filla de tretze.</p>
-    <p>En <strong>Josep Aguilar Martí apareix a Villores el 1920</strong>, encara sol al cens, a <strong>Alta 14</strong>. I resulta que a Alta 14 hi vivia des del 1909 un tal <strong>Centelles Mampel Juan</strong> — el cens de 1922 els llista <strong>tots dos a la mateixa casa</strong>.</p>
-    <p>Mira ara el tram del carrer. A Alta 40 hi ha una Mampel Beltrán; a Alta 42, una Mampel Sorribes; a Alta 46, una Mampel Bonet; a Alta 48, una Centelles Mampel. <strong>Cinc dels veïns immediats porten el mateix cognom.</strong></p>
-    <p>I la vídua es deia <strong>Joaquina Carceller Mampel</strong>. Un home de fora s'allotja en una casa de Mampels, en un carrer de Mampels, i acaba casat amb una Mampel. <strong>És una hipòtesi</strong> —el cens no diu parentius— però explica d'una manera molt senzilla una cosa que altrament costa d'entendre.</p>
-
-    <h3 class="nh">Els germanastres que es van casar</h3>
-    <p>Cap al <strong>1918 es casen dos vidus</strong>. Ell hi porta un fill nascut a Barcelona el 1902; ella, una filla nascuda a Villores el 1902 o el 1903. <strong>Tenen la mateixa edat</strong> i passen a viure sota el mateix sostre.</p>
-    <p>Quatre anys després, als <strong>20 i 19 anys</strong>, es casen entre ells. Són l'Avi i l'Àvia.</p>
-    <p>Val la pena dir-ho clar perquè és el primer que es pregunta qui mira l'arbre: <strong>no eren parents de sang.</strong> No comparteixen cap avantpassat. El que compartien era la casa. Per això la línia blava de sota el dibuix el tanca d'una punta a l'altra: <strong>l'arbre es plega sobre si mateix, però no es creua.</strong></p>
-
-    <h3 class="nh">Aprendre a llegir als trenta</h3>
-    <p>El cens de <strong>1932</strong> recull la Ramona Membrado Carceller amb 29 anys i la casella d'alfabetització en blanc: <strong>no sabia llegir</strong>. El de <strong>1935</strong>, amb 32, diu que <strong>sap llegir i escriure</strong>.</p>
-    <p>Enmig hi ha la República, les missions pedagògiques i les classes d'adults que van arribar fins als pobles petits dels Ports. La casella d'un cens electoral no és gaire cosa, però aquí registra <strong>una dona de trenta anys que aprèn a llegir</strong> mentre a casa hi ha una filla de nou i n'ha enterrat dues.</p>
-
-    <h3 class="nh">Dues criatures sense cap paper, i una que en va tenir noranta-dos anys</h3>
-    <p>La <strong>Ramona neix el 1928 i mor el 1929</strong>. La <strong>Carmen neix el 1930 i mor el 1931</strong>. Cap de les dues surt a cap cens —no van arribar mai a l'edat de votar— i cap de les dues és a la làpida del cementiri. <strong>Tot el que en sabem ve del que recorda la família.</strong> Són les úniques dues persones de tot l'arbre sense un sol document al darrere.</p>
-    <p>El <strong>1933 neix la Josefa</strong>, la Yaya. Als set anys perd la mare —la Ramona mor el <strong>13 de juliol de 1940</strong>, als 37—, als catorze baixa a Barcelona i viu fins a l'<strong>octubre de 2025</strong>.</p>
-    <p>La família diu que van marxar <strong>l'endemà de morir Manolete</strong>, o sigui el 30 d'agost de 1947. El cens no ho pot confirmar, però hi encaixa sense forçar res: <strong>hi són a la llista tancada el juny de 1946 i ja no hi són a la de 1951</strong>. La finestra fa cinc anys i la data hi cau a dins.</p>
-    <p>El <strong>1951</strong> el cap de casa d'Alta 44 és el Tio Sisco. El <strong>1956</strong> ja no hi ha ningú al número 44.</p>
-  </div>
-</section>
-
-<section>
-  <h2>D'on surt cada cosa</h2>
-  <p class="lede">Tot aquest arbre es reconstrueix amb <strong>tres fonts</strong>, i cadascuna pot dir unes coses i no en pot dir unes altres. Val la pena saber-ho abans de creure's res.</p>
-
+<div class="gen">
+  <div class="gen-head"><h3>La generació més antiga</h3><span>nascuts cap al 1810-1820 · fins aquí arriba el Registre Civil</span></div>
+  <p class="lede">D'aquests vuit no en tenim cap data ni cap acta pròpia: <strong>el Registre Civil de Forcall comença el 1871</strong> i tots ells ja eren grans o morts. Hi surten <strong>nomenats a les partides dels seus nets</strong>, i això és tot el que se'n pot treure sense anar als llibres de la parròquia.</p>
   <div class="cards">
     <article class="p">
-      <h4>438 llistes electorals dels Ports</h4>
-      <p class="yrs">1895 – 1956 · quinze pobles</p>
-      <p class="note"><strong>Diuen:</strong> qui vivia a cada poble, a quin carrer i número, l'edat declarada, l'ofici i si sabia llegir i escriure.<br><br><strong>No diuen:</strong> hi surt <strong>només qui tenia edat de votar</strong> —25 anys fins al 1931, 23 durant la República, 21 des del 1946— i <strong>les dones no hi entren fins al 1925</strong>, i llavors només si eren vídues o solteres al capdavant d'una casa.</p>
-      <p class="src">Per això hi ha gent de la família que no hi surt mai. No vol dir que no hi fossin.</p>
+      <h4>Miguel Escorihuela i Rosa Bordàs</h4>
+      <p class="alias">besavis materns de l'Avi</p>
+      <p class="yrs">tots dos de Forcall</p>
+      <p class="note">Pares de <strong>Manuel Escorihuela Bordàs</strong>. La <strong>Rosa ja era morta el febrer de 1885</strong> —l'acta del seu net Vicente la nomena «la difunta Rosa Bordàs»— i en <strong>Miguel encara vivia</strong> aquell dia.</p>
+      <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, on hi consten nomenats com a avis dels seus nets. No són consultables en línia.</p>
     </article>
-
     <article class="p">
-      <h4>La partida de naixement de l'Avi</h4>
-      <p class="yrs">Barcelona, 25 de febrer de 1902</p>
-      <p class="note"><strong>Diu:</strong> el nom dels dos pares, <strong>d'on eren naturals</strong>, la seva edat, el carrer i el número, el dia i l'hora, i <strong>els noms de pila dels quatre avis</strong>.<br><br><strong>No diu:</strong> els <strong>cognoms</strong> dels avis — llevat d'un, el de l'àvia materna, escrit en una lletra que costa.</p>
-      <p class="src">És d'aquí que surt tot el que sabem de la banda de Forcall.</p>
+      <h4>Jaime Eixarch i Tomasa Eixarch</h4>
+      <p class="alias">besavis materns de l'Avi</p>
+      <p class="yrs">tots dos de Forcall</p>
+      <p class="note">Pares de <strong>Bàrbara Eixarch Eixarch</strong>, i <strong>tots dos Eixarch</strong>: a Forcall el cognom és dels grans i casar-se entre cosins llunyans hi era corrent. La <strong>Tomasa era morta el 1885</strong>; en <strong>Jaime, viu</strong>.</p>
+      <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, on hi consten nomenats com a avis dels seus nets. No són consultables en línia.</p>
     </article>
-
     <article class="p">
-      <h4>La làpida del cementiri de Villores</h4>
-      <p class="yrs">nínxols 9 i 20</p>
-      <p class="note"><strong>Diu:</strong> la data exacta de la mort de l'Àvia —13 de juliol de 1940— i <strong>l'edat en morir</strong> dels seus pares polítics.<br><br><strong>No diu:</strong> cap data per a aquests dos. La làpida del nínxol 9 només porta edats, sense any.</p>
-      <p class="src">Les edats de la làpida creuades amb l'any de naixement del cens és el que dona les dates de mort aproximades.</p>
+      <h4>José Aguilar i María Sanz</h4>
+      <p class="alias">besavis paterns de l'Avi</p>
+      <p class="yrs">ell de Forcall · <strong>ella de Luco</strong></p>
+      <p class="note">Pares de <strong>Manuel Aguilar Sanz</strong>. ⚠️ <strong>El seu nom balla</strong>: la partida del net (1879) diu <strong>José</strong> i l'acta de defunció del fill (1913) diu <strong>Manuel</strong>. Probablement era un <strong>José Manuel</strong> i cada escrivent en va agafar una meitat. El «<strong>Luco</strong>» d'ella és gairebé segur <strong>Luco de Bordón</strong>, al Baix Aragó.</p>
+      <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, on hi consten nomenats com a avis dels seus nets. No són consultables en línia.</p>
     </article>
-
     <article class="p">
-      <h4>Set actes del Registre Civil de Forcall</h4>
-      <p class="yrs">1874 – 1919 · arribades el setembre de 2026</p>
-      <p class="note"><strong>Diuen:</strong> el <strong>dia i l'hora</strong> de cada naixement i de cada mort, l'ofici, el carrer i el número, la causa de la mort, <strong>els noms dels pares i dels quatre avis</strong> de qui hi surt, i quants fills va tenir cada matrimoni i quants n'havien mort.<br><br><strong>No diuen:</strong> res d'<strong>abans del 1871</strong>. El Registre Civil de Forcall comença aquell any; la gent de la fila de dalt de l'arbre hi surt només <strong>nomenada a les actes dels fills</strong>, sense dates.</p>
-      <p class="src">Són la font més rica de tot l'arbre: quatre demanades i tres que l'ajuntament va localitzar pel seu compte. Per a tot el que és anterior al 1871, la porta següent és l'arxiu diocesà.</p>
+      <h4>Pascual Martí i María Borràs</h4>
+      <p class="alias">besavis paterns de l'Avi</p>
+      <p class="yrs"><strong>ell de Morella</strong> · ella de Forcall</p>
+      <p class="note">Pares de <strong>Joaquina Martí Borràs</strong>. Són els únics de tot aquest capdamunt que porten <strong>Morella</strong> a l'arbre, i expliquen d'on surt el «Martí» que durant mesos no sabíem situar.</p>
+      <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, on hi consten nomenats com a avis dels seus nets. No són consultables en línia.</p>
     </article>
   </div>
+</div>
 
-  <div class="gen" style="margin-top:40px">
-    <div class="curio">
-      <p class="kicker">Una curiositat de la partida</p>
-      <h3>L'Avi no es deia només José</h3>
-      <p>La partida de 1902 té una columna de <strong>«Nombres»</strong> que a la família no havia arribat mai. Hi consten <strong>tres noms de pila</strong>, no un. El nom sencer amb què el van inscriure era:</p>
-      <p class="fullname">José&nbsp;Manuel&nbsp;Joaquín Aguilar&nbsp;Escorihuela</p>
-      <p>A casa es va quedar el primer i prou. Però mira d'on surten els altres dos:</p>
-      <ul class="naming">
-        <li><span class="nm">José</span><span>del <strong>pare</strong>, José Aguilar Martí</span></li>
-        <li><span class="nm">Manuel</span><span>dels <strong>dos avis alhora</strong>: el patern es deia Manuel Aguilar i el matern, Manuel Escorihuela</span></li>
-        <li><span class="nm">Joaquín</span><span>de l'<strong>àvia paterna</strong>, Joaquina Martí, passat a masculí</span></li>
-      </ul>
-      <p>És la regla castellana d'aquella època, aplicada al peu de la lletra: primer el pare, després els avis. I té una conseqüència que no és només anecdòtica — <strong>el nom del nen confirma pel seu compte els noms dels avis</strong> que hi ha escrits a les columnes del costat. El mateix full ho diu dues vegades per camins diferents.</p>
-      <p class="src" style="border-top:1px solid var(--rule); padding-top:10px; margin-top:16px"><strong>Font:</strong> <a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSF-T?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324" target="_blank" rel="noopener">partida de naixement, imatge 528</a>, columna «Nombres». A la seva fila el <strong>dia i el mes són cometes de repetició</strong>: el 25 de febrer surt de llegir cap amunt fins a la data escrita sencera. L'hora (17 h) i el número de registre (2081) sí que són seus.</p>
-    </div>
+<div class="gen">
+  <div class="gen-head"><h3>Els avis de l'Avi, a Forcall</h3><span>tots quatre documentats el setembre de 2026</span></div>
+  <div class="cards">
+    <article class="p">
+      <h4>Manuel Escorihuela Bordàs</h4>
+      <p class="alias">avi matern de l'Avi</p>
+      <p class="yrs">c. 1839-41 – <strong>26 de novembre de 1919</strong> · 80 anys</p>
+      <p class="note">Espardenyer el 1885, jornaler al final. Va morir a les onze de la nit a casa seva, de <strong>diarrea aguda</strong>, <strong>vidu</strong> de la Bàrbara. Fill de <strong>Miguel Escorihuela</strong> i <strong>Rosa Bordàs</strong>. A la mateixa porta hi va viure el seu fill <strong>Vicente</strong> des que va fer els 25 — i que el fill portés <em>Eixarch</em> de cognom matern és el que ens va donar el cognom de la seva dona, dos anys abans de tenir-ne el paper.</p>
+      <p class="addr"><strong>San Vicente</strong> el 1885 → <strong>Mossén Carceller</strong>, Forcall (als censos, «Cura Carceller»; renumerat el 14 el 1930)</p>
+      <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, setembre de 2026. Existeixen però <strong>no són consultables en línia</strong>.</p>
+    </article>
+    <article class="p unknown">
+      <h4>Bàrbara Eixarch Eixarch</h4>
+      <p class="alias">àvia materna de l'Avi</p>
+      <p class="yrs">c. 1842 – <strong>17 de gener de 1912</strong> · 70 anys</p>
+      <p class="note">Filla de <strong>Jaime Eixarch</strong> i <strong>Tomasa Eixarch</strong>: Eixarch per les dues bandes. Va tenir <strong>vuit fills</strong> i en va enterrar <strong>quatre</strong> — Jaime, María, José i la <strong>Consuelo</strong>, la mare de l'Avi. Qui va anar a declarar-ne la mort va ser el seu fill Antonio, i és en aquella declaració que consta que la Consuelo ja era morta.</p>
+      <p class="addr"><strong>Mossén Carceller</strong>, Forcall — la casa del marit</p>
+      <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, setembre de 2026. Existeixen però <strong>no són consultables en línia</strong>.</p>
+    </article>
+    <article class="p unknown">
+      <h4>Manuel Aguilar Sanz</h4>
+      <p class="alias">avi patern de l'Avi</p>
+      <p class="yrs">c. 1843 – <strong>26 d'octubre de 1913</strong> · 70 anys</p>
+      <p class="note">Jornaler de <strong>San Antonio 13</strong>. Era <strong>el candidat que els censos assenyalaven</strong> sense poder-ho provar, i la seva acta de defunció el va confirmar: mateixa casa, mateix ofici, i l'any exacte en què desapareix de les llistes. Va tenir <strong>set fills</strong> i en va sobreviure només un, el nostre Josep. Fill de <strong>José Aguilar</strong> —o José Manuel: els papers ballen— i de <strong>María Sanz</strong>, de Luco.</p>
+      <p class="addr"><strong>San Antonio 13</strong>, Forcall</p>
+      <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, setembre de 2026. Existeixen però <strong>no són consultables en línia</strong>.</p>
+    </article>
+    <article class="p">
+      <h4>Joaquina Martí Borràs</h4>
+      <p class="alias">àvia paterna de l'Avi</p>
+      <p class="yrs">de Forcall · <strong>viva encara l'octubre de 1913</strong></p>
+      <p class="note">D'ella ve el «Martí» del cognom compost que ens va tenir encallats mesos. Quan mor el seu marit, el 1913, l'acta <strong>no la fa constar com a difunta</strong>: era viva. Però <strong>a Forcall no hi ha cap defunció seva</strong>, o sigui que va morir fora del poble — molt probablement <strong>havent-se'n anat amb el fill</strong>, que llavors ja era a Barcelona. Filla de <strong>Pascual Martí</strong>, de Morella, i de <strong>María Borràs</strong>, de Forcall.</p>
+      <p class="addr">Forcall → fora, després del 1913</p>
+      <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, setembre de 2026. Existeixen però <strong>no són consultables en línia</strong>. <strong>És l'única de la fila que queda oberta.</strong></p>
+    </article>
+    <article class="p">
+      <h4>Els germans de la Consuelo</h4>
+      <p class="alias">els que es van quedar</p>
+      <p class="yrs">1867 – 1886</p>
+      <p class="note">Eren <strong>vuit germans</strong> i la Consuelo era la quarta. Els noms, per ordre: <strong>Jaime, María, José, Consuelo, Carmen, Dolores, Vicente i Antonio</strong>. El 1912 ja n'havien mort quatre, els quatre primers. En <strong>Vicente</strong> (n. <strong>16 de febrer de 1885</strong>) va heretar la casa del pare i hi va viure fins passats els seixanta; els seus fills són <strong>cosins germans de l'Avi</strong>. L'<strong>Antonio</strong>, del carrer Horno, és qui va declarar la mort de la mare.</p>
+      <p class="addr">Antonio a <strong>Horno 11</strong> · Vicente a <strong>Mossén Carceller</strong>, Forcall</p>
+      <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, setembre de 2026. Existeixen però <strong>no són consultables en línia</strong>. · la vida dels germans al poble, dels <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a>. ⚠️ La «Joaquina» que abans figurava com a germana <strong>no ho era</strong>: no surt a cap de les dues llistes de fills.</p>
+    </article>
   </div>
-</section>
+</div>
 
-<section>
-  <h2>D'on venia cadascú</h2>
-  <p class="lede">Quatre pobles i una ciutat, en tres generacions: <strong>Forcall</strong> i <strong>Ortells</strong> a dalt, <strong>Villores</strong> al mig, <strong>Barcelona</strong> als dos extrems — el naixement de l'Avi el 1902 i la marxa de la família el 1947.</p>
-
-  <div class="gen">
-    <div class="gen-head"><h3>La generació més antiga</h3><span>nascuts cap al 1810-1820 · fins aquí arriba el Registre Civil</span></div>
-    <p class="lede">D'aquests vuit no en tenim cap data ni cap acta pròpia: <strong>el Registre Civil de Forcall comença el 1871</strong> i tots ells ja eren grans o morts. Hi surten <strong>nomenats a les partides dels seus nets</strong>, i això és tot el que se'n pot treure sense anar als llibres de la parròquia.</p>
-    <div class="cards">
-      <article class="p">
-        <h4>Miguel Escorihuela i Rosa Bordàs</h4>
-        <p class="alias">besavis materns de l'Avi</p>
-        <p class="yrs">tots dos de Forcall</p>
-        <p class="note">Pares de <strong>Manuel Escorihuela Bordàs</strong>. La <strong>Rosa ja era morta el febrer de 1885</strong> —l'acta del seu net Vicente la nomena «la difunta Rosa Bordàs»— i en <strong>Miguel encara vivia</strong> aquell dia.</p>
-        <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, on hi consten nomenats com a avis dels seus nets. No són consultables en línia.</p>
-      </article>
-      <article class="p">
-        <h4>Jaime Eixarch i Tomasa Eixarch</h4>
-        <p class="alias">besavis materns de l'Avi</p>
-        <p class="yrs">tots dos de Forcall</p>
-        <p class="note">Pares de <strong>Bàrbara Eixarch Eixarch</strong>, i <strong>tots dos Eixarch</strong>: a Forcall el cognom és dels grans i casar-se entre cosins llunyans hi era corrent. La <strong>Tomasa era morta el 1885</strong>; en <strong>Jaime, viu</strong>.</p>
-        <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, on hi consten nomenats com a avis dels seus nets. No són consultables en línia.</p>
-      </article>
-      <article class="p">
-        <h4>José Aguilar i María Sanz</h4>
-        <p class="alias">besavis paterns de l'Avi</p>
-        <p class="yrs">ell de Forcall · <strong>ella de Luco</strong></p>
-        <p class="note">Pares de <strong>Manuel Aguilar Sanz</strong>. ⚠️ <strong>El seu nom balla</strong>: la partida del net (1879) diu <strong>José</strong> i l'acta de defunció del fill (1913) diu <strong>Manuel</strong>. Probablement era un <strong>José Manuel</strong> i cada escrivent en va agafar una meitat. El «<strong>Luco</strong>» d'ella és gairebé segur <strong>Luco de Bordón</strong>, al Baix Aragó.</p>
-        <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, on hi consten nomenats com a avis dels seus nets. No són consultables en línia.</p>
-      </article>
-      <article class="p">
-        <h4>Pascual Martí i María Borràs</h4>
-        <p class="alias">besavis paterns de l'Avi</p>
-        <p class="yrs"><strong>ell de Morella</strong> · ella de Forcall</p>
-        <p class="note">Pares de <strong>Joaquina Martí Borràs</strong>. Són els únics de tot aquest capdamunt que porten <strong>Morella</strong> a l'arbre, i expliquen d'on surt el «Martí» que durant mesos no sabíem situar.</p>
-        <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, on hi consten nomenats com a avis dels seus nets. No són consultables en línia.</p>
-      </article>
-    </div>
+<div class="gen">
+  <div class="gen-head"><h3>L'arrel, a Ortells</h3><span>fins on arriba el cens per la banda de l'Àvia</span></div>
+  <div class="cards">
+    <article class="p unknown">
+      <h4>Un Membrado d'Ortells</h4>
+      <p class="yrs">c. 1815 – 1825 <em>o bé</em> c. 1846</p>
+      <p class="note">El pare d'en Ramón. <strong>O bé és en Domingo Membrado Sebastià</strong> —jornaler nascut cap al 1846, l'únic Membrado d'Ortells al cens de 1895, que tindria <strong>30 anys</strong> quan neix en Ramón— <strong>o bé el pare d'en Domingo</strong>, nascut cap al 1815-25, que en tindria <strong>seixanta</strong>. No es pot decidir amb el cens: en Domingo tenia 16 anys quan va néixer la Melchora, o sigui que no pot ser pare de tots tres. <strong>Trenta anys de forquilla, i per això hi ha dues dates.</strong></p>
+      <p class="addr">carrer Capdevila, Ortells</p>
+      <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a>, Ortells, 1895. Després no hi queda cap Membrado.</p>
+    </article>
+    <article class="p unknown">
+      <h4>Una Sebastià d'Ortells</h4>
+      <p class="yrs">c. 1840 – 1855</p>
+      <p class="note">Els Sebastià eren <strong>una casa gran del carrer Capdevila</strong>: al cens de 1895 el cognom ja no surt com a primer cognom —la línia d'homes s'havia acabat— però hi ha quatre veïns que el porten per part de mare. <strong>Entre 1820 i 1880 les filles dels Sebastià es van casar amb mig poble.</strong> D'ella no en sabem el nom, però sí <strong>l'edat aproximada</strong>: havia de tenir edat de parir el 1876, o sigui que va néixer després del 1830 — i això val tant si en Ramón era germà d'en Domingo com si n'era fill.</p>
+      <p class="addr">carrer Capdevila, Ortells</p>
+      <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a>, Ortells: cens de 1895 i llista de dones de 1925.</p>
+    </article>
+    <article class="p">
+      <h4>La branca de Morella</h4>
+      <p class="alias">els Boix Membrado</p>
+      <p class="yrs">1907 – 1946 · plaça del poble, núm. 4</p>
+      <p class="note">La <strong>Melchora Membrado Sebastià</strong> (c. 1862), germana o tia d'en Ramón, es va casar amb <strong>Juan Boix Molinos</strong> i va viure a la plaça de Morella. Tres fills documentats: en Manuel, en Francisco i la María Vallivana. <strong>Quaranta anys a la mateixa porta</strong>, mentre la plaça es deia de la Constitució, de la República i del Generalísimo.</p>
+      <p class="addr">plaça 4, Morella</p>
+      <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a>, Morella, 1907–1946. És l'única branca Membrado reconstruïda sencera.</p>
+    </article>
   </div>
+</div>
 
-  <div class="gen">
-    <div class="gen-head"><h3>Els avis de l'Avi, a Forcall</h3><span>tots quatre documentats el setembre de 2026</span></div>
-    <div class="cards">
-      <article class="p">
-        <h4>Manuel Escorihuela Bordàs</h4>
-        <p class="alias">avi matern de l'Avi</p>
-        <p class="yrs">c. 1839-41 – <strong>26 de novembre de 1919</strong> · 80 anys</p>
-        <p class="note">Espardenyer el 1885, jornaler al final. Va morir a les onze de la nit a casa seva, de <strong>diarrea aguda</strong>, <strong>vidu</strong> de la Bàrbara. Fill de <strong>Miguel Escorihuela</strong> i <strong>Rosa Bordàs</strong>. A la mateixa porta hi va viure el seu fill <strong>Vicente</strong> des que va fer els 25 — i que el fill portés <em>Eixarch</em> de cognom matern és el que ens va donar el cognom de la seva dona, dos anys abans de tenir-ne el paper.</p>
-        <p class="addr"><strong>San Vicente</strong> el 1885 → <strong>Mossén Carceller</strong>, Forcall (als censos, «Cura Carceller»; renumerat el 14 el 1930)</p>
-        <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, setembre de 2026. Existeixen però <strong>no són consultables en línia</strong>.</p>
-      </article>
-      <article class="p unknown">
-        <h4>Bàrbara Eixarch Eixarch</h4>
-        <p class="alias">àvia materna de l'Avi</p>
-        <p class="yrs">c. 1842 – <strong>17 de gener de 1912</strong> · 70 anys</p>
-        <p class="note">Filla de <strong>Jaime Eixarch</strong> i <strong>Tomasa Eixarch</strong>: Eixarch per les dues bandes. Va tenir <strong>vuit fills</strong> i en va enterrar <strong>quatre</strong> — Jaime, María, José i la <strong>Consuelo</strong>, la mare de l'Avi. Qui va anar a declarar-ne la mort va ser el seu fill Antonio, i és en aquella declaració que consta que la Consuelo ja era morta.</p>
-        <p class="addr"><strong>Mossén Carceller</strong>, Forcall — la casa del marit</p>
-        <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, setembre de 2026. Existeixen però <strong>no són consultables en línia</strong>.</p>
-      </article>
-      <article class="p unknown">
-        <h4>Manuel Aguilar Sanz</h4>
-        <p class="alias">avi patern de l'Avi</p>
-        <p class="yrs">c. 1843 – <strong>26 d'octubre de 1913</strong> · 70 anys</p>
-        <p class="note">Jornaler de <strong>San Antonio 13</strong>. Era <strong>el candidat que els censos assenyalaven</strong> sense poder-ho provar, i la seva acta de defunció el va confirmar: mateixa casa, mateix ofici, i l'any exacte en què desapareix de les llistes. Va tenir <strong>set fills</strong> i en va sobreviure només un, el nostre Josep. Fill de <strong>José Aguilar</strong> —o José Manuel: els papers ballen— i de <strong>María Sanz</strong>, de Luco.</p>
-        <p class="addr"><strong>San Antonio 13</strong>, Forcall</p>
-        <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, setembre de 2026. Existeixen però <strong>no són consultables en línia</strong>.</p>
-      </article>
-      <article class="p">
-        <h4>Joaquina Martí Borràs</h4>
-        <p class="alias">àvia paterna de l'Avi</p>
-        <p class="yrs">de Forcall · <strong>viva encara l'octubre de 1913</strong></p>
-        <p class="note">D'ella ve el «Martí» del cognom compost que ens va tenir encallats mesos. Quan mor el seu marit, el 1913, l'acta <strong>no la fa constar com a difunta</strong>: era viva. Però <strong>a Forcall no hi ha cap defunció seva</strong>, o sigui que va morir fora del poble — molt probablement <strong>havent-se'n anat amb el fill</strong>, que llavors ja era a Barcelona. Filla de <strong>Pascual Martí</strong>, de Morella, i de <strong>María Borràs</strong>, de Forcall.</p>
-        <p class="addr">Forcall → fora, després del 1913</p>
-        <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, setembre de 2026. Existeixen però <strong>no són consultables en línia</strong>. <strong>És l'única de la fila que queda oberta.</strong></p>
-      </article>
-      <article class="p">
-        <h4>Els germans de la Consuelo</h4>
-        <p class="alias">els que es van quedar</p>
-        <p class="yrs">1867 – 1886</p>
-        <p class="note">Eren <strong>vuit germans</strong> i la Consuelo era la quarta. Els noms, per ordre: <strong>Jaime, María, José, Consuelo, Carmen, Dolores, Vicente i Antonio</strong>. El 1912 ja n'havien mort quatre, els quatre primers. En <strong>Vicente</strong> (n. <strong>16 de febrer de 1885</strong>) va heretar la casa del pare i hi va viure fins passats els seixanta; els seus fills són <strong>cosins germans de l'Avi</strong>. L'<strong>Antonio</strong>, del carrer Horno, és qui va declarar la mort de la mare.</p>
-        <p class="addr">Antonio a <strong>Horno 11</strong> · Vicente a <strong>Mossén Carceller</strong>, Forcall</p>
-        <p class="src"><strong>Font:</strong> <span style="border-bottom:1px dotted var(--rule-strong)">actes del Registre Civil de Forcall</span>, setembre de 2026. Existeixen però <strong>no són consultables en línia</strong>. · la vida dels germans al poble, dels <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a>. ⚠️ La «Joaquina» que abans figurava com a germana <strong>no ho era</strong>: no surt a cap de les dues llistes de fills.</p>
-      </article>
-    </div>
+<div class="gen">
+  <div class="gen-head"><h3>Els besavis</h3><span>la generació que es va tornar a casar</span></div>
+  <div class="cards">
+    <article class="p">
+      <h4>Consuelo Escorihuela Eixarch</h4>
+      <p class="alias">la mare de l'Avi</p>
+      <p class="yrs"><strong>21 de novembre de 1874</strong>, Forcall – abans del <strong>17 de gener de 1912</strong></p>
+      <p class="note">Va ser <strong>«la Sra. Escorihuela» durant tota la recerca</strong> fins que la seva partida va aparèixer: tenia <strong>27 anys</strong> el febrer de 1902 i era <strong>natural de Forcall</strong>, filla de Manuel i Bàrbara. Es va dir <strong>Cándida</strong> fins que l'acta literal, el setembre de 2026, va ensenyar que l'índex s'equivocava. <strong>On i quan va morir, encara no ho sabem</strong> — només que va ser abans que el seu marit es tornés a casar.</p>
+      <p class="addr">Mossén Carceller 16, Forcall → <strong>c. d'en Grassot 112, Barcelona</strong></p>
+      <p class="src"><strong>Font:</strong> <a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSF-T?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324">partida de naixement de l'Avi (Barcelona, 1902)</a> · la casa de Forcall, dels <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a>.</p>
+    </article>
+    <article class="p">
+      <h4>Josep Aguilar Martí</h4>
+      <p class="yrs"><strong>19 d'octubre de 1872</strong>, Forcall – c. 1938/39 · 64 anys</p>
+      <p class="note">Jornaler, <strong>natural de Forcall</strong>. No sortia a cap cens de la comarca perquè el 1895 tenia 22 anys —quatre per sota de l'edat de vot— i el 1905 ja era a Barcelona. Apareix a Villores el 1920, sortint del no-res. Va morir en plena guerra civil.</p>
+      <p class="addr">Forcall → Barcelona → <strong>Alta 14</strong> (1920–23), <strong>Alta 36</strong> (1925–28) i <strong>Alta 44</strong> (1930–35), Villores · enterrat a Villores, nínxol 9</p>
+      <p class="src"><strong>Font:</strong> deu <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores · l'edat en morir, de la <a href="https://es.geneanet.org/cementerio/view/11028303/persons/">làpida del cementiri de Villores</a> · el poble d'origen, de la <a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSF-T?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324">partida de naixement de l'Avi (Barcelona, 1902)</a>.</p>
+    </article>
+    <article class="p">
+      <h4>Joaquina Carceller Mampel</h4>
+      <p class="yrs">c. 1884, Villores – c. 1947 · 63 anys</p>
+      <p class="note">De Villores. Vídua d'en Ramón Membrado, es va tornar a casar amb en Josep Aguilar Martí. <strong>Els últims anys ja no vivia al poble</strong>: no surt ni al cens de 1945 ni al de 1946, tot i que hi hauria d'haver constat com a cap de casa. Germana del carter Felipe.</p>
+      <p class="addr">Alta 44, Villores · enterrada a Villores, nínxol 9</p>
+      <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores de 1932, 1934 i 1935 · l'edat en morir, de la <a href="https://es.geneanet.org/cementerio/view/11028303/persons/">làpida del cementiri de Villores</a>.</p>
+    </article>
+    <article class="p">
+      <h4>Ramón Membrado Sebastià</h4>
+      <p class="yrs">c. 1876, Ortells – 1916 · uns 40 anys</p>
+      <p class="note">Jornaler. Era <strong>l'únic home amb el cognom Membrado de Villores</strong>, i no era d'allà sinó d'<strong>Ortells</strong>. Consta als censos de 1905, 1907, 1915 i 1916, i el 1917 ja no hi és: d'aquí surt l'any de la seva mort. <strong>Entre 1908 i 1914 no era a cap poble de la comarca</strong> — se n'havia anat lluny i va tornar.</p>
+      <p class="addr">Ortells → <strong>Alta 38</strong> (1905–07) i <strong>Alta 26</strong> (1915–16), Villores</p>
+      <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores (1905, 1907, 1915, 1916) i d'Ortells (1895). <strong>Nom recuperat en aquesta recerca.</strong></p>
+    </article>
   </div>
+</div>
 
-  <div class="gen">
-    <div class="gen-head"><h3>L'arrel, a Ortells</h3><span>fins on arriba el cens per la banda de l'Àvia</span></div>
-    <div class="cards">
-      <article class="p unknown">
-        <h4>Un Membrado d'Ortells</h4>
-        <p class="yrs">c. 1815 – 1825 <em>o bé</em> c. 1846</p>
-        <p class="note">El pare d'en Ramón. <strong>O bé és en Domingo Membrado Sebastià</strong> —jornaler nascut cap al 1846, l'únic Membrado d'Ortells al cens de 1895, que tindria <strong>30 anys</strong> quan neix en Ramón— <strong>o bé el pare d'en Domingo</strong>, nascut cap al 1815-25, que en tindria <strong>seixanta</strong>. No es pot decidir amb el cens: en Domingo tenia 16 anys quan va néixer la Melchora, o sigui que no pot ser pare de tots tres. <strong>Trenta anys de forquilla, i per això hi ha dues dates.</strong></p>
-        <p class="addr">carrer Capdevila, Ortells</p>
-        <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a>, Ortells, 1895. Després no hi queda cap Membrado.</p>
-      </article>
-      <article class="p unknown">
-        <h4>Una Sebastià d'Ortells</h4>
-        <p class="yrs">c. 1840 – 1855</p>
-        <p class="note">Els Sebastià eren <strong>una casa gran del carrer Capdevila</strong>: al cens de 1895 el cognom ja no surt com a primer cognom —la línia d'homes s'havia acabat— però hi ha quatre veïns que el porten per part de mare. <strong>Entre 1820 i 1880 les filles dels Sebastià es van casar amb mig poble.</strong> D'ella no en sabem el nom, però sí <strong>l'edat aproximada</strong>: havia de tenir edat de parir el 1876, o sigui que va néixer després del 1830 — i això val tant si en Ramón era germà d'en Domingo com si n'era fill.</p>
-        <p class="addr">carrer Capdevila, Ortells</p>
-        <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a>, Ortells: cens de 1895 i llista de dones de 1925.</p>
-      </article>
-      <article class="p">
-        <h4>La branca de Morella</h4>
-        <p class="alias">els Boix Membrado</p>
-        <p class="yrs">1907 – 1946 · plaça del poble, núm. 4</p>
-        <p class="note">La <strong>Melchora Membrado Sebastià</strong> (c. 1862), germana o tia d'en Ramón, es va casar amb <strong>Juan Boix Molinos</strong> i va viure a la plaça de Morella. Tres fills documentats: en Manuel, en Francisco i la María Vallivana. <strong>Quaranta anys a la mateixa porta</strong>, mentre la plaça es deia de la Constitució, de la República i del Generalísimo.</p>
-        <p class="addr">plaça 4, Morella</p>
-        <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a>, Morella, 1907–1946. És l'única branca Membrado reconstruïda sencera.</p>
-      </article>
-    </div>
+<div class="gen">
+  <div class="gen-head"><h3>Els avis i els seus germanastres</h3><span>tots sota el mateix sostre, a Alta 44</span></div>
+  <div class="cards">
+    <article class="p">
+      <h4>Josep Aguilar Escorihuela</h4>
+      <p class="alias">l'Avi</p>
+      <p class="yrs">25 de febrer de 1902, Barcelona – 1982 · 80 anys</p>
+      <p class="note">Nascut <strong>a les cinc de la tarda al carrer d'en Grassot 112, primer pis</strong>. El vam donar per fill únic, però els seus pares s'havien casat set anys abans: <strong>probablement va tenir germans que no van arribar</strong>. Al paper hi consta com a <strong>José Manuel Joaquín</strong>. Jornaler i després espardenyer. Sabia llegir i escriure en un poble on molts veïns no en sabien. L'agost de 1947 va baixar a Barcelona amb les dues filles.</p>
+      <p class="addr">c. d'en Grassot 112, Barcelona → Alta 36 i <strong>Alta 44</strong>, Villores → Barcelona des de 1947</p>
+      <p class="src"><strong>Font:</strong> naixement i adreça de Barcelona, de la <a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSF-T?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324">partida de naixement de l'Avi (Barcelona, 1902)</a> · la vida a Villores, de set <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> entre 1928 i 1946 · <strong>l'any de la mort: Família.</strong></p>
+    </article>
+    <article class="p">
+      <h4>Ramona Membrado Carceller</h4>
+      <p class="alias">l'Àvia</p>
+      <p class="yrs">1902/03, Villores – 13 de juliol de 1940 · 37 anys</p>
+      <p class="note">Filla única. Al cens de 1932 hi consta com a analfabeta i al de 1935 ja sabent llegir i escriure: <strong>va aprendre entre els 29 i els 32 anys</strong>, amb les campanyes de la República. Quan va morir, la Yaya tenia 7 anys i la Consuelo 17.</p>
+      <p class="addr">Alta 44, Villores · enterrada a Villores, nínxol 20</p>
+      <p class="src"><strong>Font:</strong> tres <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores · la data de la mort, de la <a href="https://es.geneanet.org/cementerio/view/11028303/persons/">làpida del cementiri de Villores</a>.</p>
+    </article>
+    <article class="p">
+      <h4>Manuel Aguilar Carceller</h4>
+      <p class="yrs">c. 1919, Villores – 2003 · uns 84 anys</p>
+      <p class="note">Germanastre de l'Avi, del segon matrimoni. Es va quedar al poble i va acabar sent-ne el <strong>carter</strong>, com abans ho havia estat el seu oncle Felipe.</p>
+      <p class="addr">Alta 26 (1951) i Fuente 13 (1956), Villores</p>
+      <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores de 1951 i 1956 · <strong>l'any de la mort: Família.</strong></p>
+    </article>
+    <article class="p">
+      <h4>Josefina Aguilar Carceller</h4>
+      <p class="alias">la Tia Fina</p>
+      <p class="yrs">c. 1924, Villores – 2018 · uns 94 anys</p>
+      <p class="note">Germanastra de l'Avi. Es va casar amb <strong>Francisco Sorribes Martí, «el Tio Sisco»</strong>, i es van quedar a Alta 44 quan la resta va marxar: <strong>el cens de 1951 el situa com a cap de casa</strong>, o sigui que són ells qui van mantenir la casa familiar. Van deixar el poble entre 1951 i 1956, i al cens de 1956 <strong>ja no hi ha ningú al número 44</strong>.</p>
+      <p class="addr">Alta 44, Villores</p>
+      <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores de 1946 i 1951 · <strong>l'any de la mort: Família.</strong></p>
+    </article>
   </div>
+</div>
 
-  <div class="gen">
-    <div class="gen-head"><h3>Els besavis</h3><span>la generació que es va tornar a casar</span></div>
-    <div class="cards">
-      <article class="p">
-        <h4>Consuelo Escorihuela Eixarch</h4>
-        <p class="alias">la mare de l'Avi</p>
-        <p class="yrs"><strong>21 de novembre de 1874</strong>, Forcall – abans del <strong>17 de gener de 1912</strong></p>
-        <p class="note">Va ser <strong>«la Sra. Escorihuela» durant tota la recerca</strong> fins que la seva partida va aparèixer: tenia <strong>27 anys</strong> el febrer de 1902 i era <strong>natural de Forcall</strong>, filla de Manuel i Bàrbara. Es va dir <strong>Cándida</strong> fins que l'acta literal, el setembre de 2026, va ensenyar que l'índex s'equivocava. <strong>On i quan va morir, encara no ho sabem</strong> — només que va ser abans que el seu marit es tornés a casar.</p>
-        <p class="addr">Mossén Carceller 16, Forcall → <strong>c. d'en Grassot 112, Barcelona</strong></p>
-        <p class="src"><strong>Font:</strong> <a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSF-T?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324">partida de naixement de l'Avi (Barcelona, 1902)</a> · la casa de Forcall, dels <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a>.</p>
-      </article>
-      <article class="p">
-        <h4>Josep Aguilar Martí</h4>
-        <p class="yrs"><strong>19 d'octubre de 1872</strong>, Forcall – c. 1938/39 · 64 anys</p>
-        <p class="note">Jornaler, <strong>natural de Forcall</strong>. No sortia a cap cens de la comarca perquè el 1895 tenia 22 anys —quatre per sota de l'edat de vot— i el 1905 ja era a Barcelona. Apareix a Villores el 1920, sortint del no-res. Va morir en plena guerra civil.</p>
-        <p class="addr">Forcall → Barcelona → <strong>Alta 14</strong> (1920–23), <strong>Alta 36</strong> (1925–28) i <strong>Alta 44</strong> (1930–35), Villores · enterrat a Villores, nínxol 9</p>
-        <p class="src"><strong>Font:</strong> deu <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores · l'edat en morir, de la <a href="https://es.geneanet.org/cementerio/view/11028303/persons/">làpida del cementiri de Villores</a> · el poble d'origen, de la <a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSF-T?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324">partida de naixement de l'Avi (Barcelona, 1902)</a>.</p>
-      </article>
-      <article class="p">
-        <h4>Joaquina Carceller Mampel</h4>
-        <p class="yrs">c. 1884, Villores – c. 1947 · 63 anys</p>
-        <p class="note">De Villores. Vídua d'en Ramón Membrado, es va tornar a casar amb en Josep Aguilar Martí. <strong>Els últims anys ja no vivia al poble</strong>: no surt ni al cens de 1945 ni al de 1946, tot i que hi hauria d'haver constat com a cap de casa. Germana del carter Felipe.</p>
-        <p class="addr">Alta 44, Villores · enterrada a Villores, nínxol 9</p>
-        <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores de 1932, 1934 i 1935 · l'edat en morir, de la <a href="https://es.geneanet.org/cementerio/view/11028303/persons/">làpida del cementiri de Villores</a>.</p>
-      </article>
-      <article class="p">
-        <h4>Ramón Membrado Sebastià</h4>
-        <p class="yrs">c. 1876, Ortells – 1916 · uns 40 anys</p>
-        <p class="note">Jornaler. Era <strong>l'únic home amb el cognom Membrado de Villores</strong>, i no era d'allà sinó d'<strong>Ortells</strong>. Consta als censos de 1905, 1907, 1915 i 1916, i el 1917 ja no hi és: d'aquí surt l'any de la seva mort. <strong>Entre 1908 i 1914 no era a cap poble de la comarca</strong> — se n'havia anat lluny i va tornar.</p>
-        <p class="addr">Ortells → <strong>Alta 38</strong> (1905–07) i <strong>Alta 26</strong> (1915–16), Villores</p>
-        <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores (1905, 1907, 1915, 1916) i d'Ortells (1895). <strong>Nom recuperat en aquesta recerca.</strong></p>
-      </article>
-    </div>
+<div class="gen">
+  <div class="gen-head"><h3>Les filles</h3><span>de quatre germanes, dues no van passar de l'any</span></div>
+  <div class="cards">
+    <article class="p">
+      <h4>Consuelo Aguilar Membrado</h4>
+      <p class="alias">la Tia Consuelo</p>
+      <p class="yrs">1923, Villores – 1986 · uns 63 anys</p>
+      <p class="note">La gran. Els seus pares tenien 21 i 20 anys quan va néixer. El 1946 encara era soltera al poble; l'any següent va baixar a Barcelona amb el pare i la germana.</p>
+      <p class="addr">Alta 44, Villores → Barcelona des de l'agost de 1947</p>
+      <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores de 1946 i el seu DNI · <strong>l'any de la mort: Família.</strong></p>
+    </article>
+    <article class="p unknown">
+      <h4>Ramona Aguilar Membrado</h4>
+      <p class="yrs">1928, Villores – 1929 · 1 any</p>
+      <p class="note">Va morir abans de fer els dos anys. Duia el nom de la mare i del seu avi Ramón. Els censos electorals no recullen criatures, o sigui que d'ella no en queda rastre en aquesta font.</p>
+      <p class="addr">Alta 44, Villores</p>
+      <p class="src"><strong>Font: Família.</strong> Cap document consultat la recull.</p>
+    </article>
+    <article class="p unknown">
+      <h4>Carmen Aguilar Membrado</h4>
+      <p class="yrs">1930, Villores – 1931 · 1 any</p>
+      <p class="note">També va morir al primer any, quan els pares en tenien 29 i 28. Va néixer després de perdre la Ramona, i la van perdre a ella també.</p>
+      <p class="addr">Alta 44, Villores</p>
+      <p class="src"><strong>Font: Família.</strong> Cap document consultat la recull.</p>
+    </article>
+    <article class="p">
+      <h4>Josefa Aguilar Membrado</h4>
+      <p class="alias">la Yaya</p>
+      <p class="yrs">1933, Villores – octubre de 2025 · 92 anys</p>
+      <p class="note">La petita. Va perdre la mare als 7 anys i va marxar a Barcelona als 14. No surt a cap cens: era una criatura a tots els que es van fer en vida seva, i quan va tenir edat de sortir-hi ja feia anys que no vivia al poble.</p>
+      <p class="addr">Alta 44, Villores → Barcelona des de l'agost de 1947</p>
+      <p class="src"><strong>Font: Família.</strong> No surt a cap cens: era una criatura a tots els que es van fer en vida seva.</p>
+    </article>
   </div>
+</div>
+</div></section>
 
-  <div class="gen">
-    <div class="gen-head"><h3>Els avis i els seus germanastres</h3><span>tots sota el mateix sostre, a Alta 44</span></div>
-    <div class="cards">
-      <article class="p">
-        <h4>Josep Aguilar Escorihuela</h4>
-        <p class="alias">l'Avi</p>
-        <p class="yrs">25 de febrer de 1902, Barcelona – 1982 · 80 anys</p>
-        <p class="note">Nascut <strong>a les cinc de la tarda al carrer d'en Grassot 112, primer pis</strong>. El vam donar per fill únic, però els seus pares s'havien casat set anys abans: <strong>probablement va tenir germans que no van arribar</strong>. Al paper hi consta com a <strong>José Manuel Joaquín</strong>. Jornaler i després espardenyer. Sabia llegir i escriure en un poble on molts veïns no en sabien. L'agost de 1947 va baixar a Barcelona amb les dues filles.</p>
-        <p class="addr">c. d'en Grassot 112, Barcelona → Alta 36 i <strong>Alta 44</strong>, Villores → Barcelona des de 1947</p>
-        <p class="src"><strong>Font:</strong> naixement i adreça de Barcelona, de la <a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSF-T?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324">partida de naixement de l'Avi (Barcelona, 1902)</a> · la vida a Villores, de set <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> entre 1928 i 1946 · <strong>l'any de la mort: Família.</strong></p>
-      </article>
-      <article class="p">
-        <h4>Ramona Membrado Carceller</h4>
-        <p class="alias">l'Àvia</p>
-        <p class="yrs">1902/03, Villores – 13 de juliol de 1940 · 37 anys</p>
-        <p class="note">Filla única. Al cens de 1932 hi consta com a analfabeta i al de 1935 ja sabent llegir i escriure: <strong>va aprendre entre els 29 i els 32 anys</strong>, amb les campanyes de la República. Quan va morir, la Yaya tenia 7 anys i la Consuelo 17.</p>
-        <p class="addr">Alta 44, Villores · enterrada a Villores, nínxol 20</p>
-        <p class="src"><strong>Font:</strong> tres <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores · la data de la mort, de la <a href="https://es.geneanet.org/cementerio/view/11028303/persons/">làpida del cementiri de Villores</a>.</p>
-      </article>
-      <article class="p">
-        <h4>Manuel Aguilar Carceller</h4>
-        <p class="yrs">c. 1919, Villores – 2003 · uns 84 anys</p>
-        <p class="note">Germanastre de l'Avi, del segon matrimoni. Es va quedar al poble i va acabar sent-ne el <strong>carter</strong>, com abans ho havia estat el seu oncle Felipe.</p>
-        <p class="addr">Alta 26 (1951) i Fuente 13 (1956), Villores</p>
-        <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores de 1951 i 1956 · <strong>l'any de la mort: Família.</strong></p>
-      </article>
-      <article class="p">
-        <h4>Josefina Aguilar Carceller</h4>
-        <p class="alias">la Tia Fina</p>
-        <p class="yrs">c. 1924, Villores – 2018 · uns 94 anys</p>
-        <p class="note">Germanastra de l'Avi. Es va casar amb <strong>Francisco Sorribes Martí, «el Tio Sisco»</strong>, i es van quedar a Alta 44 quan la resta va marxar: <strong>el cens de 1951 el situa com a cap de casa</strong>, o sigui que són ells qui van mantenir la casa familiar. Van deixar el poble entre 1951 i 1956, i al cens de 1956 <strong>ja no hi ha ningú al número 44</strong>.</p>
-        <p class="addr">Alta 44, Villores</p>
-        <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores de 1946 i 1951 · <strong>l'any de la mort: Família.</strong></p>
-      </article>
-    </div>
+<section class="sec" id="historia"><div class="wrap">
+<h2>El que diuen els papers</h2>
+<p class="dek">Deu coses que la família no sabia, o sabia a mitges. Totes surten de documents, i van en ordre.</p>
+
+<div class="nar">
+  <h3 class="nh">Dos de Forcall que baixen a Barcelona</h3>
+  <p>A casa sempre s'havia dit que l'Avi era de Barcelona, del carrer d'en Grassot. El que ningú no sabia és <strong>d'on venien els seus pares</strong>. La partida de 1902 ho diu en dues paraules: <strong>«naturales de Forcall»</strong>, ell de 29 anys i ella de 27.</p>
+  <p>Forcall és a <strong>tres quilòmetres de Villores</strong>. O sigui que la família no va aparèixer al poble sortint del no-res el 1920, com semblava pel cens: <strong>venien del poble del costat, i havien fet una volta per Barcelona pel camí.</strong></p>
+  <p>Ara sabem quan va començar aquella volta. Es van casar a <strong>Forcall el 10 de novembre de 1894</strong>, a l'església de l'Assumpció: ell tenia <strong>22 anys</strong> i era jornaler, ella en tenia <strong>20</strong>, i tots dos hi constaven com a <em>veïns</em>. El primer fill que coneixem neix a Barcelona <strong>set anys i tres mesos després</strong>. Entremig van baixar a la ciutat, i encara no sabem quin any.</p>
+  <p>Hi ha un detall d'aquell dia que diu molt. L'acta acaba dient que la firmen el jutge i el nuvi, «<strong>y no ella ni los testigos porque dicen no saber</strong>». <strong>La besàvia no sabia escriure el seu nom el dia que es va casar.</strong> El seu fill, nascut vuit anys després a Barcelona, sabria llegir i escriure tota la vida, i això consta a set censos seguits.</p>
+
+  <h3 class="nh">No baixaven sols</h3>
+  <p>Buscant el matrimoni dels besavis a l'índex de Barcelona va sortir una cosa que no buscàvem. A la <strong>lletra A d'un sol any</strong> —el 1899— hi ha <strong>tres Aguilar</strong> que s'hi casen, i els tres vénen del mateix racó de món: <strong>Mas de las Matas</strong>, <strong>Berge</strong> i <strong>Luco de Bordón</strong>, tots tres al Baix Aragó, a tocar dels Ports. Un noi de Berge es casa amb una noia de Luco de Bordón a tres-cents quilòmetres de casa, a la mateixa parròquia de Barcelona.</p>
+  <p>I val la pena mirar els cognoms: la mare del primer és una <strong>Ejarque</strong>; la núvia del segon és filla d'una <strong>Ramona Carceller</strong>. Són els cognoms que surten una vegada i una altra a Forcall i a Villores. <strong>Aquella gent no eren desconeguts entre ells.</strong> Cap al 1900 hi havia a Barcelona una colònia sencera dels Ports i del Baix Aragó, prou nombrosa perquè en una sola lletra d'un sol any hi apareguin tres casaments, i prou tancada perquè es casessin entre ells. Una família de Forcall que baixava a la ciutat <strong>no anava a un lloc desconegut: anava on ja hi havia els seus.</strong></p>
+  <p>Amb un matís que val la pena. Aquells tres es casen a <strong>Santa Madrona, jutjat de l'Hospital</strong>: el Raval, on parava la immigració aragonesa més pobra. <strong>Els nostres no eren allà</strong> — l'Avi neix al carrer d'en Grassot i l'inscriuen al <strong>jutjat de Gràcia</strong>, a l'altra punta de la ciutat. Hi havia més d'un nucli, i el de la família era el de Gràcia.</p>
+  <p><em>Nota de prudència: això surt de la lletra A d'un sol any. Marca un patró, no una estadística.</em></p>
+
+  <h3 class="nh">La segona colònia: Villores al Vallès</h3>
+  <p>Quaranta anys més tard el poble torna a marxar, però en una altra direcció. Buscant la frase <strong>«natural de Villores»</strong> als arxius digitalitzats surten una vintena de documents de <strong>Terrassa</strong> entre 1916 i 1952, i uns quants de <strong>Martorell</strong> i de Vilanova. Els cognoms que hi apareixen —Balaguer, Mampel, Bonet, Carbó, Adell— <strong>són exactament els del tram del carrer Alta</strong>. Villores sencer va anar a parar al Vallès i al Baix Llobregat.</p>
+  <p>No hi ha cap dels nostres en aquella llista, però els <strong>expedients matrimonials de Martorell</strong> ensenyen una cosa que val per a tota la recerca: el de 1933 diu literalment «<em>es nieto por línea paterna de Matías Balaguer Mampel… y de Rosa Bonet Gargallo</em>». <strong>Tres generacions en un sol document.</strong> Si algun dels nostres es va casar al Vallès, n'hi ha d'haver un d'igual.</p>
+
+  <h3 class="nh">Les dues cases de Forcall</h3>
+  <p>Els pares de l'Avi van sortir de dues cases que eren a cinc minuts l'una de l'altra, i de totes dues en sabem ara la mateixa cosa: <strong>quants fills van tenir i quants en van enterrar.</strong></p>
+  <p>A <strong>San Antonio 13</strong> hi vivia en <strong>Manuel Aguilar Sanz</strong>, jornaler. Va tenir <strong>set fills</strong>. Quan va morir, el 26 d'octubre de 1913, als 70 anys, l'acta diu que només n'hi quedava <strong>un de viu</strong>: en Josep, el nostre.</p>
+  <p>Al carrer <strong>Mossén Carceller</strong> hi vivia en <strong>Manuel Escorihuela Bordàs</strong>, espardenyer primer i jornaler després, amb la <strong>Bàrbara Eixarch Eixarch</strong>. Van tenir <strong>vuit fills</strong>. El 1912 ja n'havien enterrat <strong>quatre</strong>, i la Consuelo seria el cinquè.</p>
+  <div class="pull">Quinze fills entre les dues cases. Dels que van arribar a grans se'n compten amb els dits d'una mà.<span>Forcall, entre 1860 i 1890</span></div>
+  <p>Aquella gent tampoc no era tota de Forcall. La mare d'en Manuel Aguilar, la <strong>María Sanz</strong>, era de <strong>Luco de Bordón</strong>, al Baix Aragó; el pare de la Joaquina, en <strong>Pascual Martí</strong>, era de <strong>Morella</strong>. La comarca es casava entre pobles molt abans que ningú baixés a la ciutat.</p>
+
+  <h3 class="nh">La Consuelo va morir jove</h3>
+  <p>De la mare de l'Avi en sabem la vida sencera en quatre dates, i totes quatre caben en trenta-set anys.</p>
+  <p>Neix a <strong>Forcall el 21 de novembre de 1874, a les sis del matí</strong>. Es casa als <strong>20 anys</strong>, el 10 de novembre de 1894, i l'acta d'aquell dia acaba dient que la firmen el jutge i el nuvi «<strong>y no ella… porque dice no saber</strong>»: <strong>no sabia escriure el seu nom.</strong> Als <strong>27</strong> té un fill a Barcelona, al carrer d'en Grassot. I abans de fer-ne <strong>38</strong> ja és morta.</p>
+  <p>No sabem el dia ni el lloc. El que ho diu és l'acta de la seva mare, del <strong>gener de 1912</strong>, on el seu germà Antonio declara quins dels vuit germans ja han mort i la nomena entre ells. <strong>És l'únic paper que la torna a esmentar després del part.</strong></p>
+  <p>El seu fill, criat sense ella, sabria llegir i escriure tota la vida: consta a set censos seguits, en un poble on la majoria de veïns hi surten com a analfabets.</p>
+
+  <h3 class="nh">Com un foraster acaba casat amb la vídua del poble</h3>
+  <p>En <strong>Ramón Membrado mor el 1916</strong>: consta a la llista d'aquell any i ja no hi és a la del següent. La Joaquina es queda vídua cap als 32 anys, amb una filla de tretze.</p>
+  <p>En <strong>Josep Aguilar Martí apareix a Villores el 1920</strong>, encara sol al cens, a <strong>Alta 14</strong>. I resulta que a Alta 14 hi vivia des del 1909 un tal <strong>Centelles Mampel Juan</strong> — el cens de 1922 els llista <strong>tots dos a la mateixa casa</strong>.</p>
+  <p>Mira ara el tram del carrer. A Alta 40 hi ha una Mampel Beltrán; a Alta 42, una Mampel Sorribes; a Alta 46, una Mampel Bonet; a Alta 48, una Centelles Mampel. <strong>Cinc dels veïns immediats porten el mateix cognom.</strong></p>
+  <p>I la vídua es deia <strong>Joaquina Carceller Mampel</strong>. Un home de fora s'allotja en una casa de Mampels, en un carrer de Mampels, i acaba casat amb una Mampel. <strong>És una hipòtesi</strong> —el cens no diu parentius— però explica d'una manera molt senzilla una cosa que altrament costa d'entendre.</p>
+
+  <h3 class="nh">Els germanastres que es van casar</h3>
+  <p>Cap al <strong>1918 es casen dos vidus</strong>. Ell hi porta un fill nascut a Barcelona el 1902; ella, una filla nascuda a Villores el 1902 o el 1903. <strong>Tenen la mateixa edat</strong> i passen a viure sota el mateix sostre.</p>
+  <p>Quatre anys després, als <strong>20 i 19 anys</strong>, es casen entre ells. Són l'Avi i l'Àvia.</p>
+  <p>Val la pena dir-ho clar perquè és el primer que es pregunta qui mira l'arbre: <strong>no eren parents de sang.</strong> No comparteixen cap avantpassat. El que compartien era la casa. Per això la línia blava de sota el dibuix el tanca d'una punta a l'altra: <strong>l'arbre es plega sobre si mateix, però no es creua.</strong></p>
+
+  <h3 class="nh">Aprendre a llegir als trenta</h3>
+  <p>El cens de <strong>1932</strong> recull la Ramona Membrado Carceller amb 29 anys i la casella d'alfabetització en blanc: <strong>no sabia llegir</strong>. El de <strong>1935</strong>, amb 32, diu que <strong>sap llegir i escriure</strong>.</p>
+  <p>Enmig hi ha la República, les missions pedagògiques i les classes d'adults que van arribar fins als pobles petits dels Ports. La casella d'un cens electoral no és gaire cosa, però aquí registra <strong>una dona de trenta anys que aprèn a llegir</strong> mentre a casa hi ha una filla de nou i n'ha enterrat dues.</p>
+
+  <h3 class="nh">Dues criatures sense cap paper, i una que en va tenir noranta-dos anys</h3>
+  <p>La <strong>Ramona neix el 1928 i mor el 1929</strong>. La <strong>Carmen neix el 1930 i mor el 1931</strong>. Cap de les dues surt a cap cens —no van arribar mai a l'edat de votar— i cap de les dues és a la làpida del cementiri. <strong>Tot el que en sabem ve del que recorda la família.</strong> Són les úniques dues persones de tot l'arbre sense un sol document al darrere.</p>
+  <p>El <strong>1933 neix la Josefa</strong>, la Yaya. Als set anys perd la mare —la Ramona mor el <strong>13 de juliol de 1940</strong>, als 37—, als catorze baixa a Barcelona i viu fins a l'<strong>octubre de 2025</strong>.</p>
+  <p>La família diu que van marxar <strong>l'endemà de morir Manolete</strong>, o sigui el 30 d'agost de 1947. El cens no ho pot confirmar, però hi encaixa sense forçar res: <strong>hi són a la llista tancada el juny de 1946 i ja no hi són a la de 1951</strong>. La finestra fa cinc anys i la data hi cau a dins.</p>
+  <p>El <strong>1951</strong> el cap de casa d'Alta 44 és el Tio Sisco. El <strong>1956</strong> ja no hi ha ningú al número 44.</p>
+</div>
+</div></section>
+
+<section class="sec" id="tiempo"><div class="wrap">
+<h2>La línia del temps</h2>
+<ol class="time">
+  <li><span class="when">c. 1810 – 1820</span><span class="what">Neix la generació més antiga a què arriba aquesta recerca: Miguel Escorihuela i Rosa Bordàs, Jaime i Tomasa Eixarch, José Aguilar i María Sanz de Luco, Pascual Martí de Morella i María Borràs. Vuit noms, cap data.</span></li>
+  <li><span class="when">c. 1839 – 1843 · Forcall</span><span class="what">Neixen els quatre avis de l'Avi: Manuel Escorihuela Bordàs, Bàrbara Eixarch Eixarch, Manuel Aguilar Sanz i Joaquina Martí Borràs.</span></li>
+  <li><span class="when">c. 1846 · Ortells</span><span class="what">Neix en Domingo Membrado Sebastià, del carrer Capdevila: el pare d'en Ramón o el seu germà gran.</span></li>
+  <li class="key"><span class="when">19 d'octubre de 1872 · Forcall</span><span class="what">Neix en <strong>Josep Aguilar Martí</strong>, a les dues de la matinada, a casa dels seus pares del carrer San Antonio.</span></li>
+  <li class="key"><span class="when">21 de novembre de 1874 · Forcall</span><span class="what">Neix la <strong>María Consuelo Escorihuela Eixarch</strong>, a les sis del matí. És la quarta de vuit germans.</span></li>
+  <li class="key"><span class="when">10 de novembre de 1894 · Forcall</span><span class="what">Es casen, a l'església de l'Assumpció. Ell té 22 anys i és jornaler; ella en té 20. <strong>Ella no sap signar l'acta.</strong> Set anys més tard el seu fill naixerà a Barcelona.</span></li>
+  <li><span class="when">c. 1885 · Morella</span><span class="what">La Melchora Membrado Sebastià es casa amb en Juan Boix Molinos i s'instal·la a la plaça, número 4. La família hi viurà fins al 1946.</span></li>
+  <li><span class="when">c. 1876 i c. 1884</span><span class="what">Neixen en Ramón Membrado Sebastià —a Ortells— i la Joaquina Carceller Mampel, a Villores.</span></li>
+  <li class="key"><span class="when">25 de febrer de 1902 · Barcelona</span><span class="what">Neix l'Avi a les cinc de la tarda, al carrer d'en Grassot 112, al Camp d'en Grassot — llavors un barri nou de fàbriques ple de famílies immigrades. L'inscriuen l'endemà al jutjat de Gràcia.</span></li>
+  <li><span class="when">1902 – 1903 · Villores</span><span class="what">Neix l'Àvia. El seu pare consta als censos del poble el 1905 i el 1907.</span></li>
+  <li><span class="when">17 de gener de 1912 · Forcall</span><span class="what">Mor la Bàrbara Eixarch Eixarch, als 70. En declarar-ho, el seu fill Antonio diu que quatre dels vuit germans ja són morts — i la <strong>Consuelo</strong> és un d'ells. És l'única notícia que tenim de la seva mort.</span></li>
+  <li><span class="when">26 d'octubre de 1913 · Forcall</span><span class="what">Mor en Manuel Aguilar Sanz, als 70, a San Antonio 13. Deixa vídua la Joaquina Martí Borràs, que ja no tornarà a constar mai més a Forcall.</span></li>
+  <li class="key"><span class="when">1916 · Villores</span><span class="what">Mor en Ramón Membrado. És a la llista de 1916 i el 1917 ja no hi és.</span></li>
+  <li><span class="when">26 de novembre de 1919 · Forcall</span><span class="what">Mor en Manuel Escorihuela Bordàs, als 80, de diarrea aguda, vidu. És l'últim dels quatre avis de l'Avi que se'n va.</span></li>
+  <li class="key"><span class="when">c. 1918 · Villores</span><span class="what">Es casen els dos vidus. Dos anys després, en Josep Aguilar Martí apareix per primera vegada al cens de Villores, al carrer Alta 14.</span></li>
+  <li class="key"><span class="when">c. 1922 · Villores</span><span class="what">Es casen l'Avi i l'Àvia, de 20 i 19 anys, havent crescut com a germanastres.</span></li>
+  <li><span class="when">1923 · 1928 · 1930 · 1933</span><span class="what">Neixen la Consuelo, la Ramona, la Carmen i la Josefa. Les dues del mig moren al primer any.</span></li>
+  <li><span class="when">1932 → 1935 · Villores</span><span class="what">L'Àvia passa de constar com a analfabeta a saber llegir i escriure.</span></li>
+  <li class="key"><span class="when">13 de juliol de 1940 · Villores</span><span class="what">Mor l'Àvia, als 37 anys. La Yaya en té 7.</span></li>
+  <li class="key"><span class="when">30 d'agost de 1947</span><span class="what">La família baixa a Barcelona, l'endemà de morir Manolete. El cens del poble, tancat el juny del 1946, encara els recull; al del 1951 ja no hi són.</span></li>
+  <li><span class="when">1951 · Villores</span><span class="what">El Tio Sisco consta com a cap de casa a Alta 44.</span></li>
+  <li><span class="when">1956 · Villores</span><span class="what">Ja no hi ha ningú al número 44 del carrer Alta.</span></li>
+</ol>
+</div></section>
+
+<section class="sec" id="contexto"><div class="wrap">
+<h2>Context històric</h2>
+<p class="dek">El món on van viure. Tot el que hi ha aquí és context general: parla de la comarca, de la ciutat o del país, no de la família. Que una cosa passés als Ports no vol dir que els passés a ells. Cada bloc diu amb quin fet de la família lliga.</p>
+
+<article class="ctx">
+  <h3>Els Ports: una comarca que es comença a buidar cap al 1910</h3>
+  <p class="liga"><b>Lliga amb</b>Els quatre avis de l'Avi eren tots de Forcall, i les actes fan jornalers el besavi i el seu pare. La família de l'Àvia venia d'Ortells.</p>
+  <p>Els Ports tenien 20.010 habitants el 1860 i encara 20.296 el 1910. El 1920 n'eren 17.357 i el 1950, 13.517. La Gran Enciclopèdia Catalana ho atribueix sobretot a una «intensa emigració (que es dirigeix principalment cap a Barcelona)», en una comarca de ramats i de secà on la indústria «es reduïa a la confecció d'espardenyes de Forcall, i als telers de llana». Poble a poble: Forcall passa de 2.241 habitants el 1910 a 1.332 el 1950; Villores, de 533 el 1900 a 415 el 1950; Ortells, de 576 a 279.</p>
+  <p class="fuentes"><a href="https://www.enciclopedia.cat/gran-enciclopedia-catalana/els-ports" target="_blank" rel="noopener">Gran Enciclopèdia Catalana</a> &middot; INE: <a href="https://www.ine.es/intercensal/intercensal.do?search=1&amp;cmbTipoBusq=0&amp;textoMunicipio=Forcall&amp;btnBuscarDenom=Consultar+selecci%F3n" target="_blank" rel="noopener">Forcall</a>, <a href="https://www.ine.es/intercensal/intercensal.do?search=1&amp;cmbTipoBusq=0&amp;textoMunicipio=Villores&amp;btnBuscarDenom=Consultar+selecci%F3n" target="_blank" rel="noopener">Villores</a>, <a href="https://www.ine.es/intercensal/intercensal.do?search=1&amp;cmbTipoBusq=0&amp;textoMunicipio=Ortells&amp;btnBuscarDenom=Consultar+selecci%F3n" target="_blank" rel="noopener">Ortells</a></p>
+</article>
+
+<article class="ctx">
+  <h3>L'espardenya, l'ofici dels pobles del Bergantes</h3>
+  <p class="liga"><b>Lliga amb</b>L'Avi consta com a jornaler de 1928 a 1935 i com a espardenyer el 1945 i el 1946. Al cens de Villores la paraula «alpargatero» passa de cap menció el 1925 a més de quaranta el 1946.</p>
+  <p>Les espardenyes es feien sobretot a la Mata, Villores, la Todolella i Forcall. La primera referència escrita de l'ofici a la Mata és del 1691. Va arrelar vora els rius Cantavieja i Bergantes perquè el cànem s'havia de remullar abans de treballar-lo; més endavant la sola es va fer de jute i d'espart. A Villores hi ha avui un museu a l'aire lliure de l'espardenya.</p>
+  <p class="fuentes"><a href="https://www.elsports.es/artesania" target="_blank" rel="noopener">Els Ports, artesania</a> &middot; <a href="https://www.morella.net/morellaturistica/en/artesania/the-alpargatas/" target="_blank" rel="noopener">Morella turística</a> &middot; <a href="https://ruta99.gva.es/villores/" target="_blank" rel="noopener">Generalitat Valenciana</a></p>
+</article>
+
+<article class="ctx">
+  <h3>De Castelló a Barcelona, abans de la gran onada</h3>
+  <p class="liga"><b>Lliga amb</b>Els besavis es casen a Forcall el 1894 i el febrer de 1902 ja viuen a Barcelona, on neix l'Avi.</p>
+  <p>Barcelona tenia el 1900 «mig milió llarg d'habitants». Abans del 1920, les províncies que més immigrants hi havien enviat eren Castelló, València i Múrcia, i per proximitat i llengua aquells immigrants eren «poc diferenciables i fàcilment assimilats». El padró de 1930 hi compta 88.298 valencians, el 8,74% de la ciutat, i la majoria dels de Castelló hi havien arribat a partir del 1911. La família de l'Avi, doncs, va baixar abans del gruix de l'onada.</p>
+  <p class="fuentes"><a href="https://www.enciclopedia.cat/historia-economica-de-la-catalunya-contemporania/la-poblacio-1911-1985-immigracio-i-explosio" target="_blank" rel="noopener">Història econòmica de la Catalunya contemporània</a> &middot; <a href="https://www.redalyc.org/journal/5215/521568436010/html/" target="_blank" rel="noopener">Pitarch, Villar i López-Gay (2018)</a></p>
+</article>
+
+<article class="ctx">
+  <h3>El Camp d'en Grassot, un barri de fàbriques</h3>
+  <p class="liga"><b>Lliga amb</b>L'Avi neix el 25 de febrer de 1902 al carrer d'en Grassot, 112, i l'inscriuen al jutjat de Gràcia.</p>
+  <p>El Camp d'en Grassot era una zona «plena de masos i rajoleries» que es va començar a urbanitzar cap al 1860, i on es van instal·lar «nombroses fàbriques» atretes per l'aigua dels torrents; la més coneguda, La Sedeta, és del 1898. Gràcia havia passat de prop de 2.000 habitants el 1817 a gairebé 62.000 el 1897, quan era la segona ciutat de Catalunya. L'abril d'aquell any va ser annexionada a Barcelona: quan neix l'Avi, feia gairebé cinc anys que Gràcia era Barcelona.</p>
+  <p class="fuentes"><a href="https://ajuntament.barcelona.cat/gracia/ca/el-districte-i-els-seus-barris/el-camp-den-grassot-i-gracia-nova/historia-del-camp-den-grassot-i-gracia-nova" target="_blank" rel="noopener">Districte de Gràcia</a></p>
+</article>
+
+<article class="ctx">
+  <h3>Llegir i escriure, sobretot un privilegi d'homes</h3>
+  <p class="liga"><b>Lliga amb</b>La besàvia Consuelo no va saber signar el dia del seu casament, el 1894. L'Àvia Ramona apareix com a analfabeta el 1932 i com a alfabetitzada el 1935. L'Avi i el besavi, en canvi, en saben a tots els censos.</p>
+  <p>El 1860 sabia llegir i escriure el 31% dels homes d'Espanya i només el 9% de les dones, i les dones no van arribar fins al 1910 al nivell que els homes tenien el 1860: mig segle de retard. Els grans avenços arriben entre 1910 i 1940, i al decenni dels trenta les dones hi avancen clarament més que els homes. L'aprenentatge de la Ramona encaixa amb aquesta tendència, però <strong>cap document no diu on ni amb qui va aprendre</strong>.</p>
+  <p class="fuentes"><a href="https://revistas.ucm.es/index.php/RCED/article/download/RCED9797120199A/17498" target="_blank" rel="noopener">Narciso de Gabriel, Universidade da Coruña</a></p>
+</article>
+
+<article class="ctx">
+  <h3>La República: el vot de les dones i les escoles noves</h3>
+  <p class="liga"><b>Lliga amb</b>La Ramona surt per primer cop a una llista electoral el 1932. El 1936 arriba a Villores una mestra nova.</p>
+  <p>La Constitució de 1931 va donar els mateixos drets electorals als «ciudadanos de uno y otro sexo, mayores de veintitrés años», i les dones van votar per primera vegada a unes eleccions generals el 19 de novembre de 1933. Aquests 23 anys són exactament l'edat que fixen les llistes de Villores de 1932 a 1935. La República va obrir milers d'escoles, tot i que les xifres no quadren entre fonts: de 3.000 a 7.000 només el 1931.</p>
+  <p class="fuentes"><a href="https://www.ig.csic.es/19-de-noviembre-aniversario-de-las-primeras-elecciones-generales-en-espana-en-las-que-participo-el-voto-femenino/" target="_blank" rel="noopener">CSIC</a> &middot; <a href="https://gredos.usal.es/handle/10366/124186" target="_blank" rel="noopener">Universitat de Salamanca</a></p>
+</article>
+
+<article class="ctx">
+  <h3>El front passa pels Ports, l'abril de 1938</h3>
+  <p class="liga"><b>Lliga amb</b>El besavi Josep Aguilar Martí és viu al cens de 1935 i ja no hi és el 1945. La làpida el fa mort als 64 anys, cap al 1938 o 1939. Entre 1935 i 1945 no hi ha cap llista electoral.</p>
+  <p>Els Ports van ser la primera comarca de Castelló conquerida per l'exèrcit franquista. Les tropes van entrar a Morella el 4 d'abril de 1938 i pocs dies després van arribar al mar per Vinaròs. L'historiador Joan Lluís Porcar hi documenta 87 morts per la repressió franquista i prop de 800 veïns portats a consell de guerra; en proporció, l'índex més alt és el de Forcall, amb 16 morts. També recull la violència descontrolada dels primers mesos després del cop de 1936, que es va aturar a finals d'aquell any.</p>
+  <p class="fuentes"><a href="https://castellonplaza.com/la-historia-dels-ports-la-primera-comarca-conquerida-pel-franquisme-a-castello" target="_blank" rel="noopener">Castellón Plaza</a> &middot; <a href="https://www.eldiario.es/comunitat-valenciana/memoria-democratica/represion-primera-comarca-valenciana-ocupada-franquismo-exodo-rojos-subastas-bienes-acoso-maquis_132_8880353.html" target="_blank" rel="noopener">elDiario.es</a> &middot; Les dues són articles de premsa que resumeixen el llibre de Porcar, <em>Els Ports: franquisme i repressió</em> (2022).</p>
+</article>
+
+<article class="ctx">
+  <h3>El maquis a les muntanyes, 1944-1952</h3>
+  <p class="liga"><b>Lliga amb</b>L'Avi viu a Alta 44 als censos de 1945 i 1946, i marxa a Barcelona abans del 1951; la família diu que l'agost de 1947.</p>
+  <p>Des de finals de 1944 es van començar a veure homes armats a l'interior de Castelló, i el 1946 es va formar l'Agrupación Guerrillera de Levante, amb bases als Ports. L'octubre de 1947 se'n va crear un sector que actuava a la rodalia de Morella, i la població civil en va ser «el cordó umbilical». Els últims disset guerrillers es van retirar el 1952. <strong>Res no lliga la marxa de la família amb el maquis</strong>: és només el clima dels anys en què se'n van anar.</p>
+  <p class="fuentes"><a href="https://www.cedelsports.cat/wp-content/uploads/Libro-Papers-dels-Ports-3-10-23.pdf" target="_blank" rel="noopener">Raül González Devís, Papers dels Ports</a></p>
+</article>
+
+<article class="ctx">
+  <h3>Marxar a la postguerra</h3>
+  <p class="liga"><b>Lliga amb</b>L'Avi, vidu, marxa de Villores amb les filles cap a Barcelona, l'agost de 1947 segons la família. Altres veïns del poble havien anat a parar a Terrassa i a Martorell.</p>
+  <p>Als anys quaranta la immigració cap a Catalunya va continuar tot i que costava trobar menjar i les autoritats hi eren «obertament contràries»: a l'estació de França la Guàrdia Civil feia tornar al poble els viatgers sense mitjans de vida. Entre 1930 i 1950 la immigració va fer el 81,6% del creixement de Catalunya. Terrassa va passar de 45.081 habitants el 1940 a 58.880 el 1950.</p>
+  <p class="fuentes"><a href="https://www.enciclopedia.cat/historia-economica-de-la-catalunya-contemporania/la-poblacio-1911-1985-immigracio-i-explosio" target="_blank" rel="noopener">Història econòmica de la Catalunya contemporània</a> &middot; <a href="https://www.ine.es/intercensal/intercensal.do?search=1&amp;cmbTipoBusq=0&amp;textoMunicipio=Terrassa&amp;btnBuscarDenom=Consultar+selecci%F3n" target="_blank" rel="noopener">INE, Terrassa</a></p>
+</article>
+</div></section>
+
+<section class="sec" id="falta"><div class="wide">
+<h2>El que falta</h2>
+<p class="lede">Queden set forats a l'arbre, i val la pena saber quins són: <strong>no és el mateix una data que no tenim que una persona de qui no sabem res.</strong></p>
+
+<div class="gen">
+  <div class="gen-head"><h3>La branca de Forcall</h3><span>el que queda obert després de les set actes</span></div>
+  <div class="cards">
+    <article class="p unknown">
+      <h4>Com es deia el rebesavi: José, Manuel o José Manuel</h4>
+      <p class="alias">Arxiu Diocesà de Tortosa</p>
+      <p class="note">La partida del net diu <strong>José</strong>; l'acta de defunció del fill diu <strong>Manuel</strong>. Les dues lectures són clares, o sigui que <strong>no és problema de lletra sinó de fonts que no diuen el mateix</strong>. La més creïble és la de 1879, que es va fer copiant una certificació de la parròquia; la de 1913 la va declarar un nebot de memòria.</p>
+      <p class="src"><strong>Demanar:</strong> el <strong>bateig de Manuel Aguilar Sanz</strong>, Forcall, c. 1843. Nomena el pare amb el nom sencer i tanca la qüestió.</p>
+    </article>
+    <article class="p unknown">
+      <h4>On i quan va morir la Joaquina Martí Borràs</h4>
+      <p class="alias">Registre Civil de Villores o de Barcelona</p>
+      <p class="note">És <strong>l'última casella oberta de la fila dels avis</strong>. Era viva l'octubre de 1913, quan mor el seu marit, i <strong>a Forcall no hi ha cap defunció seva</strong>. El fill ja era a Barcelona des de feia anys: la hipòtesi natural és que se n'hi anés a viure, o que passés per Villores.</p>
+      <p class="src"><strong>Demanar:</strong> defunció a <strong>Villores</strong>, 1913-1935. Si no hi és, al <strong>Registre Civil de Barcelona</strong>.</p>
+    </article>
+    <article class="p unknown">
+      <h4>Els set anys entre el casament i l'Avi</h4>
+      <p class="alias">Registre Civil i parròquia de Forcall · Barcelona</p>
+      <p class="note">Es casen el <strong>novembre de 1894</strong> i el primer fill que coneixem neix el <strong>febrer de 1902</strong>. <strong>Set anys i tres mesos</strong> és molt per a un matrimoni d'aquella època. Que l'Avi fos fill únic sempre havia estat una suposició nostra; amb aquest buit al davant, es fa difícil de sostenir. <strong>Molt probablement hi va haver criatures entremig</strong>, i si van néixer abans de baixar a la ciutat, han de ser a Forcall.</p>
+      <p class="src"><strong>Demanar:</strong> els naixements <strong>Aguilar Escorihuela a Forcall, 1895-1901</strong>. I de passada, sabríem <strong>quin any van marxar</strong>.</p>
+    </article>
+    <article class="p unknown">
+      <h4>On i quan va morir la Consuelo</h4>
+      <p class="alias">Registre Civil de Barcelona</p>
+      <p class="note">La forquilla s'ha reduït de setze anys a deu: <strong>entre el febrer de 1902 i el gener de 1912</strong>. El problema és que <strong>gairebé tota aquesta finestra és cega</strong>: els índexs de defuncions de Barcelona no comencen fins al 1911, i del 1902 al 1910 només hi ha els registres per ordre de data.</p>
+      <p class="src"><strong>Demanar:</strong> una <strong>cerca per índex</strong> al Registre Civil de Barcelona, 1902-1912. És el tipus de cerca que el model en paper accepta i el formulari en línia no.</p>
+    </article>
   </div>
+</div>
 
-  <div class="gen">
-    <div class="gen-head"><h3>Les filles</h3><span>de quatre germanes, dues no van passar de l'any</span></div>
-    <div class="cards">
-      <article class="p">
-        <h4>Consuelo Aguilar Membrado</h4>
-        <p class="alias">la Tia Consuelo</p>
-        <p class="yrs">1923, Villores – 1986 · uns 63 anys</p>
-        <p class="note">La gran. Els seus pares tenien 21 i 20 anys quan va néixer. El 1946 encara era soltera al poble; l'any següent va baixar a Barcelona amb el pare i la germana.</p>
-        <p class="addr">Alta 44, Villores → Barcelona des de l'agost de 1947</p>
-        <p class="src"><strong>Font:</strong> <a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">censos electorals dels Ports</a> de Villores de 1946 i el seu DNI · <strong>l'any de la mort: Família.</strong></p>
-      </article>
-      <article class="p unknown">
-        <h4>Ramona Aguilar Membrado</h4>
-        <p class="yrs">1928, Villores – 1929 · 1 any</p>
-        <p class="note">Va morir abans de fer els dos anys. Duia el nom de la mare i del seu avi Ramón. Els censos electorals no recullen criatures, o sigui que d'ella no en queda rastre en aquesta font.</p>
-        <p class="addr">Alta 44, Villores</p>
-        <p class="src"><strong>Font: Família.</strong> Cap document consultat la recull.</p>
-      </article>
-      <article class="p unknown">
-        <h4>Carmen Aguilar Membrado</h4>
-        <p class="yrs">1930, Villores – 1931 · 1 any</p>
-        <p class="note">També va morir al primer any, quan els pares en tenien 29 i 28. Va néixer després de perdre la Ramona, i la van perdre a ella també.</p>
-        <p class="addr">Alta 44, Villores</p>
-        <p class="src"><strong>Font: Família.</strong> Cap document consultat la recull.</p>
-      </article>
-      <article class="p">
-        <h4>Josefa Aguilar Membrado</h4>
-        <p class="alias">la Yaya</p>
-        <p class="yrs">1933, Villores – octubre de 2025 · 92 anys</p>
-        <p class="note">La petita. Va perdre la mare als 7 anys i va marxar a Barcelona als 14. No surt a cap cens: era una criatura a tots els que es van fer en vida seva, i quan va tenir edat de sortir-hi ja feia anys que no vivia al poble.</p>
-        <p class="addr">Alta 44, Villores → Barcelona des de l'agost de 1947</p>
-        <p class="src"><strong>Font: Família.</strong> No surt a cap cens: era una criatura a tots els que es van fer en vida seva.</p>
-      </article>
-    </div>
+<div class="gen">
+  <div class="gen-head"><h3>La branca d'Ortells</h3><span>Membrado · Sebastià</span></div>
+  <div class="cards">
+    <article class="p unknown">
+      <h4>Els pares d'en Ramón Membrado</h4>
+      <p class="alias">Arxiu Diocesà de Tortosa</p>
+      <p class="note">Les dues caselles de dalt a la dreta de l'arbre: <strong>no en tenim els noms</strong>, només la casa —el carrer Capdevila— i una forquilla d'edat. Aquesta és la llacuna més antiga de tot l'arbre, i cap cens la pot omplir: els homes no hi entren fins als 25 anys i les llistes d'Ortells s'acaben.</p>
+      <p class="src"><strong>Demanar:</strong> llibre de baptismes d'<strong>Ortells</strong>, c. 1876. Un sol assentament dona <strong>els pares i els quatre avis</strong>. Villores, Ortells i Forcall van ser del bisbat de Tortosa fins al 1960.</p>
+    </article>
+    <article class="p unknown">
+      <h4>En Domingo: pare o germà?</h4>
+      <p class="alias">Registre Civil de Morella</p>
+      <p class="note">A tota la comarca només hi ha <strong>tres Membrado Sebastià</strong>: en Domingo (1846), la Melchora (1862) i en Ramón (1876). O són tres germans, o en Domingo és el pare d'en Ramón. <strong>De la resposta depèn una generació sencera</strong>, i trenta anys de diferència en la data del pare.</p>
+      <p class="src"><strong>Demanar:</strong> acta de matrimoni de la <strong>Melchora amb Juan Boix Molinos</strong>, c. 1885. Nomena els pares d'ella: si són els mateixos que els d'en Ramón, són germans i queda resolt sense dependre del llibre d'Ortells.</p>
+    </article>
   </div>
-</section>
+</div>
 
-<section>
-  <h2>La línia del temps</h2>
-  <ol class="time">
-    <li><span class="when">c. 1810 – 1820</span><span class="what">Neix la generació més antiga a què arriba aquesta recerca: Miguel Escorihuela i Rosa Bordàs, Jaime i Tomasa Eixarch, José Aguilar i María Sanz de Luco, Pascual Martí de Morella i María Borràs. Vuit noms, cap data.</span></li>
-    <li><span class="when">c. 1839 – 1843 · Forcall</span><span class="what">Neixen els quatre avis de l'Avi: Manuel Escorihuela Bordàs, Bàrbara Eixarch Eixarch, Manuel Aguilar Sanz i Joaquina Martí Borràs.</span></li>
-    <li><span class="when">c. 1846 · Ortells</span><span class="what">Neix en Domingo Membrado Sebastià, del carrer Capdevila: el pare d'en Ramón o el seu germà gran.</span></li>
-    <li class="key"><span class="when">19 d'octubre de 1872 · Forcall</span><span class="what">Neix en <strong>Josep Aguilar Martí</strong>, a les dues de la matinada, a casa dels seus pares del carrer San Antonio.</span></li>
-    <li class="key"><span class="when">21 de novembre de 1874 · Forcall</span><span class="what">Neix la <strong>María Consuelo Escorihuela Eixarch</strong>, a les sis del matí. És la quarta de vuit germans.</span></li>
-    <li class="key"><span class="when">10 de novembre de 1894 · Forcall</span><span class="what">Es casen, a l'església de l'Assumpció. Ell té 22 anys i és jornaler; ella en té 20. <strong>Ella no sap signar l'acta.</strong> Set anys més tard el seu fill naixerà a Barcelona.</span></li>
-    <li><span class="when">c. 1885 · Morella</span><span class="what">La Melchora Membrado Sebastià es casa amb en Juan Boix Molinos i s'instal·la a la plaça, número 4. La família hi viurà fins al 1946.</span></li>
-    <li><span class="when">c. 1876 i c. 1884</span><span class="what">Neixen en Ramón Membrado Sebastià —a Ortells— i la Joaquina Carceller Mampel, a Villores.</span></li>
-    <li class="key"><span class="when">25 de febrer de 1902 · Barcelona</span><span class="what">Neix l'Avi a les cinc de la tarda, al carrer d'en Grassot 112, al Camp d'en Grassot — llavors un barri nou de fàbriques ple de famílies immigrades. L'inscriuen l'endemà al jutjat de Gràcia.</span></li>
-    <li><span class="when">1902 – 1903 · Villores</span><span class="what">Neix l'Àvia. El seu pare consta als censos del poble el 1905 i el 1907.</span></li>
-    <li><span class="when">17 de gener de 1912 · Forcall</span><span class="what">Mor la Bàrbara Eixarch Eixarch, als 70. En declarar-ho, el seu fill Antonio diu que quatre dels vuit germans ja són morts — i la <strong>Consuelo</strong> és un d'ells. És l'única notícia que tenim de la seva mort.</span></li>
-    <li><span class="when">26 d'octubre de 1913 · Forcall</span><span class="what">Mor en Manuel Aguilar Sanz, als 70, a San Antonio 13. Deixa vídua la Joaquina Martí Borràs, que ja no tornarà a constar mai més a Forcall.</span></li>
-    <li class="key"><span class="when">1916 · Villores</span><span class="what">Mor en Ramón Membrado. És a la llista de 1916 i el 1917 ja no hi és.</span></li>
-    <li><span class="when">26 de novembre de 1919 · Forcall</span><span class="what">Mor en Manuel Escorihuela Bordàs, als 80, de diarrea aguda, vidu. És l'últim dels quatre avis de l'Avi que se'n va.</span></li>
-    <li class="key"><span class="when">c. 1918 · Villores</span><span class="what">Es casen els dos vidus. Dos anys després, en Josep Aguilar Martí apareix per primera vegada al cens de Villores, al carrer Alta 14.</span></li>
-    <li class="key"><span class="when">c. 1922 · Villores</span><span class="what">Es casen l'Avi i l'Àvia, de 20 i 19 anys, havent crescut com a germanastres.</span></li>
-    <li><span class="when">1923 · 1928 · 1930 · 1933</span><span class="what">Neixen la Consuelo, la Ramona, la Carmen i la Josefa. Les dues del mig moren al primer any.</span></li>
-    <li><span class="when">1932 → 1935 · Villores</span><span class="what">L'Àvia passa de constar com a analfabeta a saber llegir i escriure.</span></li>
-    <li class="key"><span class="when">13 de juliol de 1940 · Villores</span><span class="what">Mor l'Àvia, als 37 anys. La Yaya en té 7.</span></li>
-    <li class="key"><span class="when">30 d'agost de 1947</span><span class="what">La família baixa a Barcelona, l'endemà de morir Manolete. El cens del poble, tancat el juny del 1946, encara els recull; al del 1951 ja no hi són.</span></li>
-    <li><span class="when">1951 · Villores</span><span class="what">El Tio Sisco consta com a cap de casa a Alta 44.</span></li>
-    <li><span class="when">1956 · Villores</span><span class="what">Ja no hi ha ningú al número 44 del carrer Alta.</span></li>
-  </ol>
-</section>
-
-<section>
-  <h2>El que encara no sabem</h2>
-  <p class="lede">Queden set forats a l'arbre, i val la pena saber quins són: <strong>no és el mateix una data que no tenim que una persona de qui no sabem res.</strong></p>
-
-  <div class="gen">
-    <div class="gen-head"><h3>La branca de Forcall</h3><span>el que queda obert després de les set actes</span></div>
-    <div class="cards">
-      <article class="p unknown">
-        <h4>Com es deia el rebesavi: José, Manuel o José Manuel</h4>
-        <p class="alias">Arxiu Diocesà de Tortosa</p>
-        <p class="note">La partida del net diu <strong>José</strong>; l'acta de defunció del fill diu <strong>Manuel</strong>. Les dues lectures són clares, o sigui que <strong>no és problema de lletra sinó de fonts que no diuen el mateix</strong>. La més creïble és la de 1879, que es va fer copiant una certificació de la parròquia; la de 1913 la va declarar un nebot de memòria.</p>
-        <p class="src"><strong>Demanar:</strong> el <strong>bateig de Manuel Aguilar Sanz</strong>, Forcall, c. 1843. Nomena el pare amb el nom sencer i tanca la qüestió.</p>
-      </article>
-      <article class="p unknown">
-        <h4>On i quan va morir la Joaquina Martí Borràs</h4>
-        <p class="alias">Registre Civil de Villores o de Barcelona</p>
-        <p class="note">És <strong>l'última casella oberta de la fila dels avis</strong>. Era viva l'octubre de 1913, quan mor el seu marit, i <strong>a Forcall no hi ha cap defunció seva</strong>. El fill ja era a Barcelona des de feia anys: la hipòtesi natural és que se n'hi anés a viure, o que passés per Villores.</p>
-        <p class="src"><strong>Demanar:</strong> defunció a <strong>Villores</strong>, 1913-1935. Si no hi és, al <strong>Registre Civil de Barcelona</strong>.</p>
-      </article>
-      <article class="p unknown">
-        <h4>Els set anys entre el casament i l'Avi</h4>
-        <p class="alias">Registre Civil i parròquia de Forcall · Barcelona</p>
-        <p class="note">Es casen el <strong>novembre de 1894</strong> i el primer fill que coneixem neix el <strong>febrer de 1902</strong>. <strong>Set anys i tres mesos</strong> és molt per a un matrimoni d'aquella època. Que l'Avi fos fill únic sempre havia estat una suposició nostra; amb aquest buit al davant, es fa difícil de sostenir. <strong>Molt probablement hi va haver criatures entremig</strong>, i si van néixer abans de baixar a la ciutat, han de ser a Forcall.</p>
-        <p class="src"><strong>Demanar:</strong> els naixements <strong>Aguilar Escorihuela a Forcall, 1895-1901</strong>. I de passada, sabríem <strong>quin any van marxar</strong>.</p>
-      </article>
-      <article class="p unknown">
-        <h4>On i quan va morir la Consuelo</h4>
-        <p class="alias">Registre Civil de Barcelona</p>
-        <p class="note">La forquilla s'ha reduït de setze anys a deu: <strong>entre el febrer de 1902 i el gener de 1912</strong>. El problema és que <strong>gairebé tota aquesta finestra és cega</strong>: els índexs de defuncions de Barcelona no comencen fins al 1911, i del 1902 al 1910 només hi ha els registres per ordre de data.</p>
-        <p class="src"><strong>Demanar:</strong> una <strong>cerca per índex</strong> al Registre Civil de Barcelona, 1902-1912. És el tipus de cerca que el model en paper accepta i el formulari en línia no.</p>
-      </article>
-    </div>
+<div class="gen">
+  <div class="gen-head"><h3>La branca de Villores</h3><span>Carceller · Mampel</span></div>
+  <div class="cards">
+    <article class="p unknown">
+      <h4>Els pares de la Joaquina Carceller Mampel</h4>
+      <p class="alias">Registre Civil de Villores</p>
+      <p class="note">D'ella en sabem la casa, els fills, l'edat i que va morir als 63 anys fora del poble — però <strong>dels seus pares no en sabem res</strong>, ni tan sols consten a l'arbre. És l'única besàvia sense arrel dibuixada, i la més fàcil de resoldre de totes: va néixer cap al 1884 i el registre hi és des del 1871.</p>
+      <p class="src"><strong>Demanar:</strong> partida literal de naixement, c. 1884 (marge 1882-1886). I la de <strong>Felipe Carceller Mampel</strong>, c. 1875, per confirmar que el carter del poble era germà seu.</p>
+    </article>
   </div>
+</div>
 
-  <div class="gen">
-    <div class="gen-head"><h3>La branca d'Ortells</h3><span>Membrado · Sebastià</span></div>
-    <div class="cards">
-      <article class="p unknown">
-        <h4>Els pares d'en Ramón Membrado</h4>
-        <p class="alias">Arxiu Diocesà de Tortosa</p>
-        <p class="note">Les dues caselles de dalt a la dreta de l'arbre: <strong>no en tenim els noms</strong>, només la casa —el carrer Capdevila— i una forquilla d'edat. Aquesta és la llacuna més antiga de tot l'arbre, i cap cens la pot omplir: els homes no hi entren fins als 25 anys i les llistes d'Ortells s'acaben.</p>
-        <p class="src"><strong>Demanar:</strong> llibre de baptismes d'<strong>Ortells</strong>, c. 1876. Un sol assentament dona <strong>els pares i els quatre avis</strong>. Villores, Ortells i Forcall van ser del bisbat de Tortosa fins al 1960.</p>
-      </article>
-      <article class="p unknown">
-        <h4>En Domingo: pare o germà?</h4>
-        <p class="alias">Registre Civil de Morella</p>
-        <p class="note">A tota la comarca només hi ha <strong>tres Membrado Sebastià</strong>: en Domingo (1846), la Melchora (1862) i en Ramón (1876). O són tres germans, o en Domingo és el pare d'en Ramón. <strong>De la resposta depèn una generació sencera</strong>, i trenta anys de diferència en la data del pare.</p>
-        <p class="src"><strong>Demanar:</strong> acta de matrimoni de la <strong>Melchora amb Juan Boix Molinos</strong>, c. 1885. Nomena els pares d'ella: si són els mateixos que els d'en Ramón, són germans i queda resolt sense dependre del llibre d'Ortells.</p>
-      </article>
-    </div>
+<div class="gen">
+  <div class="gen-head"><h3>La casa d'Alta 44</h3><span>el que el cens electoral no pot dir mai</span></div>
+  <div class="cards">
+    <article class="p unknown">
+      <h4>Si l'Avi tenia germans</h4>
+      <p class="alias">Arxiu Municipal Contemporani de Barcelona</p>
+      <p class="note">El donàvem per fill únic perquè no n'havia sortit cap altre, <strong>i ara sabem que els pares s'havien casat set anys abans que ell naixés</strong>. El padró del carrer d'en Grassot donaria la casa sencera —qui hi vivia, l'edat, el parentiu i el poble de cadascú— i de passada diria si la Consuelo encara era viva a cada tall.</p>
+      <p class="src"><strong>Demanar:</strong> padró municipal d'habitants, <strong>Grassot 112, 1900-1918</strong>. Comprovat que <strong>no és a FamilySearch</strong>: cal anar-hi en persona, amb cita.</p>
+    </article>
+    <article class="p unknown">
+      <h4>Les dates exactes de les morts</h4>
+      <p class="alias">Registre Civil i cementiri de Villores</p>
+      <p class="note">De la làpida en traiem <strong>edats, no dates</strong>: en Josep va morir als 64 i la Joaquina als 63, i d'aquí surten el «c. 1938-39» i el «c. 1947». D'en Ramón sabem l'any (1916) perquè és a la llista d'aquell any i no a la del següent, però no el dia.</p>
+      <p class="src"><strong>Demanar:</strong> actes de defunció de 1916, c. 1938-39 i c. 1947, i el <strong>llibre de registre del cementiri</strong>, que dona també el nínxol i els trasllats de restes.</p>
+    </article>
+    <article class="p unknown">
+      <h4>Les dues criatures</h4>
+      <p class="alias">Registre Civil de Villores</p>
+      <p class="note">La <strong>Ramona</strong> (1928-29) i la <strong>Carmen</strong> (1930-31) <strong>no deixen rastre enlloc</strong>: ni al cens, que només recull adults, ni a la làpida. Tot el que en sabem ve de la família. Són les úniques dues persones de l'arbre sense cap document al darrere.</p>
+      <p class="src"><strong>Demanar:</strong> partides de naixement i actes de defunció, 1928-1931.</p>
+    </article>
   </div>
+</div>
 
-  <div class="gen">
-    <div class="gen-head"><h3>La branca de Villores</h3><span>Carceller · Mampel</span></div>
-    <div class="cards">
-      <article class="p unknown">
-        <h4>Els pares de la Joaquina Carceller Mampel</h4>
-        <p class="alias">Registre Civil de Villores</p>
-        <p class="note">D'ella en sabem la casa, els fills, l'edat i que va morir als 63 anys fora del poble — però <strong>dels seus pares no en sabem res</strong>, ni tan sols consten a l'arbre. És l'única besàvia sense arrel dibuixada, i la més fàcil de resoldre de totes: va néixer cap al 1884 i el registre hi és des del 1871.</p>
-        <p class="src"><strong>Demanar:</strong> partida literal de naixement, c. 1884 (marge 1882-1886). I la de <strong>Felipe Carceller Mampel</strong>, c. 1875, per confirmar que el carter del poble era germà seu.</p>
-      </article>
-    </div>
+<p class="lede" style="margin-top:26px">Quan aquest arbre diu que algú «no hi és», vol dir que <strong>s'ha buscat a tots els pobles dels Ports</strong>, les 438 llistes, no només als que quedaven a mà.</p>
+</div></section>
+
+<section class="sec" id="fuentes"><div class="wide">
+<h2>Fonts</h2>
+<h3 class="nh">D'on surt cada cosa</h3>
+<p class="lede">Tot aquest arbre es reconstrueix amb <strong>tres fonts</strong>, i cadascuna pot dir unes coses i no en pot dir unes altres. Val la pena saber-ho abans de creure's res.</p>
+
+<div class="cards">
+  <article class="p">
+    <h4>438 llistes electorals dels Ports</h4>
+    <p class="yrs">1895 – 1956 · quinze pobles</p>
+    <p class="note"><strong>Diuen:</strong> qui vivia a cada poble, a quin carrer i número, l'edat declarada, l'ofici i si sabia llegir i escriure.<br><br><strong>No diuen:</strong> hi surt <strong>només qui tenia edat de votar</strong> —25 anys fins al 1931, 23 durant la República, 21 des del 1946— i <strong>les dones no hi entren fins al 1925</strong>, i llavors només si eren vídues o solteres al capdavant d'una casa.</p>
+    <p class="src">Per això hi ha gent de la família que no hi surt mai. No vol dir que no hi fossin.</p>
+  </article>
+
+  <article class="p">
+    <h4>La partida de naixement de l'Avi</h4>
+    <p class="yrs">Barcelona, 25 de febrer de 1902</p>
+    <p class="note"><strong>Diu:</strong> el nom dels dos pares, <strong>d'on eren naturals</strong>, la seva edat, el carrer i el número, el dia i l'hora, i <strong>els noms de pila dels quatre avis</strong>.<br><br><strong>No diu:</strong> els <strong>cognoms</strong> dels avis — llevat d'un, el de l'àvia materna, escrit en una lletra que costa.</p>
+    <p class="src">És d'aquí que surt tot el que sabem de la banda de Forcall.</p>
+  </article>
+
+  <article class="p">
+    <h4>La làpida del cementiri de Villores</h4>
+    <p class="yrs">nínxols 9 i 20</p>
+    <p class="note"><strong>Diu:</strong> la data exacta de la mort de l'Àvia —13 de juliol de 1940— i <strong>l'edat en morir</strong> dels seus pares polítics.<br><br><strong>No diu:</strong> cap data per a aquests dos. La làpida del nínxol 9 només porta edats, sense any.</p>
+    <p class="src">Les edats de la làpida creuades amb l'any de naixement del cens és el que dona les dates de mort aproximades.</p>
+  </article>
+
+  <article class="p">
+    <h4>Set actes del Registre Civil de Forcall</h4>
+    <p class="yrs">1874 – 1919 · arribades el setembre de 2026</p>
+    <p class="note"><strong>Diuen:</strong> el <strong>dia i l'hora</strong> de cada naixement i de cada mort, l'ofici, el carrer i el número, la causa de la mort, <strong>els noms dels pares i dels quatre avis</strong> de qui hi surt, i quants fills va tenir cada matrimoni i quants n'havien mort.<br><br><strong>No diuen:</strong> res d'<strong>abans del 1871</strong>. El Registre Civil de Forcall comença aquell any; la gent de la fila de dalt de l'arbre hi surt només <strong>nomenada a les actes dels fills</strong>, sense dates.</p>
+    <p class="src">Són la font més rica de tot l'arbre: quatre demanades i tres que l'ajuntament va localitzar pel seu compte. Per a tot el que és anterior al 1871, la porta següent és l'arxiu diocesà.</p>
+  </article>
+</div>
+
+<div class="gen" style="margin-top:40px">
+  <div class="curio">
+    <p class="kicker">Una curiositat de la partida</p>
+    <h3>L'Avi no es deia només José</h3>
+    <p>La partida de 1902 té una columna de <strong>«Nombres»</strong> que a la família no havia arribat mai. Hi consten <strong>tres noms de pila</strong>, no un. El nom sencer amb què el van inscriure era:</p>
+    <p class="fullname">José&nbsp;Manuel&nbsp;Joaquín Aguilar&nbsp;Escorihuela</p>
+    <p>A casa es va quedar el primer i prou. Però mira d'on surten els altres dos:</p>
+    <ul class="naming">
+      <li><span class="nm">José</span><span>del <strong>pare</strong>, José Aguilar Martí</span></li>
+      <li><span class="nm">Manuel</span><span>dels <strong>dos avis alhora</strong>: el patern es deia Manuel Aguilar i el matern, Manuel Escorihuela</span></li>
+      <li><span class="nm">Joaquín</span><span>de l'<strong>àvia paterna</strong>, Joaquina Martí, passat a masculí</span></li>
+    </ul>
+    <p>És la regla castellana d'aquella època, aplicada al peu de la lletra: primer el pare, després els avis. I té una conseqüència que no és només anecdòtica — <strong>el nom del nen confirma pel seu compte els noms dels avis</strong> que hi ha escrits a les columnes del costat. El mateix full ho diu dues vegades per camins diferents.</p>
+    <p class="src" style="border-top:1px solid var(--rule); padding-top:10px; margin-top:16px"><strong>Font:</strong> <a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSF-T?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324" target="_blank" rel="noopener">partida de naixement, imatge 528</a>, columna «Nombres». A la seva fila el <strong>dia i el mes són cometes de repetició</strong>: el 25 de febrer surt de llegir cap amunt fins a la data escrita sencera. L'hora (17 h) i el número de registre (2081) sí que són seus.</p>
   </div>
+</div>
 
-  <div class="gen">
-    <div class="gen-head"><h3>La casa d'Alta 44</h3><span>el que el cens electoral no pot dir mai</span></div>
-    <div class="cards">
-      <article class="p unknown">
-        <h4>Si l'Avi tenia germans</h4>
-        <p class="alias">Arxiu Municipal Contemporani de Barcelona</p>
-        <p class="note">El donàvem per fill únic perquè no n'havia sortit cap altre, <strong>i ara sabem que els pares s'havien casat set anys abans que ell naixés</strong>. El padró del carrer d'en Grassot donaria la casa sencera —qui hi vivia, l'edat, el parentiu i el poble de cadascú— i de passada diria si la Consuelo encara era viva a cada tall.</p>
-        <p class="src"><strong>Demanar:</strong> padró municipal d'habitants, <strong>Grassot 112, 1900-1918</strong>. Comprovat que <strong>no és a FamilySearch</strong>: cal anar-hi en persona, amb cita.</p>
-      </article>
-      <article class="p unknown">
-        <h4>Les dates exactes de les morts</h4>
-        <p class="alias">Registre Civil i cementiri de Villores</p>
-        <p class="note">De la làpida en traiem <strong>edats, no dates</strong>: en Josep va morir als 64 i la Joaquina als 63, i d'aquí surten el «c. 1938-39» i el «c. 1947». D'en Ramón sabem l'any (1916) perquè és a la llista d'aquell any i no a la del següent, però no el dia.</p>
-        <p class="src"><strong>Demanar:</strong> actes de defunció de 1916, c. 1938-39 i c. 1947, i el <strong>llibre de registre del cementiri</strong>, que dona també el nínxol i els trasllats de restes.</p>
-      </article>
-      <article class="p unknown">
-        <h4>Les dues criatures</h4>
-        <p class="alias">Registre Civil de Villores</p>
-        <p class="note">La <strong>Ramona</strong> (1928-29) i la <strong>Carmen</strong> (1930-31) <strong>no deixen rastre enlloc</strong>: ni al cens, que només recull adults, ni a la làpida. Tot el que en sabem ve de la família. Són les úniques dues persones de l'arbre sense cap document al darrere.</p>
-        <p class="src"><strong>Demanar:</strong> partides de naixement i actes de defunció, 1928-1931.</p>
-      </article>
-    </div>
-  </div>
+<h3 class="nh">Els documents, un per un</h3>
+<p class="lede">Tot el que hi ha enllaçat aquí és <strong>consultable des de casa</strong>. L'arxiu de censos de la Diputació de Castelló és obert i no demana res; FamilySearch demana un <strong>compte gratuït</strong>. Els enllaços van a la imatge concreta, no a la col·lecció.</p>
 
-  <p class="lede" style="margin-top:26px">Quan aquest arbre diu que algú «no hi és», vol dir que <strong>s'ha buscat a tots els pobles dels Ports</strong>, les 438 llistes, no només als que quedaven a mà.</p>
-</section>
+<h3 class="fh">Els censos electorals dels Ports</h3>
+<p><a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos" target="_blank" rel="noopener">Arxiu Digital de la Diputació de Castelló</a> — d'aquí surten <strong>438 llistes</strong>: les trenta de Villores entre 1895 i 1956 i les dels catorze municipis restants dels Ports. Es navega amb els selectors <em>LOCALIDAD</em> i <em>ANYO</em>; cada llista es baixa en PDF.</p>
+<div class="tw"><table>
+  <thead><tr><th>Municipi</th><th>Què hi vam trobar</th></tr></thead>
+  <tbody>
+    <tr><td class="num">Villores</td><td>La casa d'Alta 44 sencera, de 1895 a 1956. La columna vertebral de tot l'arbre</td></tr>
+    <tr><td class="num">Forcall</td><td>En <strong>Manuel Escorihuela Bordàs</strong> a Mossén Carceller 16, i el seu fill <strong>Vicente Escorihuela Eixarch</strong> a la mateixa porta — d'on surt el cognom de la Bàrbara</td></tr>
+    <tr><td class="num">Ortells</td><td>En <strong>Domingo Membrado Sebastià</strong>, 49 anys, carrer Capdevila, 1895. L'únic Membrado del poble</td></tr>
+    <tr><td class="num">Morella</td><td>La <strong>Melchora Membrado Sebastià</strong> i la casa dels Boix Membrado a la plaça, de 1907 a 1946</td></tr>
+    <tr><td class="num">Els altres 11</td><td>Res de la família directa. Serveixen per poder dir «no hi és» amb tota la comarca mirada</td></tr>
+  </tbody>
+</table></div>
 
-<section>
-  <h2 id="fonts">Fonts</h2>
-  <p class="lede">Tot el que hi ha enllaçat aquí és <strong>consultable des de casa</strong>. L'arxiu de censos de la Diputació de Castelló és obert i no demana res; FamilySearch demana un <strong>compte gratuït</strong>. Els enllaços van a la imatge concreta, no a la col·lecció.</p>
+<h3 class="fh">La partida de naixement de l'Avi</h3>
+<p>Índex del Registre Civil de Barcelona, <em>volum 211, any 1902</em>, microfilmat a l'Arxiu Municipal Administratiu i digitalitzat dins la col·lecció <a href="https://www.familysearch.org/search/collection/2015324" target="_blank" rel="noopener">Spain, Barcelona, Municipal Records</a>. La lletra A de 1902 va de la imatge 523 a la 560.</p>
+<div class="tw"><table>
+  <thead><tr><th>Imatge</th><th>Què hi ha</th><th>Enllaç</th></tr></thead>
+  <tbody>
+    <tr><td class="num">521</td><td>Fitxa de filmació: «vol. 211 — índice · año 1902». La prova de l'any</td><td class="lnk"><a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HS5-D?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324" target="_blank" rel="noopener">obrir</a></td></tr>
+    <tr><td class="num">522</td><td>Pàgina divisòria de la lletra A, en blanc</td><td class="lnk"><a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSL-1?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324" target="_blank" rel="noopener">obrir</a></td></tr>
+    <tr><td class="num">523</td><td>Primera pàgina d'entrades de la A (gener)</td><td class="lnk"><a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5H38-G?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324" target="_blank" rel="noopener">obrir</a></td></tr>
+    <tr><td class="num"><strong>528</strong></td><td><strong>La partida de l'Avi.</strong> Aguilar · Escoriuela — pares naturals de <strong>Forcall</strong>, avis paterns Manuel i Joaquina, avis materns Manuel i Bàrbara Eixart, carrer <strong>Grasot 112</strong>, dia 25 de febrer a les 17 h, jutjat de Gràcia, registre municipal 2081</td><td class="lnk"><strong><a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSF-T?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324" target="_blank" rel="noopener">obrir</a></strong></td></tr>
+  </tbody>
+</table></div>
 
-  <h3 class="fh">Els censos electorals dels Ports</h3>
-  <p><a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos" target="_blank" rel="noopener">Arxiu Digital de la Diputació de Castelló</a> — d'aquí surten <strong>438 llistes</strong>: les trenta de Villores entre 1895 i 1956 i les dels catorze municipis restants dels Ports. Es navega amb els selectors <em>LOCALIDAD</em> i <em>ANYO</em>; cada llista es baixa en PDF.</p>
-  <div class="tw"><table>
-    <thead><tr><th>Municipi</th><th>Què hi vam trobar</th></tr></thead>
-    <tbody>
-      <tr><td class="num">Villores</td><td>La casa d'Alta 44 sencera, de 1895 a 1956. La columna vertebral de tot l'arbre</td></tr>
-      <tr><td class="num">Forcall</td><td>En <strong>Manuel Escorihuela Bordàs</strong> a Mossén Carceller 16, i el seu fill <strong>Vicente Escorihuela Eixarch</strong> a la mateixa porta — d'on surt el cognom de la Bàrbara</td></tr>
-      <tr><td class="num">Ortells</td><td>En <strong>Domingo Membrado Sebastià</strong>, 49 anys, carrer Capdevila, 1895. L'únic Membrado del poble</td></tr>
-      <tr><td class="num">Morella</td><td>La <strong>Melchora Membrado Sebastià</strong> i la casa dels Boix Membrado a la plaça, de 1907 a 1946</td></tr>
-      <tr><td class="num">Els altres 11</td><td>Res de la família directa. Serveixen per poder dir «no hi és» amb tota la comarca mirada</td></tr>
-    </tbody>
-  </table></div>
+<h3 class="fh">La certificació literal de 1902</h3>
+<p>L'acta sencera, demanada al <strong>Ministeri de Justícia</strong> el 25 d'agost de 2026 i arribada el <strong>23 de setembre</strong>. Referència: <strong>acta 293 · Tom 94</strong> (Jutjat 2) · <strong>pàgina 100</strong> · secció 1a, Oficina General del Registre Civil de Barcelona. És un PDF signat electrònicament, verificable a <a href="https://sede.mjusticia.gob.es/es/comprobacion-autenticidad" target="_blank" rel="noopener">la seu del Ministeri</a>.</p>
+<div class="tw"><table>
+  <thead><tr><th>Què hi diu i l'índex no deia</th><th>Què <em>no</em> hi diu</th></tr></thead>
+  <tbody>
+    <tr><td>La mare es deia <strong>Consuelo</strong>, no Cándida</td><td>Els <strong>segons cognoms dels quatre avis</strong>: diu «Manuel y Joaquina» i «Manuel y Bárbara», igual que l'índex</td></tr>
+    <tr><td>Els quatre avis, «<strong>todos naturales de Forcall</strong>»</td><td>Cap <strong>anotació al marge</strong>: ni el casament de c. 1922 ni la mort de 1982</td></tr>
+    <tr><td>El pis: <strong>Grassot 112, primer</strong></td><td>Res sobre la Consuelo després del part</td></tr>
+    <tr><td>El pare hi consta <strong>casat</strong> i <strong>jornaler</strong>, de 29 anys</td><td rowspan="2"></td></tr>
+    <tr><td>Els <strong>testimonis</strong>: José González Estalella, d'Ibi, i Buenaventura Campalans, de Gràcia — tots dos del Passeig de Gràcia, <strong>cap dels dos dels Ports</strong></td></tr>
+  </tbody>
+</table></div>
 
-  <h3 class="fh">La partida de naixement de l'Avi</h3>
-  <p>Índex del Registre Civil de Barcelona, <em>volum 211, any 1902</em>, microfilmat a l'Arxiu Municipal Administratiu i digitalitzat dins la col·lecció <a href="https://www.familysearch.org/search/collection/2015324" target="_blank" rel="noopener">Spain, Barcelona, Municipal Records</a>. La lletra A de 1902 va de la imatge 523 a la 560.</p>
-  <div class="tw"><table>
-    <thead><tr><th>Imatge</th><th>Què hi ha</th><th>Enllaç</th></tr></thead>
-    <tbody>
-      <tr><td class="num">521</td><td>Fitxa de filmació: «vol. 211 — índice · año 1902». La prova de l'any</td><td class="lnk"><a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HS5-D?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324" target="_blank" rel="noopener">obrir</a></td></tr>
-      <tr><td class="num">522</td><td>Pàgina divisòria de la lletra A, en blanc</td><td class="lnk"><a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSL-1?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324" target="_blank" rel="noopener">obrir</a></td></tr>
-      <tr><td class="num">523</td><td>Primera pàgina d'entrades de la A (gener)</td><td class="lnk"><a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5H38-G?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324" target="_blank" rel="noopener">obrir</a></td></tr>
-      <tr><td class="num"><strong>528</strong></td><td><strong>La partida de l'Avi.</strong> Aguilar · Escoriuela — pares naturals de <strong>Forcall</strong>, avis paterns Manuel i Joaquina, avis materns Manuel i Bàrbara Eixart, carrer <strong>Grasot 112</strong>, dia 25 de febrer a les 17 h, jutjat de Gràcia, registre municipal 2081</td><td class="lnk"><strong><a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSF-T?wc=QZ7W-F3F%3A335015101%2C335015102%2C1586605701&amp;cc=2015324" target="_blank" rel="noopener">obrir</a></strong></td></tr>
-    </tbody>
-  </table></div>
+<h3 class="fh">Les set actes de Forcall</h3>
+<p>Enviades per l'<strong>Ajuntament de Forcall</strong> el 24 de setembre de 2026. <strong>No són consultables en línia</strong>: es demanen per correu a l'ajuntament, que fa de Registre Civil. Els PDF són al repositori de la recerca.</p>
+<div class="tw"><table>
+  <thead><tr><th>Acta</th><th>Data</th><th>Què va donar</th></tr></thead>
+  <tbody>
+    <tr><td>Naixement de <strong>José Aguilar Martí</strong></td><td class="num">19-10-1872</td><td>Els avis: <strong>José Aguilar</strong> × <strong>María Sanz</strong> (Luco) i <strong>Pascual Martí</strong> (Morella) × <strong>María Borràs</strong></td></tr>
+    <tr><td>Naixement de <strong>María Consuelo Escorihuela Eixarch</strong></td><td class="num">21-11-1874</td><td>Els avis: <strong>Miguel Escorihuela</strong> × <strong>Rosa Bordàs</strong> i <strong>Jaime Eixarch</strong> × <strong>Tomasa Eixarch</strong>. I el nom sencer, que tanca el cas «Cándida»</td></tr>
+    <tr><td><strong>Matrimoni</strong> dels dos</td><td class="num">10-11-1894</td><td>Forcall, església de l'Assumpció. Ell 22 anys i jornaler, ella 20. <strong>Ella no va saber signar</strong></td></tr>
+    <tr><td>Naixement de <strong>Vicente Escorihuela Eixarch</strong></td><td class="num">16-2-1885</td><td>El germà petit. Confirma els avis per segona via i situa la casa al carrer <strong>San Vicente</strong> el 1885</td></tr>
+    <tr><td>Defunció de <strong>Manuel Aguilar Sanz</strong></td><td class="num">26-10-1913</td><td><strong>San Antonio 13</strong>, 70 anys, jornaler, set fills. Confirma el candidat que els censos assenyalaven</td></tr>
+    <tr><td>Defunció de <strong>Bàrbara Eixarch Eixarch</strong></td><td class="num">17-1-1912</td><td>70 anys, Cura Carceller. <strong>Vuit fills, quatre morts</strong> — i un d'ells és la Consuelo</td></tr>
+    <tr><td>Defunció de <strong>Manuel Escorihuela Bordàs</strong></td><td class="num">26-11-1919</td><td>80 anys, de diarrea aguda, vidu. Fill de Miguel Escorihuela i Rosa Bordàs</td></tr>
+  </tbody>
+</table></div>
+<p>La vuitena que hauria completat la fila, la <strong>defunció de la Joaquina Martí Borràs</strong>, <strong>no existeix a Forcall</strong>: l'acta del seu marit no la fa constar com a difunta, o sigui que el 1913 era viva i va morir en un altre lloc.</p>
 
-  <h3 class="fh">La certificació literal de 1902</h3>
-  <p>L'acta sencera, demanada al <strong>Ministeri de Justícia</strong> el 25 d'agost de 2026 i arribada el <strong>23 de setembre</strong>. Referència: <strong>acta 293 · Tom 94</strong> (Jutjat 2) · <strong>pàgina 100</strong> · secció 1a, Oficina General del Registre Civil de Barcelona. És un PDF signat electrònicament, verificable a <a href="https://sede.mjusticia.gob.es/es/comprobacion-autenticidad" target="_blank" rel="noopener">la seu del Ministeri</a>.</p>
-  <div class="tw"><table>
-    <thead><tr><th>Què hi diu i l'índex no deia</th><th>Què <em>no</em> hi diu</th></tr></thead>
-    <tbody>
-      <tr><td>La mare es deia <strong>Consuelo</strong>, no Cándida</td><td>Els <strong>segons cognoms dels quatre avis</strong>: diu «Manuel y Joaquina» i «Manuel y Bárbara», igual que l'índex</td></tr>
-      <tr><td>Els quatre avis, «<strong>todos naturales de Forcall</strong>»</td><td>Cap <strong>anotació al marge</strong>: ni el casament de c. 1922 ni la mort de 1982</td></tr>
-      <tr><td>El pis: <strong>Grassot 112, primer</strong></td><td>Res sobre la Consuelo després del part</td></tr>
-      <tr><td>El pare hi consta <strong>casat</strong> i <strong>jornaler</strong>, de 29 anys</td><td rowspan="2"></td></tr>
-      <tr><td>Els <strong>testimonis</strong>: José González Estalella, d'Ibi, i Buenaventura Campalans, de Gràcia — tots dos del Passeig de Gràcia, <strong>cap dels dos dels Ports</strong></td></tr>
-    </tbody>
-  </table></div>
+<h3 class="fh">La cerca de text complet de FamilySearch</h3>
+<p>La <a href="https://www.familysearch.org/search/full-text/results" target="_blank" rel="noopener">cerca de text complet</a> passa OCR automàtic per damunt d'imatges que ningú no ha indexat, i per a Espanya cobreix sobretot <strong>quintes, allistaments i protocols notarials</strong>. És d'aquí que surt la colònia de Villores al Vallès.</p>
+<div class="tw"><table>
+  <thead><tr><th>Cerca</th><th>Què va donar</th></tr></thead>
+  <tbody>
+    <tr><td class="num">«natural de Villores»</td><td><strong>79 resultats.</strong> Tret el soroll —hi ha un llinatge «de San Villores» a Alcántara i uns quants topònims homònims—: una vintena de documents de <strong>Terrassa</strong> (1916-1952), tres expedients matrimonials de <strong>Martorell</strong> (1933), dues defuncions i tres quintes de Vilanova i Sitges</td></tr>
+    <tr><td class="num">«natural de Ortells»</td><td><strong>6 resultats</strong>, un d'ells als allistaments de Terrassa de 1920-23</td></tr>
+  </tbody>
+</table></div>
+<p>Els noms que hi surten —<strong>Matías Balaguer Mampel</strong>, <strong>Antonio Balaguer Bonet</strong>, <strong>José Adell Palos</strong>, <strong>Antonio Carbó Portanet</strong>, <strong>Bartolomé Bonet Milian</strong> del <em>carrer Alta número dotze</em>— no són de la família directa, però són els veïns del nostre carrer. <em>L'OCR llegeix «Adell» com a «Avell» o «Adele» segons la pàgina: en aquesta eina els cognoms no es poden buscar d'una sola manera.</em></p>
 
-  <h3 class="fh">Les set actes de Forcall</h3>
-  <p>Enviades per l'<strong>Ajuntament de Forcall</strong> el 24 de setembre de 2026. <strong>No són consultables en línia</strong>: es demanen per correu a l'ajuntament, que fa de Registre Civil. Els PDF són al repositori de la recerca.</p>
-  <div class="tw"><table>
-    <thead><tr><th>Acta</th><th>Data</th><th>Què va donar</th></tr></thead>
-    <tbody>
-      <tr><td>Naixement de <strong>José Aguilar Martí</strong></td><td class="num">19-10-1872</td><td>Els avis: <strong>José Aguilar</strong> × <strong>María Sanz</strong> (Luco) i <strong>Pascual Martí</strong> (Morella) × <strong>María Borràs</strong></td></tr>
-      <tr><td>Naixement de <strong>María Consuelo Escorihuela Eixarch</strong></td><td class="num">21-11-1874</td><td>Els avis: <strong>Miguel Escorihuela</strong> × <strong>Rosa Bordàs</strong> i <strong>Jaime Eixarch</strong> × <strong>Tomasa Eixarch</strong>. I el nom sencer, que tanca el cas «Cándida»</td></tr>
-      <tr><td><strong>Matrimoni</strong> dels dos</td><td class="num">10-11-1894</td><td>Forcall, església de l'Assumpció. Ell 22 anys i jornaler, ella 20. <strong>Ella no va saber signar</strong></td></tr>
-      <tr><td>Naixement de <strong>Vicente Escorihuela Eixarch</strong></td><td class="num">16-2-1885</td><td>El germà petit. Confirma els avis per segona via i situa la casa al carrer <strong>San Vicente</strong> el 1885</td></tr>
-      <tr><td>Defunció de <strong>Manuel Aguilar Sanz</strong></td><td class="num">26-10-1913</td><td><strong>San Antonio 13</strong>, 70 anys, jornaler, set fills. Confirma el candidat que els censos assenyalaven</td></tr>
-      <tr><td>Defunció de <strong>Bàrbara Eixarch Eixarch</strong></td><td class="num">17-1-1912</td><td>70 anys, Cura Carceller. <strong>Vuit fills, quatre morts</strong> — i un d'ells és la Consuelo</td></tr>
-      <tr><td>Defunció de <strong>Manuel Escorihuela Bordàs</strong></td><td class="num">26-11-1919</td><td>80 anys, de diarrea aguda, vidu. Fill de Miguel Escorihuela i Rosa Bordàs</td></tr>
-    </tbody>
-  </table></div>
-  <p>La vuitena que hauria completat la fila, la <strong>defunció de la Joaquina Martí Borràs</strong>, <strong>no existeix a Forcall</strong>: l'acta del seu marit no la fa constar com a difunta, o sigui que el 1913 era viva i va morir en un altre lloc.</p>
+<h3 class="fh">La làpida del cementiri de Villores</h3>
+<p><a href="https://es.geneanet.org/cementerio/view/11028303/persons/" target="_blank" rel="noopener">Fitxa del cementiri a Geneanet</a>, indexada per l'usuari <em>abourgeois3</em>. Dona la data de la mort de l'Àvia —13 de juliol de 1940— i les <strong>edats</strong> en morir d'en Josep Aguilar Martí i de la Joaquina Carceller Mampel, però <strong>no les dates</strong>: d'aquí que les seves morts surtin com a «c. 1938-39» i «c. 1947».</p>
 
-  <h3 class="fh">La cerca de text complet de FamilySearch</h3>
-  <p>La <a href="https://www.familysearch.org/search/full-text/results" target="_blank" rel="noopener">cerca de text complet</a> passa OCR automàtic per damunt d'imatges que ningú no ha indexat, i per a Espanya cobreix sobretot <strong>quintes, allistaments i protocols notarials</strong>. És d'aquí que surt la colònia de Villores al Vallès.</p>
-  <div class="tw"><table>
-    <thead><tr><th>Cerca</th><th>Què va donar</th></tr></thead>
-    <tbody>
-      <tr><td class="num">«natural de Villores»</td><td><strong>79 resultats.</strong> Tret el soroll —hi ha un llinatge «de San Villores» a Alcántara i uns quants topònims homònims—: una vintena de documents de <strong>Terrassa</strong> (1916-1952), tres expedients matrimonials de <strong>Martorell</strong> (1933), dues defuncions i tres quintes de Vilanova i Sitges</td></tr>
-      <tr><td class="num">«natural de Ortells»</td><td><strong>6 resultats</strong>, un d'ells als allistaments de Terrassa de 1920-23</td></tr>
-    </tbody>
-  </table></div>
-  <p>Els noms que hi surten —<strong>Matías Balaguer Mampel</strong>, <strong>Antonio Balaguer Bonet</strong>, <strong>José Adell Palos</strong>, <strong>Antonio Carbó Portanet</strong>, <strong>Bartolomé Bonet Milian</strong> del <em>carrer Alta número dotze</em>— no són de la família directa, però són els veïns del nostre carrer. <em>L'OCR llegeix «Adell» com a «Avell» o «Adele» segons la pàgina: en aquesta eina els cognoms no es poden buscar d'una sola manera.</em></p>
+<h3 class="fh">El que no és a internet</h3>
+<p>El <strong>padró municipal de Barcelona</strong> no és a FamilySearch — comprovat: els dos volums que ho semblen són fragments de cases de pagès, no del Camp d'en Grassot. Els <strong>llibres parroquials</strong> d'Ortells, Forcall i Villores tampoc. I el <strong>Registre Civil de Forcall, Villores i Morella</strong> només respon per carta. Tot això és el que hi ha a la secció de dalt.</p>
+</div></section>
 
-  <h3 class="fh">La làpida del cementiri de Villores</h3>
-  <p><a href="https://es.geneanet.org/cementerio/view/11028303/persons/" target="_blank" rel="noopener">Fitxa del cementiri a Geneanet</a>, indexada per l'usuari <em>abourgeois3</em>. Dona la data de la mort de l'Àvia —13 de juliol de 1940— i les <strong>edats</strong> en morir d'en Josep Aguilar Martí i de la Joaquina Carceller Mampel, però <strong>no les dates</strong>: d'aquí que les seves morts surtin com a «c. 1938-39» i «c. 1947».</p>
-
-  <h3 class="fh">El que no és a internet</h3>
-  <p>El <strong>padró municipal de Barcelona</strong> no és a FamilySearch — comprovat: els dos volums que ho semblen són fragments de cases de pagès, no del Camp d'en Grassot. Els <strong>llibres parroquials</strong> d'Ortells, Forcall i Villores tampoc. I el <strong>Registre Civil de Forcall, Villores i Morella</strong> només respon per carta. Tot això és el que hi ha a la secció de dalt.</p>
-</section>
-
+<div class="wrap">
 <footer>
   <p><strong>La partida de naixement de l'Avi</strong> és a l'índex del Registre Civil de Barcelona de 1902 (volum 211), microfilmat a l'Arxiu Municipal Administratiu de Barcelona i consultable a FamilySearch: <a href="https://www.familysearch.org/ark:/61903/3:1:939Z-5HSF-T">imatge 528 del rotlle</a>. Cal compte gratuït.</p>
   <p><strong>D'on surt la resta.</strong> De <strong>438 llistes electorals</strong> digitalitzades per l'<a href="https://archivodigital.dipcas.es/ArchivoWeb/archivoBiblioHemero/censos">Arxiu de la Diputació de Castelló</a>: els trenta censos de Villores entre 1895 i 1956 i els de tots els altres catorze municipis dels Ports — Forcall, Ortells, Palanques, la Mata, Todolella, Cinctorres, Zorita, Olocau del Rei, Morella, Castellfort, Portell, Herbers, Vallibona i Xiva de Morella. Creuades amb la <a href="https://es.geneanet.org/cementerio/view/11028303/persons/">làpida del cementiri de Villores</a> i amb el que recorda la família.</p>
   <p>Aquestes llistes només recullen qui vivia al poble i tenia edat de votar — 25 anys fins al 1931, 23 durant la República i 21 des del 1946 — i les dones no hi van entrar fins al 1925, i només si eren vídues o solteres al capdavant d'una casa. Per això hi ha gent de la família que no hi surt mai: no vol dir que no hi fos.</p>
 </footer>
-
 </div>
+<script>
+(()=>{const l=[...document.querySelectorAll('nav.toc a')];if(!('IntersectionObserver'in window))return;
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){l.forEach(a=>a.removeAttribute('aria-current'));
+const a=l.find(a=>a.hash==='#'+e.target.id);if(a){a.setAttribute('aria-current','true');a.scrollIntoView({block:'nearest',inline:'nearest'})}}})},
+{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('section.sec').forEach(s=>o.observe(s))})();
+</script>
 
 </body>
 </html>

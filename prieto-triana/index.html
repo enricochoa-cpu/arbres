@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+<title>Los Prieto y Triana</title>
+<style>
+:root{
+  --paper:#EDEAE1; --card:#F8F6F0; --ink:#1C1A17; --muted:#5C5750;
+  --rule:#B9B2A0; --accent:#2A4472; --doc-fill:#D7E1F3; --warn:#7A4E22;
+  --display:"Superclarendon","Bookman Old Style","Bitstream Charter",Georgia,serif;
+  --body:"Charter","Bitstream Charter","Iowan Old Style",Georgia,serif;
+  --sans:"Avenir Next","Segoe UI",Inter,system-ui,-apple-system,sans-serif;
+  --data:var(--sans);
+  --rule-strong:#8A8271; --shadow:rgba(32,30,26,.07); --accent-soft:#DDE3EF;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#14161A; --card:#1C1F24; --ink:#EDEAE2; --muted:#B8B3A8;
+    --rule:#4C525C; --accent:#9CBBE6; --doc-fill:#26344C; --warn:#E0B678;
+    --rule-strong:#756F5D; --shadow:rgba(0,0,0,.4); --accent-soft:#242B38;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14161A; --card:#1C1F24; --ink:#EDEAE2; --muted:#B8B3A8;
+  --rule:#4C525C; --accent:#9CBBE6; --doc-fill:#26344C; --warn:#E0B678;
+  --rule-strong:#756F5D; --shadow:rgba(0,0,0,.4); --accent-soft:#242B38;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink); font-family:var(--body);
+  font-size:17px; line-height:1.62; margin:0; padding:0 24px 96px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px;margin:0 auto}
+.wide{max-width:1180px;margin:0 auto}
+
+header.top{padding:72px 0 30px;border-bottom:1px solid var(--rule);margin-bottom:38px}
+.eyebrow{font-family:var(--sans);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+h1{font-family:var(--display);font-size:clamp(38px,6.4vw,62px);line-height:1.02;margin:0 0 16px;font-weight:600;letter-spacing:-.015em;text-wrap:balance}
+.standfirst{font-size:19px;color:var(--muted);margin:0;max-width:56ch}
+.stamp{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:22px;letter-spacing:.03em}
+
+h2{font-family:var(--display);font-size:29px;font-weight:600;line-height:1.18;margin:60px 0 6px;letter-spacing:-.01em;text-wrap:balance}
+h2 + .dek{color:var(--muted);margin:0 0 22px;font-size:16px}
+h3{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:36px 0 12px}
+p{margin:0 0 18px}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+strong{font-weight:600}
+em{font-style:italic}
+
+.rule{height:1px;background:var(--rule);border:0;margin:52px 0}
+
+/* índice fijo: las mismas secciones en los cuatro árboles */
+nav.toc{
+  position:sticky;top:0;z-index:10;margin:0 -24px;padding:0 24px;
+  background:color-mix(in srgb,var(--paper) 90%,transparent);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+nav.toc ul{
+  max-width:1180px;margin:0 auto;padding:0;list-style:none;display:flex;gap:0 22px;
+  overflow-x:auto;scrollbar-width:none;font-family:var(--sans);font-size:13.5px;white-space:nowrap;
+}
+nav.toc ul::-webkit-scrollbar{display:none}
+nav.toc a{display:block;padding:13px 0 11px;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent}
+nav.toc a:hover{color:var(--ink)}
+nav.toc a[aria-current="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+section.sec{scroll-margin-top:52px;padding-top:8px}
+section.sec + section.sec{border-top:1px solid var(--rule);margin-top:64px}
+section.sec > div > h2:first-child{margin-top:48px}
+.pendiente{font-family:var(--sans);font-size:14.5px;color:var(--muted);border:1px dashed var(--rule);border-radius:8px;padding:16px 20px;margin:0 0 18px}
+
+/* leyenda */
+.legend{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:26px 28px;margin:0 0 14px}
+.legend p{font-size:16px}
+.legend p:last-child{margin-bottom:0}
+.keys{display:grid;gap:13px;margin:20px 0 22px;padding:0;list-style:none}
+.keys li{display:grid;grid-template-columns:82px 1fr;gap:16px;align-items:start;font-size:15px;line-height:1.45}
+.keys .sw{height:34px;border-radius:6px;display:block}
+.k-doc{background:var(--doc-fill);border:1.6px solid var(--accent)}
+.k-fam{background:var(--card);border:1.6px solid var(--accent)}
+.k-web{background:var(--card);border:1px solid var(--rule)}
+.k-grp{background:none;border:1px dashed var(--rule)}
+.keys b{font-weight:600}
+.keys span.n{color:var(--muted)}
+.marks{display:grid;gap:9px;margin:0;padding:16px 0 0;list-style:none;border-top:1px solid var(--rule);font-size:15px}
+.marks li{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:baseline}
+.marks .g{font-family:var(--sans);font-size:15px;color:var(--accent);text-align:center}
+
+/* árbol */
+.scroller{
+  overflow-x:auto;background:var(--card);border:1px solid var(--rule);
+  border-radius:10px;padding:20px;margin:0 0 12px;
+}
+.scroller svg{min-width:var(--tree-w,1200px);max-width:var(--tree-max,none);margin:0 auto;width:100%;height:auto;display:block;color:var(--ink)}
+.hint{font-family:var(--sans);font-size:13px;color:var(--muted);margin:0 0 8px}
+
+/* tablas */
+table{width:100%;border-collapse:collapse;font-size:15px;margin:0 0 22px}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--sans);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.data{font-family:var(--sans);font-size:13.5px;min-width:1020px;line-height:1.45}
+table.data th{position:sticky;top:0;background:var(--paper);z-index:1}
+table.data td{padding:10px 14px 10px 0}
+table.data tr:hover td{background:var(--card)}
+table.data .yr{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
+table.data .who{font-weight:600;color:var(--ink)}
+table.data .dash{color:var(--rule)}
+table.data .flag{color:var(--warn);font-weight:600}
+table.data .hit{color:var(--accent);font-weight:700}
+
+/* capítulos cronológicos */
+.chap{display:flex;align-items:baseline;gap:15px;margin:46px 0 14px;border-bottom:1px solid var(--rule);padding-bottom:8px;flex-wrap:wrap}
+.chap-yr{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);font-weight:700;flex:none}
+.chap-t{font-family:var(--display);font-size:22px;font-weight:600;line-height:1.2;margin:0;letter-spacing:-.005em;text-transform:none;color:var(--ink)}
+
+h4.sub{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:30px 0 10px}
+
+/* piezas */
+.pull{border-left:2px solid var(--accent);padding:2px 0 2px 20px;margin:26px 0;font-size:18px;color:var(--ink)}
+.pull span{display:block;font-family:var(--sans);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:9px}
+.note{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--warn);border-radius:8px;padding:16px 20px;margin:24px 0;font-size:15.5px}
+.note b{color:var(--warn)}
+.quote{font-family:var(--display);font-size:17px;background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:18px 22px;margin:22px 0;color:var(--ink)}
+ul.plain{list-style:none;padding:0;margin:0 0 20px}
+ul.plain li{padding:8px 0;border-bottom:1px solid var(--rule);font-size:15.5px}
+ul.plain li:last-child{border-bottom:0}
+.src{font-family:var(--sans);font-size:13px;color:var(--muted);display:block;margin-top:3px}
+
+/* vidas y mudanzas */
+.life{border-top:1px solid var(--rule);padding:26px 0 4px}
+.life:first-of-type{border-top:0;padding-top:6px}
+.life-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.life-head h4{font-family:var(--display);font-weight:600;font-size:21px;margin:0;line-height:1.2;letter-spacing:-.005em}
+.life-head .yrs{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.life p{font-size:16.5px;margin:0 0 16px;max-width:66ch}
+.life .why{color:var(--muted);font-style:italic}
+ol.moves{list-style:none;margin:0 0 6px;padding:0;border-top:1px solid var(--rule)}
+ol.moves li{
+  display:grid;grid-template-columns:84px minmax(150px,1.05fr) minmax(0,1.55fr);
+  gap:6px 16px;padding:10px 0;border-bottom:1px solid var(--rule);
+  font-family:var(--sans);font-size:14.5px;line-height:1.5;align-items:baseline;
+}
+ol.moves .yr{font-variant-numeric:tabular-nums;color:var(--muted);letter-spacing:.04em;font-size:13px}
+ol.moves .ad{font-weight:600;color:var(--ink)}
+ol.moves .ev{color:var(--muted)}
+ol.moves li.gap{grid-template-columns:78px 1fr;color:var(--muted);font-style:italic}
+ol.moves li.gap .ev{grid-column:2}
+a.map{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+a.map:hover{border-bottom-color:var(--accent)}
+a.map::after{content:"\2197";font-size:.8em;margin-left:3px;vertical-align:.15em;opacity:.75}
+
+/* qué falta */
+.lede{max-width:66ch;margin:0 0 20px}
+.gen{margin-top:42px}
+.gen-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:20px;flex-wrap:wrap}
+.gen-head h3{font-family:var(--display);font-weight:600;font-size:20px;margin:0;letter-spacing:0;text-transform:none;color:var(--ink)}
+.gen-head span{font-family:var(--sans);font-size:12px;color:var(--muted);letter-spacing:.05em}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.p{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:18px 20px 16px}
+.p.unknown{border-style:dashed;background:transparent}
+.p h4{font-family:var(--body);font-weight:600;font-size:16.5px;margin:0 0 4px;line-height:1.3}
+.p .alias{font-family:var(--sans);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 11px}
+.p .desc{margin:0;font-size:15px;line-height:1.55;background:none;border:0;padding:0}
+.p .ask{font-family:var(--sans);font-size:13.5px;color:var(--ink);margin:13px 0 0;padding-top:12px;border-top:1px solid var(--rule);line-height:1.5}
+.p .ask b{color:var(--accent);letter-spacing:.06em;text-transform:uppercase;font-size:11.5px;display:block;margin-bottom:3px}
+.opens{font-family:var(--sans);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:14px 0 6px}
+ul.abre{margin:0;padding:0;list-style:none;font-family:var(--sans);font-size:13.5px;line-height:1.5}
+ul.abre li{position:relative;padding:3px 0 3px 17px;color:var(--muted)}
+ul.abre li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+ul.abre li b{color:var(--ink);font-weight:600}
+ol.time{list-style:none;margin:0;padding:0;border-left:1px solid var(--rule)}
+ol.time li{position:relative;padding:0 0 24px 26px}
+ol.time li::before{content:"";position:absolute;left:-4px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--rule)}
+ol.time li.key::before{background:var(--accent);width:9px;height:9px;left:-5px}
+ol.time .when{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px}
+ol.time .what{display:block;font-size:15.5px;line-height:1.55}
+.inst{border:1px solid var(--rule);border-radius:8px;background:var(--card);overflow:hidden}
+.inst > div{padding:16px 19px;border-top:1px solid var(--rule)}
+.inst > div:first-child{border-top:0}
+.inst .top{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;margin-bottom:5px}
+.inst h4{font-family:var(--body);font-weight:600;font-size:15.5px;margin:0;line-height:1.3}
+.mode{font-family:var(--sans);font-size:11px;letter-spacing:.11em;text-transform:uppercase;border:1px solid var(--rule);border-radius:3px;padding:2px 7px;color:var(--muted);flex:none}
+.mode.online{border-color:var(--accent);color:var(--accent)}
+.inst p{margin:0;font-size:15px;line-height:1.5}
+/* piezas que venían de la página de Aguilar; sirven para cualquier árbol */
+.tree-legend{display:flex;flex-wrap:wrap;gap:10px 26px;margin:0 0 12px;font-family:var(--sans);font-size:13.5px;color:var(--muted)}
+.tree-legend span{display:flex;align-items:center;gap:8px}
+.tsw{width:26px;height:0;border-top:1.5px solid var(--rule);flex:none}
+.tsw.acc{border-top:2px solid var(--accent)}
+.tsw.box{width:15px;height:11px;border:1px solid var(--rule);background:var(--card)}
+.tsw.box.dash{border-style:dashed}
+.tsw.box.acc2{border:1.5px solid var(--accent)}
+.pt{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
+.pt.buit{background:none;border:1.4px solid var(--muted)}
+figure{margin:0}
+figcaption,.figcap-src{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin:12px 0 0;max-width:70ch;line-height:1.6}
+h3.nh{font-family:var(--display);font-weight:600;font-size:22px;line-height:1.25;margin:40px 0 10px;text-wrap:balance;max-width:34ch;letter-spacing:-.005em;text-transform:none;color:var(--ink)}
+.nar{max-width:66ch}
+.nar p{margin:0 0 15px}
+.p .yrs{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:13.5px;color:var(--muted);margin:0 0 9px;letter-spacing:.02em}
+.p p.note{margin:0;font-size:15px;line-height:1.55;background:none;border:0;padding:0}
+.p .addr{font-family:var(--sans);font-size:13px;color:var(--muted);margin:9px 0 0;line-height:1.55}
+.p .src{font-size:12px;margin:9px 0 0;padding-top:8px;border-top:1px solid var(--rule)}
+.curio{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:8px;padding:20px 24px;margin-top:30px}
+.curio .kicker{font-family:var(--sans);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.curio h3{font-family:var(--display);font-weight:600;font-size:20px;margin:0 0 10px;line-height:1.25;letter-spacing:0;text-transform:none;color:var(--ink)}
+.curio p{margin:0 0 14px;max-width:64ch}
+.curio p:last-child{margin-bottom:0}
+.curio .fullname{font-family:var(--display);font-size:19px;color:var(--ink);text-align:center;padding:14px 10px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:16px 0}
+ul.naming{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:9px}
+ul.naming li{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:baseline;font-size:15px;line-height:1.45}
+ul.naming .nm{font-family:var(--display);font-size:16px;color:var(--accent);font-weight:600}
+.inst{margin-top:18px}
+.inst p.opens{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:8px;line-height:1.55;text-transform:none;letter-spacing:0}
+.inst .opens-h{font-family:var(--sans);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:13px 0 6px}
+.inst ul.opens{margin:0;padding-left:17px;font-family:var(--sans);font-size:13.5px;color:var(--muted);line-height:1.5}
+.inst ul.opens li{margin:0 0 5px}
+.inst ul.opens strong{color:var(--ink);font-weight:600}
+td.lnk{font-family:var(--sans);font-size:13.5px}
+h3.fh{margin:32px 0 4px}
+h3.fh + p{font-size:15px;margin:0 0 14px;max-width:66ch}
+
+/* contexto histórico: el mundo general, siempre atado a un hecho de la familia */
+.ctx{border-top:1px solid var(--rule);padding:22px 0 6px}
+.ctx:first-of-type{border-top:0;padding-top:4px}
+.ctx h3{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.25;margin:0 0 10px;letter-spacing:-.005em;text-transform:none;color:var(--ink)}
+.ctx .liga{font-family:var(--sans);font-size:14px;line-height:1.5;color:var(--ink);background:var(--card);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;padding:10px 14px;margin:0 0 14px}
+.ctx .liga b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+.ctx p{font-size:16.5px;max-width:66ch}
+.ctx .fuentes{font-family:var(--sans);font-size:13px;color:var(--muted);margin:0 0 12px}
+
+/* quién es quién: el nivel de prueba de cada dato, a la vista */
+.lvl{font-family:var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;padding:1px 6px;margin-left:6px;white-space:nowrap;vertical-align:.1em}
+.lvl.doc{background:var(--doc-fill);color:var(--accent)}
+.lvl.fam{border:1px solid var(--accent);color:var(--accent)}
+.lvl.ded{border:1px solid var(--warn);color:var(--warn)}
+.lvl.no{border:1px dashed var(--rule);color:var(--muted)}
+
+footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-family:var(--sans);font-size:12.5px;color:var(--muted)}
+@media (max-width:640px){
+  body{padding:0 18px 72px;font-size:16px}
+  nav.toc{margin:0 -18px;padding:0 18px}
+  ul.naming li{grid-template-columns:74px 1fr;gap:10px}
+  .keys li{grid-template-columns:60px 1fr}
+  .legend{padding:20px}
+  ol.moves li{grid-template-columns:70px 1fr}
+  ol.moves .ev{grid-column:2}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+</style>
+
+<div class="wrap">
+<header class="top">
+  <p class="eyebrow">Genealogía &middot; Cártama (Málaga)</p>
+  <h1>Los Prieto y Triana</h1>
+  <p class="standfirst">Tres generaciones hacia atrás desde Ignacio Prieto Triana. Cártama, 1935 (fecha en duda) &middot; Torremolinos, 2022.</p>
+  <p class="stamp">Dos actas del Registro Civil: la defunción de Ignacio y el nacimiento de su hermana Dolores &middot; septiembre de 2026</p>
+</header>
+
+<p>Hasta el 24 de septiembre de 2026 de esta rama no había ni un papel. Todo lo que se sabía era memoria de casa: que Ignacio era de Cártama, que vivió en Barcelona hasta finales de los sesenta y que volvió al pueblo. Buscar en internet no dio nada, y tenía razón en no darlo: esta familia no está digitalizada en ningún archivo.</p>
+
+<p>Lo que abrió la rama fue <strong>una sola carta a la oficina del Registro Civil de Cártama</strong>, contestada en veinticuatro horas. Trajo dos actas. Una es la de Ignacio. La otra es la de una hermana suya que nadie recordaba, <strong>Dolores</strong>, y es la que nombra a sus padres y a sus cuatro abuelos. De cero generaciones documentadas se pasó a tres en un día.</p>
+</div>
+
+<nav class="toc" aria-label="Secciones"><ul>
+  <li><a href="#como-leer">Cómo leer</a></li>
+  <li><a href="#arbol">Árbol</a></li>
+  <li><a href="#quien">Quién es quién</a></li>
+  <li><a href="#historia">Historia</a></li>
+  <li><a href="#tiempo">Línea del tiempo</a></li>
+  <li><a href="#contexto">Contexto</a></li>
+  <li><a href="#falta">Lo que falta</a></li>
+  <li><a href="#fuentes">Fuentes</a></li>
+</ul></nav>
+
+<section class="sec" id="como-leer"><div class="wide">
+<h2>Cómo leer este árbol</h2>
+<p class="dek">Léase antes de mirar el diagrama: el borde de cada ficha dice cuánto se sabe de esa persona.</p>
+
+<div class="legend">
+  <ul class="keys">
+    <li><span class="sw k-doc"></span><div><b>Con respaldo documental.</b> Hay un acta que nombra a esta persona. En este árbol, todas las fichas llenas salen de dos papeles: la defunción de Ignacio y el nacimiento de Dolores.</div></li>
+    <li><span class="sw k-fam"></span><div><b>Confirmado por la familia.</b> Sin papel todavía, pero contado por quien lo vivió.</div></li>
+    <li><span class="sw k-web"></span><div><b>Sin documento todavía.</b> El nombre se conoce, pero aún no ha aparecido el papel que lo diga.</div></li>
+    <li><span class="sw k-grp"></span><div><b>Hermanos y otras ramas.</b> No son antepasados de Ignacio. Están porque sus papeles nombran a los que sí lo son. Aquí es el caso de <b>Dolores</b>, su hermana.</div></li>
+  </ul>
+  <ul class="marks">
+    <li><span class="g">&#10033;</span><div>Nacimiento. «c.» quiere decir hacia: la fecha sale de la edad que declara un acta.</div></li>
+    <li><span class="g">&dagger;</span><div>Muerte.</div></li>
+    <li><span class="g">&#9888;</span><div>Dato en duda, explicado en el texto.</div></li>
+  </ul>
+  <p style="margin-top:18px;font-size:15px;color:var(--muted)">Cada ficha termina con una línea <b>Fuente:</b>. Aquí va <b>en gris y sin enlace</b> porque las dos actas las mandó el Registro Civil por correo y no se pueden consultar en internet. Lo que dice la familia sin papel va marcado como <em>familia</em>.</p>
+</div>
+</div></section>
+
+<section class="sec" id="arbol"><div class="wide">
+<h2>El árbol</h2>
+<p class="dek">Tres generaciones. En el móvil, se desliza en horizontal.</p>
+<p class="hint">&larr; Desliza para ver el ancho completo &rarr;</p>
+<div class="scroller" style="--tree-w:1100px">
+<svg viewBox="0 0 1430 843" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Árbol de tres generaciones de los Prieto y Triana de Cártama: Ignacio Prieto Triana, sus padres Juan Prieto Márquez y María Triana Rodríguez, sus cuatro abuelos y su hermana Dolores, muerta a los siete meses, cuya acta de nacimiento nombra a toda la familia.">
+<rect x="40" y="60" width="300" height="136" rx="7" fill="var(--doc-fill)" stroke="var(--accent)" stroke-width="1.6"/><text x="190.0" y="90" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">Juan Prieto Márquez</text><text x="190.0" y="112" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">abuelo paterno</text><line x1="56" y1="124" x2="324" y2="124" stroke="var(--rule)" stroke-width=".8"/><text x="56" y="138" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">⚠ mismo nombre que su hijo</text><text x="56" y="157" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">fechas no documentadas</text><text x="190.0" y="182" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: acta de nacimiento de Dolores, 1936</text>
+<rect x="370" y="60" width="300" height="117" rx="7" fill="var(--doc-fill)" stroke="var(--accent)" stroke-width="1.6"/><text x="520.0" y="90" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">María Márquez Vargas</text><text x="520.0" y="112" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">abuela paterna</text><line x1="386" y1="124" x2="654" y2="124" stroke="var(--rule)" stroke-width=".8"/><text x="386" y="138" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">fechas no documentadas</text><text x="520.0" y="163" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: acta de nacimiento de Dolores, 1936</text>
+<rect x="760" y="60" width="300" height="117" rx="7" fill="var(--doc-fill)" stroke="var(--accent)" stroke-width="1.6"/><text x="910.0" y="90" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">José Triana Gámez</text><text x="910.0" y="112" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">abuelo materno</text><line x1="776" y1="124" x2="1044" y2="124" stroke="var(--rule)" stroke-width=".8"/><text x="776" y="138" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">fechas no documentadas</text><text x="910.0" y="163" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: acta de nacimiento de Dolores, 1936</text>
+<rect x="1090" y="60" width="300" height="117" rx="7" fill="var(--doc-fill)" stroke="var(--accent)" stroke-width="1.6"/><text x="1240.0" y="90" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">Josefa Rodríguez Moreno</text><text x="1240.0" y="112" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">abuela materna</text><line x1="1106" y1="124" x2="1374" y2="124" stroke="var(--rule)" stroke-width=".8"/><text x="1106" y="138" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">fechas no documentadas</text><text x="1240.0" y="163" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: acta de nacimiento de Dolores, 1936</text>
+<rect x="205" y="330" width="300" height="174" rx="7" fill="var(--doc-fill)" stroke="var(--accent)" stroke-width="1.6"/><text x="355.0" y="360" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">Juan Prieto Márquez</text><text x="355.0" y="382" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">el padre</text><line x1="221" y1="394" x2="489" y2="394" stroke="var(--rule)" stroke-width=".8"/><text x="221" y="408" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">✱ c. 1899-1900 · Cártama</text><text x="221" y="427" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">† no documentada</text><text x="221" y="446" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">profesión: «del campo»</text><text x="221" y="465" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">calle de la Concepción, 61 (1936)</text><text x="355.0" y="490" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: acta de nacimiento de Dolores, 1936</text>
+<rect x="925" y="330" width="300" height="174" rx="7" fill="var(--doc-fill)" stroke="var(--accent)" stroke-width="1.6"/><text x="1075.0" y="360" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">María Triana Rodríguez</text><text x="1075.0" y="382" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">la madre</text><line x1="941" y1="394" x2="1209" y2="394" stroke="var(--rule)" stroke-width=".8"/><text x="941" y="408" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">✱ c. 1905-1906 · Cártama</text><text x="941" y="427" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">† no documentada</text><text x="941" y="446" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">profesión: «su sexo»</text><text x="941" y="465" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">calle de la Concepción, 61 (1936)</text><text x="1075.0" y="490" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: acta de nacimiento de Dolores, 1936</text>
+<rect x="330" y="620" width="300" height="193" rx="7" fill="var(--doc-fill)" stroke="var(--accent)" stroke-width="1.6"/><text x="480.0" y="650" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">Ignacio Prieto Triana</text><text x="480.0" y="672" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">la persona de este árbol</text><line x1="346" y1="684" x2="614" y2="684" stroke="var(--rule)" stroke-width=".8"/><text x="346" y="698" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">✱ ⚠ 8-8-1935, fecha en duda</text><text x="346" y="717" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">† 31-5-2022 · Torremolinos</text><text x="346" y="736" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">Barcelona hasta c. 1968 (familia)</text><text x="346" y="755" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">barrio del Besòs (familia)</text><text x="346" y="774" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">vuelve a Cártama</text><text x="480.0" y="799" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: su acta de defunción, 2022</text>
+<rect x="800" y="620" width="300" height="174" rx="7" fill="none" stroke="var(--rule-strong)" stroke-width="1.4" stroke-dasharray="6 4"/><text x="950.0" y="650" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">Dolores Prieto Triana</text><text x="950.0" y="672" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">su hermana</text><line x1="816" y1="684" x2="1084" y2="684" stroke="var(--rule)" stroke-width=".8"/><text x="816" y="698" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">✱ 28-2-1936 · Concepción, 61</text><text x="816" y="717" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">† 2-10-1936 · a los siete meses</text><text x="816" y="736" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">está aquí porque su acta nombra</text><text x="816" y="755" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">a los padres y a los cuatro abuelos</text><text x="950.0" y="780" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: su acta de nacimiento, nº 170</text>
+<path d="M340 128.0 H370" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M355.0 128.0 V302" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M355.0 302 H355.0" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M355.0 302 V330" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M1060 118.5 H1090" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M1075.0 118.5 V302" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M1075.0 302 H1075.0" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M1075.0 302 V330" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M505 417.0 H925" fill="none" stroke="var(--muted)" stroke-width="1.2"/><text x="715.0" y="409.0" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">matrimonio: fecha no documentada</text><path d="M715.0 417.0 V592" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M480.0 592 H950.0" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M480.0 592 V620" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M950.0 592 V620" fill="none" stroke="var(--muted)" stroke-width="1.2"/><text x="715" y="30" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">LOS CUATRO ABUELOS · NOMBRADOS EN EL ACTA DE 1936</text>
+</svg>
+
+</div>
+<p class="hint">La rama se para en los abuelos: de sus padres no se sabe nada todavía. Y el archivo de la diócesis de Málaga ardió en 1931, así que por la parroquia no se podrá subir más allá de 1929.</p>
+</div></section>
+
+<section class="sec" id="quien"><div class="wrap">
+<h2>Quién es quién</h2>
+<p class="dek">Cada persona del árbol, con lo que se sabe de ella y de dónde sale. La etiqueta de color dice el nivel de prueba de cada dato.</p>
+
+<article class="life">
+  <div class="life-head"><h4>Ignacio Prieto Triana</h4><span class="yrs">1935? &ndash; 2022</span></div>
+  <p>La persona de este árbol. Hijo de Juan y de María, de Cártama.</p>
+  <ul class="plain">
+    <li>Hijo de <strong>Juan</strong> y de <strong>María</strong><span class="lvl doc">Acta</span><span class="src">Su acta de defunción da solo los nombres de pila. Los apellidos salen del acta de su hermana.</span></li>
+    <li>Nacido en <strong>Cártama el 8 de agosto de 1935</strong>, según su defunción<span class="lvl ded">En duda</span><span class="src">El Registro de Cártama no lo encuentra en los libros de 1935, y su hermana nació 204 días después. Ver <a href="#historia">la historia</a>.</span></li>
+    <li>Vivió en <strong>Barcelona hasta hacia 1968</strong>, en las calles Veneçuela y Ferrer Bassa, en el barrio del Besòs i el Maresme<span class="lvl fam">Familia</span></li>
+    <li>Casado con <strong>Josefa Aguilar Membrado</strong> (1933&ndash;2025), que es la rama de <em>Els Aguilar i Membrado</em><span class="lvl fam">Familia</span><span class="src">Su acta de defunción no lo recoge: en estado civil dice «no consta».</span></li>
+    <li>Volvió a <strong>Cártama</strong>, donde tenía su último domicilio<span class="lvl doc">Acta</span></li>
+    <li>Murió el <strong>31 de mayo de 2022</strong> a las 21.15 en el Hospital Marítimo de <strong>Torremolinos</strong>, y por eso su defunción está inscrita allí y no en Cártama<span class="lvl doc">Acta</span></li>
+  </ul>
+</article>
+
+<article class="life">
+  <div class="life-head"><h4>Juan Prieto Márquez</h4><span class="yrs">c. 1899 &ndash; ?</span></div>
+  <p>El padre. En marzo de 1936 tenía <strong>36 años</strong>, así que nació hacia 1899 o 1900. Natural de Cártama y «de profesión del campo». Fue él quien fue en persona al juzgado a inscribir a su hija Dolores.</p>
+  <ul class="plain">
+    <li>Nombre, edad, oficio y domicilio<span class="lvl doc">Acta</span><span class="src">Acta de nacimiento de Dolores, 1936.</span></li>
+    <li>Vivía en la <strong>calle de la Concepción, 61</strong>, de Cártama, en 1936<span class="lvl doc">Acta</span></li>
+    <li>Cuándo y dónde murió<span class="lvl no">No se sabe</span><span class="src">Hay un Juan Prieto Márquez entre los enterrados en la fosa del cementerio de Cártama en mayo de 1937, pero no se sabe si es él. Ver <a href="#historia">la historia</a>.</span></li>
+  </ul>
+</article>
+
+<article class="life">
+  <div class="life-head"><h4>María Triana Rodríguez</h4><span class="yrs">c. 1905 &ndash; ?</span></div>
+  <p>La madre. En marzo de 1936 tenía <strong>30 años</strong>, así que nació hacia 1905 o 1906. Natural de Cártama. En la casilla del oficio el acta dice «su sexo», la fórmula de la época para decir que se dedicaba a su casa.</p>
+  <ul class="plain">
+    <li>Nombre, edad y domicilio<span class="lvl doc">Acta</span><span class="src">Acta de nacimiento de Dolores, 1936.</span></li>
+    <li>Cuándo y dónde murió<span class="lvl no">No se sabe</span></li>
+  </ul>
+</article>
+
+<article class="life">
+  <div class="life-head"><h4>Los cuatro abuelos</h4><span class="yrs">nacidos en el siglo XIX</span></div>
+  <p>Solo se conocen por su nombre, porque el acta de Dolores los nombra como sus abuelos. Ni fechas, ni oficios, ni domicilio.</p>
+  <ul class="plain">
+    <li><strong>Juan Prieto Márquez</strong> y <strong>María Márquez Vargas</strong>, los padres de Juan<span class="lvl doc">Acta</span></li>
+    <li><strong>José Triana Gámez</strong> y <strong>Josefa Rodríguez Moreno</strong>, los padres de María<span class="lvl doc">Acta</span></li>
+  </ul>
+  <p class="why">El abuelo se llama exactamente igual que el padre, Juan Prieto Márquez. Cuadra con los apellidos, pero obliga a que dos hombres Prieto seguidos se casaran con dos mujeres Márquez. O fue así, o el secretario repitió por inercia el nombre del padre. Hasta que otro papel lo diga, queda abierto.</p>
+</article>
+
+<article class="life">
+  <div class="life-head"><h4>Dolores Prieto Triana</h4><span class="yrs">1936 &ndash; 1936</span></div>
+  <p>La hermana de Ignacio. <strong>No es antepasada suya</strong>, y en rigor no entraría en este árbol, que solo mira hacia atrás. Está aquí por una razón concreta: <strong>su acta de nacimiento es el único papel que nombra a los padres y a los cuatro abuelos</strong>. Sin ella, esta rama seguiría en blanco.</p>
+  <ul class="plain">
+    <li>Nació el <strong>28 de febrero de 1936</strong> a las tres, en la calle de la Concepción, 61<span class="lvl doc">Acta</span></li>
+    <li>La inscribió su padre en persona el <strong>1 de marzo</strong><span class="lvl doc">Acta</span></li>
+    <li>Murió el <strong>2 de octubre de 1936</strong>, a los siete meses<span class="lvl doc">Acta</span><span class="src">Nota al margen de su acta, que remite al folio 11 del tomo 54 de Defunciones.</span></li>
+  </ul>
+</article>
+</div></section>
+
+<section class="sec" id="historia"><div class="wrap">
+<h2>Lo que cuentan los papeles</h2>
+<p class="dek">Lo que dicen las dos actas, y las dos preguntas que dejan abiertas.</p>
+
+<div class="chap" id="cap-1"><span class="chap-yr">28 de febrero de 1936</span><h3 class="chap-t">La hermana que lo abrió todo</h3></div>
+<p>El Registro de Cártama mandó un acta que nadie le había pedido. Es el número 170 de nacimientos: una niña nacida <strong>el 28 de febrero de 1936, a las tres</strong>, en la <strong>calle de la Concepción, número 61</strong>. La inscribieron el 1 de marzo a las quince horas, «en virtud de manifestación personal del padre», con dos testigos del pueblo. Le pusieron <strong>Dolores</strong>.</p>
+<p>Un acta de nacimiento de aquellos años dice mucho más que el nombre de la criatura. Esta dice quiénes eran sus padres, qué edad tenían, de qué vivían y dónde, y <strong>quiénes eran sus cuatro abuelos</strong>:</p>
+<div class="quote">«…hija de Juan Prieto Márquez, de treinta y seis años de edad, de profesión [del] campo, y de María Triana Rodríguez, de treinta años de edad, de profesión su sexo, ambos naturales […] de esta villa y domiciliados donde el nacimiento. Nieta por línea paterna de Juan Prieto Márquez y de María Márquez Vargas, y por la materna de José Triana Gámez y de Josefa Rodríguez Moreno…»</div>
+<p class="src">Los corchetes marcan palabras que el escaneo corta en el margen.</p>
+<p>En el margen hay una nota escrita después: <strong>«Falleció el 2 de octubre de 1936»</strong>. Dolores vivió siete meses.</p>
+<p class="why">Dolores no es antepasada de Ignacio, es su hermana, y por eso en rigor no entraría en este árbol. Está porque su acta es el único papel que nombra a toda la familia.</p>
+
+<div class="chap" id="cap-2"><span class="chap-yr">1935 o 1936</span><h3 class="chap-t">Dos fechas que no caben</h3></div>
+<p>La defunción de Ignacio dice que nació el <strong>8 de agosto de 1935</strong>. Su hermana nació el <strong>28 de febrero de 1936</strong>. Entre las dos fechas hay <strong>204 días</strong>, menos de siete meses. Una madre no tiene dos hijos con siete meses de diferencia.</p>
+<p>La propia oficina de Cártama lo vio al contestar: «Aunque en el mismo consta que nació el día 8 de agosto de 1935 en Cártama, no lo encuentro en los libros… No creo que pudiera nacer 7 meses después de Ignacio.»</p>
+<p>Una de las dos fechas está mal, y se sabe cuál pesa más. La de Dolores se escribió <strong>dos días después del parto, con el padre delante</strong>. La de Ignacio se tomó en 2022, ochenta y siete años después, de su documento de identidad o de lo que dijo la familia. <strong>Manda el acta.</strong> Y encaja con que no lo encuentren en los libros de 1935: no está porque no nació ese año.</p>
+<p>Si el día y el mes son buenos y lo que falla es el año, el 8 de agosto cabe en dos sitios:</p>
+<ul class="plain">
+  <li><strong>8 de agosto de 1934.</strong> Dolores nacería dieciocho meses después. Ignacio sería el hermano mayor, y nada más.</li>
+  <li><strong>8 de agosto de 1937.</strong> Dolores muere en octubre de 1936, y un embarazo desde noviembre llega a agosto. Pero entonces Ignacio habría nacido <strong>después de lo que pasó en Cártama en 1937</strong>, y eso lleva al capítulo siguiente.</li>
+</ul>
+
+<div class="chap" id="cap-3"><span class="chap-yr">febrero &ndash; mayo de 1937</span><h3 class="chap-t">El nombre del padre</h3></div>
+<p>Las tropas sublevadas entraron en Cártama el <strong>9 de febrero de 1937</strong>. En los días siguientes hubo detenciones y fusilamientos, y la fosa común del cementerio del pueblo tiene más de un centenar de víctimas censadas. El <strong>18 de mayo de 1937</strong> se enterraron allí doce cuerpos más, y entre ellos figura un <strong>Juan Prieto Márquez</strong>.</p>
+<p>La familia siempre había pensado que el padre de Ignacio podía ser una de esas víctimas, y había dudado entre dos nombres. El acta de Dolores resuelve la duda del nombre: <strong>el padre se llamaba Juan Prieto Márquez</strong>, como decía la primera intuición de casa. La otra posibilidad, un Ignacio Prieto Portales que también está en el censo de víctimas, queda descartada como padre.</p>
+<div class="note"><b>Lo que todavía no se puede escribir.</b> Que el padre de Ignacio fue fusilado. Hay <strong>dos</strong> Juan Prieto Márquez en esta familia, el padre y el abuelo, y ningún papel dice cuál de los dos, si alguno, es el de la fosa. Coinciden el nombre y el pueblo, y nada más. Lo resolvería el acta de defunción de 1937: diría la edad, y la edad separa a un hombre de treinta y siete años de uno de sesenta y tantos.</div>
+<p>Si resultara que Ignacio nació en agosto de 1937 y que el de la fosa era su padre, habría nacido con el padre ya muerto. Por eso la fecha de nacimiento no es un detalle: es la pregunta.</p>
+
+<div class="chap" id="cap-4"><span class="chap-yr">hasta c. 1968</span><h3 class="chap-t">Barcelona, y la vuelta</h3></div>
+<p>Lo que sigue lo cuenta la familia y no hay papel todavía. Ignacio vivió en Barcelona hasta hacia 1968, primero en la calle Veneçuela y luego en la de Ferrer Bassa. Las dos están en el barrio del <strong>Besòs i el Maresme</strong>, a unos 250 metros una de otra: no fue una mudanza de barrio, sino de calle dentro del mismo grupo de pisos. Era un barrio levantado entre 1954 y 1964 que recibió a mucha gente llegada de Andalucía.</p>
+<p>Después volvió a Cártama. Allí tenía su último domicilio cuando murió, el <strong>31 de mayo de 2022</strong>, en el Hospital Marítimo de Torremolinos.</p>
+
+<div class="chap" id="cap-5"><span class="chap-yr">24 y 25 de septiembre de 2026</span><h3 class="chap-t">Una carta, veinticuatro horas</h3></div>
+<p>Antes de escribir a nadie se buscó en todo lo que hay abierto en internet: FamilySearch, el portal de archivos estatales, la prensa histórica, las bases de víctimas, los cementerios, las esquelas. <strong>Nada.</strong> Cártama no está microfilmada y sus libros no están en ninguna web.</p>
+<p>Así que se escribió a la oficina del Registro Civil del pueblo, que desde 2024 vuelve a guardar sus libros antiguos. Contestó al día siguiente con la defunción de Ignacio y, por iniciativa propia, con el acta de Dolores.</p>
+</div></section>
+
+<section class="sec" id="tiempo"><div class="wrap">
+<h2>Línea del tiempo</h2>
+<p class="dek">Los hechos con fecha, en orden. Los puntos azules son la línea directa de Ignacio; los grises, lo que pasa alrededor. Las dos fechas posibles de su nacimiento van marcadas como dudosas.</p>
+
+<ol class="time">
+  <li class="key"><span class="when">siglo XIX · Cártama</span><span class="what">Viven los cuatro abuelos de Ignacio: <strong>Juan Prieto Márquez y María Márquez Vargas</strong>, <strong>José Triana Gámez y Josefa Rodríguez Moreno</strong>. Solo se conocen sus nombres. <a href="#cap-1">Capítulo</a></span></li>
+  <li class="key"><span class="when">c. 1899-1900 · Cártama</span><span class="what">Nace <strong>Juan Prieto Márquez</strong>, el padre. <a href="#cap-1">Capítulo</a></span></li>
+  <li class="key"><span class="when">c. 1905-1906 · Cártama</span><span class="what">Nace <strong>María Triana Rodríguez</strong>, la madre. <a href="#cap-1">Capítulo</a></span></li>
+  <li><span class="when">12 de mayo de 1931 · Málaga</span><span class="what">Arde el archivo del obispado de Málaga. Por eso los libros de la parroquia de Cártama empiezan en 1929 y la rama no se puede seguir más atrás por la iglesia.</span></li>
+  <li class="key"><span class="when">¿8 de agosto de 1934?</span><span class="what">Una de las dos fechas posibles del nacimiento de <strong>Ignacio</strong>. <span class="lvl ded">En duda</span> <a href="#cap-2">Capítulo</a></span></li>
+  <li class="key"><span class="when">8 de agosto de 1935</span><span class="what">La fecha que da la defunción de Ignacio, y que no puede ser: su hermana nace 204 días después. <span class="lvl ded">En duda</span> <a href="#cap-2">Capítulo</a></span></li>
+  <li><span class="when">28 de febrero de 1936 · Cártama, calle de la Concepción, 61</span><span class="what">Nace <strong>Dolores</strong>, hermana de Ignacio. El padre la inscribe en persona el 1 de marzo. <a href="#cap-1">Capítulo</a></span></li>
+  <li><span class="when">2 de octubre de 1936 · Cártama</span><span class="what">Muere Dolores, a los siete meses. <a href="#cap-1">Capítulo</a></span></li>
+  <li><span class="when">9 de febrero de 1937 · Cártama</span><span class="what">Entran en el pueblo las tropas sublevadas. Siguen detenciones y fusilamientos. <a href="#cap-3">Capítulo</a></span></li>
+  <li><span class="when">18 de mayo de 1937 · cementerio de Cártama</span><span class="what">Se entierran doce cuerpos en la fosa común. Entre ellos, un <strong>Juan Prieto Márquez</strong>. No se sabe si es el padre, el abuelo u otro hombre con el mismo nombre. <span class="lvl ded">Sin confirmar</span> <a href="#cap-3">Capítulo</a></span></li>
+  <li class="key"><span class="when">¿8 de agosto de 1937?</span><span class="what">La otra fecha posible del nacimiento de <strong>Ignacio</strong>. <span class="lvl ded">En duda</span> <a href="#cap-2">Capítulo</a></span></li>
+  <li class="key"><span class="when">hasta c. 1968 · Barcelona</span><span class="what"><strong>Ignacio</strong> vive en el barrio del Besòs i el Maresme, en las calles Veneçuela y Ferrer Bassa. Luego vuelve a Cártama. <span class="lvl fam">Familia</span> <a href="#cap-4">Capítulo</a></span></li>
+  <li class="key"><span class="when">31 de mayo de 2022 · Torremolinos</span><span class="what">Muere <strong>Ignacio</strong> en el Hospital Marítimo. <a href="#cap-4">Capítulo</a></span></li>
+  <li><span class="when">25 de septiembre de 2026</span><span class="what">El Registro de Cártama manda las dos actas que abren la rama. <a href="#cap-5">Capítulo</a></span></li>
+</ol>
+</div></section>
+
+<section class="sec" id="contexto"><div class="wrap">
+<h2>Contexto histórico</h2>
+<p class="pendiente">Esta sección todavía está en preparación.</p>
+</div></section>
+
+<section class="sec" id="falta"><div class="wide">
+<h2>Lo que falta</h2>
+<p class="dek">Cada hueco, con el papel exacto que lo cierra.</p>
+
+<p class="lede">Quedan dos preguntas grandes, y las dos se contestan en los libros del Registro Civil de Cártama, que desde 2024 vuelven a estar en el pueblo. Lo que sigue ya está preparado para pedirlo en una segunda carta a la misma oficina.</p>
+
+<div class="cards">
+  <article class="p">
+    <h4>Qué día nació Ignacio</h4>
+    <p class="alias">la pregunta de toda la rama</p>
+    <p class="desc">El 8 de agosto de 1935 no puede ser. Hay que buscarlo en los libros de <strong>1934, 1936, 1937 y 1938</strong>, y también entre las inscripciones hechas fuera de plazo en años posteriores.</p>
+    <p class="ask"><b>Qué se pide</b>Certificado literal de nacimiento de Ignacio Prieto Triana, búsqueda en esos años.</p>
+  </article>
+  <article class="p">
+    <h4>Si el Juan Prieto Márquez de la fosa es el padre</h4>
+    <p class="alias">o el abuelo, u otro</p>
+    <p class="desc">Hay un Juan Prieto Márquez enterrado en la fosa del cementerio el 18 de mayo de 1937. Su acta de defunción diría la edad, y la edad separa al padre (unos 37 años) del abuelo (más de 60).</p>
+    <p class="ask"><b>Qué se pide</b>Acta de defunción de Juan Prieto Márquez, libros de Defunciones de 1937.</p>
+  </article>
+  <article class="p">
+    <h4>La boda de Juan y María</h4>
+    <p class="alias">los padres</p>
+    <p class="desc">Confirmaría a los cuatro abuelos por un segundo papel. Debió de ser hacia 1925-1935. Los libros de bodas de la parroquia empiezan en 1934, así que si fue antes solo queda la vía civil.</p>
+    <p class="ask"><b>Qué se pide</b>Acta de matrimonio de Juan Prieto Márquez y María Triana Rodríguez.</p>
+  </article>
+  <article class="p">
+    <h4>Los padres de los padres</h4>
+    <p class="alias">la generación siguiente</p>
+    <p class="desc">Los nacimientos de Juan (hacia 1899-1900) y de María (hacia 1905-1906) darían las fechas de los abuelos y, con suerte, sus propios padres.</p>
+    <p class="ask"><b>Qué se pide</b>Actas de nacimiento de Juan Prieto Márquez y de María Triana Rodríguez, Cártama.</p>
+  </article>
+  <article class="p unknown">
+    <h4>Si el Registro Civil no responde</h4>
+    <p class="alias">las otras puertas</p>
+    <p class="desc">El <strong>bautismo</strong> de Ignacio en San Pedro Apóstol de Cártama, que guarda bautizos desde 1929 y no exige saber la fecha. El <strong>expediente de quintas</strong> de hacia 1956 en el Archivo Municipal de Cártama, que daría la fecha exacta. Y la <strong>boda con Josefa Aguilar</strong> en el Registro Civil de Barcelona, que nombraría a los padres de los dos.</p>
+  </article>
+  <article class="p unknown">
+    <h4>Si Ignacio no está en ningún libro de Cártama</h4>
+    <p class="alias">una posibilidad a tener en cuenta</p>
+    <p class="desc">En febrero de 1937 miles de personas huyeron de Málaga hacia Almería por la carretera de la costa. Un niño nacido en 1937 pudo quedar inscrito en otro municipio, o muchos años después.</p>
+  </article>
+</div>
+</div></section>
+
+<section class="sec" id="fuentes"><div class="wrap">
+<h2>Fuentes</h2>
+<p class="dek">Los dos papeles que sostienen el árbol, y todo lo demás que se ha consultado.</p>
+
+<h3>Las dos actas</h3>
+<ul class="plain">
+  <li><b>Acta de defunción de Ignacio Prieto Triana</b> &middot; Registro Civil de Torremolinos, sección 3.ª, tomo 66, página 279. Expedida el 25 de septiembre de 2026.<span class="src">No se puede consultar en internet: la mandó el Registro por correo.</span></li>
+  <li><b>Acta de nacimiento de Dolores Prieto Triana</b> &middot; Registro Civil de Cártama, distrito de Álora, número 170, inscrita el 1 de marzo de 1936.<span class="src">No se puede consultar en internet: la mandó el Registro por correo.</span></li>
+</ul>
+
+<h3>Sobre Cártama en 1937</h3>
+<ul class="plain">
+  <li><b>Fosas del cementerio de Cártama</b>, mapa de fosas de RTVE, con el censo de víctimas de la Junta de Andalucía<span class="src"><a href="https://www.rtve.es/noticias/fosas-guerra-civil-franquismo/andalucia/malaga/cartama/fosas-en-el-cementerio-de-cartama/" target="_blank" rel="noopener">rtve.es</a></span></li>
+  <li><b>Fusilados de Cártama</b>, lista del Foro por la Memoria Histórica de Málaga<span class="src"><a href="https://www.memoriahistoricamalaga.org/fusilados-localidad.php?localidad=98" target="_blank" rel="noopener">memoriahistoricamalaga.org</a></span></li>
+</ul>
+
+<h3>Sobre dónde están los libros</h3>
+<ul class="plain">
+  <li><b>El Juzgado de Paz de Cártama recupera sus archivos históricos</b>, Ayuntamiento de Cártama, 2 de febrero de 2024<span class="src"><a href="https://www.cartama.es/3955/com1_md3_cd-71676/el-juzgado-de-paz-de-cartama-recupera-sus-archivos-historicos" target="_blank" rel="noopener">cartama.es</a></span></li>
+  <li><b>Relación de libros disponibles por parroquias</b>, Archivo Histórico Curial de la Diócesis de Málaga<span class="src"><a href="https://www.diocesismalaga.es/archivo-historico-curial/2010100408/relacion-de-libros-disponibles-por-parroquias/" target="_blank" rel="noopener">diocesismalaga.es</a></span></li>
+  <li><b>Archivo Municipal de Cártama</b>, ficha del Sistema Andaluz de Archivos<span class="src"><a href="https://www.juntadeandalucia.es/cultura/archivos/web_es/DetalleArchivoPdf?d=pdf&amp;id=1090" target="_blank" rel="noopener">juntadeandalucia.es</a></span></li>
+</ul>
+
+<h3>Dónde se ha buscado sin encontrar nada</h3>
+<p>Saber dónde no está una familia también cuenta. Todas estas búsquedas se hicieron y dieron cero, comprobando antes que el buscador funcionaba:</p>
+<ul class="plain">
+  <li><b>FamilySearch</b>: «Prieto Triana» da 23 resultados y ninguno de Málaga. Cártama no está microfilmada.</li>
+  <li><b>PARES</b>, el portal de los archivos estatales: ni «Prieto Triana» ni «Juan Prieto Márquez».</li>
+  <li><b>Prensa histórica</b>: cuatro «Prieto Triana», ninguno de Málaga.</li>
+  <li><b>Todos los Nombres</b>, la base de víctimas de Andalucía<span class="src"><a href="https://todoslosnombres.org/busqueda-de-victimas/" target="_blank" rel="noopener">todoslosnombres.org</a> &middot; Apenas cubre Cártama: una sola defunción en el pueblo.</span></li>
+  <li><b>Esquelas</b> de mayo y junio de 2022: la plataforma no tiene datos de Cártama.</li>
+</ul>
+</div></section>
+
+<div class="wrap">
+<footer>
+Solo hacia atrás: los descendientes de Ignacio quedan fuera, y de las personas vivas no se publica ningún dato. &middot; Actualizado en septiembre de 2026.
+</footer>
+</div>
+<script>
+(()=>{const l=[...document.querySelectorAll('nav.toc a')];if(!('IntersectionObserver'in window))return;
+const o=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){l.forEach(a=>a.removeAttribute('aria-current'));
+const a=l.find(a=>a.hash==='#'+e.target.id);if(a){a.setAttribute('aria-current','true');a.scrollIntoView({block:'nearest',inline:'nearest'})}}})},
+{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('section.sec').forEach(s=>o.observe(s))})();
+</script>
+
+</body>
+</html>
