@@ -82,10 +82,11 @@ section.sec > div > h2:first-child{margin-top:48px}
 .keys{display:grid;gap:13px;margin:20px 0 22px;padding:0;list-style:none}
 .keys li{display:grid;grid-template-columns:82px 1fr;gap:16px;align-items:start;font-size:15px;line-height:1.45}
 .keys .sw{height:34px;border-radius:6px;display:block}
-.k-doc{background:var(--doc-fill);border:1.6px solid var(--accent)}
-.k-fam{background:var(--card);border:1.6px solid var(--accent)}
-.k-web{background:var(--card);border:1px solid var(--rule)}
-.k-grp{background:none;border:1px dashed var(--rule)}
+/* Dos eixos: el fons diu la sang, la vora si en sabem el nom. */
+.k-doc{background:var(--doc-fill);border:1.6px solid var(--accent)}      /* directe */
+.k-fam{background:none;border:1.6px dashed var(--accent)}                /* directe, sense nom */
+.k-web{background:var(--card);border:1.1px solid var(--rule-strong)}     /* no és avantpassat */
+.k-grp{background:none;border:1.4px dashed var(--rule-strong)}           /* grup de col·laterals */
 .keys b{font-weight:600}
 .keys span.n{color:var(--muted)}
 .marks{display:grid;gap:9px;margin:0;padding:16px 0 0;list-style:none;border-top:1px solid var(--rule);font-size:15px}
@@ -197,7 +198,7 @@ ol.time .what{display:block;font-size:15.5px;line-height:1.55}
 .tsw.acc{border-top:2px solid var(--accent)}
 .tsw.box{width:15px;height:11px;border:1px solid var(--rule);background:var(--card)}
 .tsw.box.dash{border-style:dashed}
-.tsw.box.acc2{border:1.5px solid var(--accent)}
+.tsw.box.acc2{border:1.5px solid var(--accent);background:var(--accent-soft)}
 .pt{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
 .pt.buit{background:none;border:1.4px solid var(--muted)}
 figure{margin:0}
@@ -256,6 +257,14 @@ footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-fa
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+/* Data de l'última actualització, sota l'entrada de la portada.
+   Surt del git: és quan va canviar el contingut, no quan es va compilar. */
+.actualizado{
+  font-family:var(--data); font-size:13px; color:var(--muted);
+  margin:18px 0 0; padding-top:12px; border-top:1px solid var(--rule);
+}
+.actualizado time{font-variant-numeric:tabular-nums; color:var(--ink)}
+
 </style>
 
 <div class="wrap">
@@ -269,6 +278,7 @@ footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-fa
 <p>Ciento veinte años de una misma familia, desde <strong>Pedro Caballero y Francisca Bandera</strong>, nacidos en Jimena de la Frontera hacia 1820, hasta <strong>la Mari</strong>, nacida en Cádiz en 1932. Cinco generaciones, un pueblo y una ciudad.</p>
 
 <p>Todo lo que se cuenta aquí sale de un papel que se puede abrir y leer. Cada ficha del árbol lleva debajo <strong>de dónde sale</strong>, y cada calle lleva su <strong>enlace al mapa</strong>. Donde hace falta suponer, se dice que se está suponiendo.</p>
+<p class="actualizado">Actualizado el <time>25 de septiembre de 2026</time></p>
 </div>
 
 <nav class="toc" aria-label="Secciones"><ul>
@@ -284,14 +294,14 @@ footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-fa
 
 <section class="sec" id="como-leer"><div class="wide">
 <h2>Cómo leer este árbol</h2>
-<p class="dek">Léase antes de mirar el diagrama: el color de cada ficha dice cuánto se sabe de esa persona.</p>
+<p class="dek">Léase antes de mirar el diagrama. Cada ficha dice dos cosas a la vez: <b>el fondo azul marca de quién venimos por sangre</b>, y el borde, si sabemos su nombre.</p>
 
 <div class="legend">
   <ul class="keys">
-    <li><span class="sw k-doc"></span><div><b>Con respaldo documental.</b> Existe un acta o un censo que nombra a esta persona. Lo dice el icono de documento: <b>relleno</b> si tiene acta propia, <b>hueco</b> si aparece nombrada en la de otro. El fondo azul solo acompaña al icono — no es un nivel aparte.</div></li>
-    <li><span class="sw k-fam"></span><div><b>Confirmado por la familia.</b> Sin papel todavía, pero contado por quien lo vivió. <span class="n">El borde azul marca las dos cosas que sostienen un nombre: un documento o un testigo.</span></div></li>
-    <li><span class="sw k-web"></span><div><b>Sin documento todavía.</b> El nombre se conoce, pero aún no ha aparecido el papel que lo diga. <span class="n">Puede ser cierto: simplemente no está probado.</span></div></li>
-    <li><span class="sw k-grp"></span><div><b>Grupo de hermanos.</b> Ramas colaterales, agrupadas para no romper la lectura de la línea directa.</div></li>
+    <li><span class="sw k-doc"></span><div><b>Antepasado directo.</b> De esta persona venimos por sangre. En este árbol lo son <b>las quince fichas llenas</b>, desde la Mari hasta sus tatarabuelos, y todas tienen además acta o censo que las nombra.</div></li>
+    <li><span class="sw k-fam"></span><div><b>Antepasado directo, sin nombre todavía.</b> Sabemos que existió y qué lugar ocupa, pero no cómo se llamaba. <span class="n">En esta rama, ninguno: se sabe el nombre de todos.</span></div></li>
+    <li><span class="sw k-web"></span><div><b>Familia, pero no antepasado.</b> Hermanos, hermanastros y quien se casó con ellos. Son familia de verdad; lo que pasa es que nuestra descendencia no viene por ahí.</div></li>
+    <li><span class="sw k-grp"></span><div><b>Grupo de hermanos.</b> Ramas colaterales, agrupadas para no romper la lectura de la línea directa. Están porque sus papeles nombran a los que sí son antepasados.</div></li>
   </ul>
   <ul class="marks">
     <li><span class="g">&#9901;</span><div>Matrimonio. Los dos anillos enlazados, sobre la línea que une a la pareja.</div></li>

@@ -82,10 +82,11 @@ section.sec > div > h2:first-child{margin-top:48px}
 .keys{display:grid;gap:13px;margin:20px 0 22px;padding:0;list-style:none}
 .keys li{display:grid;grid-template-columns:82px 1fr;gap:16px;align-items:start;font-size:15px;line-height:1.45}
 .keys .sw{height:34px;border-radius:6px;display:block}
-.k-doc{background:var(--doc-fill);border:1.6px solid var(--accent)}
-.k-fam{background:var(--card);border:1.6px solid var(--accent)}
-.k-web{background:var(--card);border:1px solid var(--rule)}
-.k-grp{background:none;border:1px dashed var(--rule)}
+/* Dos eixos: el fons diu la sang, la vora si en sabem el nom. */
+.k-doc{background:var(--doc-fill);border:1.6px solid var(--accent)}      /* directe */
+.k-fam{background:none;border:1.6px dashed var(--accent)}                /* directe, sense nom */
+.k-web{background:var(--card);border:1.1px solid var(--rule-strong)}     /* no és avantpassat */
+.k-grp{background:none;border:1.4px dashed var(--rule-strong)}           /* grup de col·laterals */
 .keys b{font-weight:600}
 .keys span.n{color:var(--muted)}
 .marks{display:grid;gap:9px;margin:0;padding:16px 0 0;list-style:none;border-top:1px solid var(--rule);font-size:15px}
@@ -197,7 +198,7 @@ ol.time .what{display:block;font-size:15.5px;line-height:1.55}
 .tsw.acc{border-top:2px solid var(--accent)}
 .tsw.box{width:15px;height:11px;border:1px solid var(--rule);background:var(--card)}
 .tsw.box.dash{border-style:dashed}
-.tsw.box.acc2{border:1.5px solid var(--accent)}
+.tsw.box.acc2{border:1.5px solid var(--accent);background:var(--accent-soft)}
 .pt{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
 .pt.buit{background:none;border:1.4px solid var(--muted)}
 figure{margin:0}
@@ -256,6 +257,14 @@ footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-fa
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+/* Data de l'última actualització, sota l'entrada de la portada.
+   Surt del git: és quan va canviar el contingut, no quan es va compilar. */
+.actualizado{
+  font-family:var(--data); font-size:13px; color:var(--muted);
+  margin:18px 0 0; padding-top:12px; border-top:1px solid var(--rule);
+}
+.actualizado time{font-variant-numeric:tabular-nums; color:var(--ink)}
+
 </style>
 
 <div class="wrap">
@@ -269,6 +278,7 @@ footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-fa
 <p>Hasta el 24 de septiembre de 2026 de esta rama no había ni un papel. Todo lo que se sabía era memoria de casa: que Ignacio era de Cártama, que vivió en Barcelona hasta finales de los sesenta y que volvió al pueblo. Buscar en internet no dio nada, y tenía razón en no darlo: esta familia no está digitalizada en ningún archivo.</p>
 
 <p>Lo que abrió la rama fue <strong>una sola carta a la oficina del Registro Civil de Cártama</strong>, contestada en veinticuatro horas. Trajo dos actas. Una es la de Ignacio. La otra es la de una hermana suya que nadie recordaba, <strong>Dolores</strong>, y es la que nombra a sus padres y a sus cuatro abuelos. De cero generaciones documentadas se pasó a tres en un día.</p>
+<p class="actualizado">Actualizado el <time>25 de septiembre de 2026</time></p>
 </div>
 
 <nav class="toc" aria-label="Secciones"><ul>
@@ -284,13 +294,13 @@ footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-fa
 
 <section class="sec" id="como-leer"><div class="wide">
 <h2>Cómo leer este árbol</h2>
-<p class="dek">Léase antes de mirar el diagrama: el borde de cada ficha dice cuánto se sabe de esa persona.</p>
+<p class="dek">Léase antes de mirar el diagrama. Cada ficha dice dos cosas a la vez: <b>el fondo azul marca de quién venimos por sangre</b>, y el borde, si sabemos su nombre.</p>
 
 <div class="legend">
   <ul class="keys">
-    <li><span class="sw k-doc"></span><div><b>Con respaldo documental.</b> Hay un acta que nombra a esta persona. En este árbol, todas las fichas llenas salen de dos papeles: la defunción de Ignacio y el nacimiento de Dolores.</div></li>
-    <li><span class="sw k-fam"></span><div><b>Confirmado por la familia.</b> Sin papel todavía, pero contado por quien lo vivió.</div></li>
-    <li><span class="sw k-web"></span><div><b>Sin documento todavía.</b> El nombre se conoce, pero aún no ha aparecido el papel que lo diga.</div></li>
+    <li><span class="sw k-doc"></span><div><b>Antepasado directo.</b> De esta persona venimos por sangre: es padre, madre, abuelo o abuela de la siguiente ficha, hasta llegar a nosotros.</div></li>
+    <li><span class="sw k-fam"></span><div><b>Antepasado directo, sin nombre todavía.</b> Sabemos que existió y qué lugar ocupa, pero no cómo se llamaba.</div></li>
+    <li><span class="sw k-web"></span><div><b>Familia, pero no antepasado.</b> Hermanos, hermanastros y quien se casó con ellos. Son familia de verdad; lo que pasa es que nuestra descendencia no viene por ahí.</div></li>
     <li><span class="sw k-grp"></span><div><b>Hermanos y otras ramas.</b> No son antepasados de Ignacio. Están porque sus papeles nombran a los que sí lo son. Aquí es el caso de <b>Dolores</b>, su hermana.</div></li>
   </ul>
   <ul class="marks">

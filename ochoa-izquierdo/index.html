@@ -82,10 +82,11 @@ section.sec > div > h2:first-child{margin-top:48px}
 .keys{display:grid;gap:13px;margin:20px 0 22px;padding:0;list-style:none}
 .keys li{display:grid;grid-template-columns:82px 1fr;gap:16px;align-items:start;font-size:15px;line-height:1.45}
 .keys .sw{height:34px;border-radius:6px;display:block}
-.k-doc{background:var(--doc-fill);border:1.6px solid var(--accent)}
-.k-fam{background:var(--card);border:1.6px solid var(--accent)}
-.k-web{background:var(--card);border:1px solid var(--rule)}
-.k-grp{background:none;border:1px dashed var(--rule)}
+/* Dos eixos: el fons diu la sang, la vora si en sabem el nom. */
+.k-doc{background:var(--doc-fill);border:1.6px solid var(--accent)}      /* directe */
+.k-fam{background:none;border:1.6px dashed var(--accent)}                /* directe, sense nom */
+.k-web{background:var(--card);border:1.1px solid var(--rule-strong)}     /* no és avantpassat */
+.k-grp{background:none;border:1.4px dashed var(--rule-strong)}           /* grup de col·laterals */
 .keys b{font-weight:600}
 .keys span.n{color:var(--muted)}
 .marks{display:grid;gap:9px;margin:0;padding:16px 0 0;list-style:none;border-top:1px solid var(--rule);font-size:15px}
@@ -197,7 +198,7 @@ ol.time .what{display:block;font-size:15.5px;line-height:1.55}
 .tsw.acc{border-top:2px solid var(--accent)}
 .tsw.box{width:15px;height:11px;border:1px solid var(--rule);background:var(--card)}
 .tsw.box.dash{border-style:dashed}
-.tsw.box.acc2{border:1.5px solid var(--accent)}
+.tsw.box.acc2{border:1.5px solid var(--accent);background:var(--accent-soft)}
 .pt{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
 .pt.buit{background:none;border:1.4px solid var(--muted)}
 figure{margin:0}
@@ -256,6 +257,14 @@ footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-fa
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+/* Data de l'última actualització, sota l'entrada de la portada.
+   Surt del git: és quan va canviar el contingut, no quan es va compilar. */
+.actualizado{
+  font-family:var(--data); font-size:13px; color:var(--muted);
+  margin:18px 0 0; padding-top:12px; border-top:1px solid var(--rule);
+}
+.actualizado time{font-variant-numeric:tabular-nums; color:var(--ink)}
+
 </style>
 
 <div class="wrap">
@@ -269,6 +278,7 @@ footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-fa
 <p>De las cuatro ramas, ésta es la que menos papel tiene: <strong>ninguno</strong>. Todo lo que hay en esta página lo ha contado la familia, o se deduce de ello, y así va marcado en cada dato. Ni siquiera se sabe todavía cómo se llamaban los padres de José.</p>
 
 <p>No es un árbol vacío, es un árbol a punto de empezar. <strong>Hay un documento que lo desbloquea</strong>, y ya está identificado con fecha y lugar: el acta de defunción de José, en el Registro Civil de Barcelona. Un acta de defunción nombra a los padres del difunto, así que de un solo papel saldría la generación que falta entera.</p>
+<p class="actualizado">Actualizado el <time>25 de septiembre de 2026</time></p>
 </div>
 
 <nav class="toc" aria-label="Secciones"><ul>
@@ -284,13 +294,13 @@ footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-fa
 
 <section class="sec" id="como-leer"><div class="wide">
 <h2>Cómo leer este árbol</h2>
-<p class="dek">Léase antes de mirar el diagrama: el borde de cada ficha dice cuánto se sabe de esa persona.</p>
+<p class="dek">Léase antes de mirar el diagrama. Cada ficha dice dos cosas a la vez: <b>el fondo azul marca de quién venimos por sangre</b>, y el borde, si sabemos su nombre.</p>
 
 <div class="legend">
   <ul class="keys">
-    <li><span class="sw k-doc"></span><div><b>Con respaldo documental.</b> Hay un acta o un censo que nombra a esta persona. <span class="n">En esta rama todavía no hay ninguna.</span></div></li>
-    <li><span class="sw k-fam"></span><div><b>Confirmado por la familia.</b> Sin papel todavía, pero contado por quien lo vivió. Es el caso de José.</div></li>
-    <li><span class="sw k-web"></span><div><b>Sin documento todavía.</b> La persona existió seguro, pero no se sabe su nombre o no ha aparecido el papel. Es el caso de sus padres.</div></li>
+    <li><span class="sw k-doc"></span><div><b>Antepasado directo.</b> De esta persona venimos por sangre: es padre, madre, abuelo o abuela de la siguiente ficha, hasta llegar a nosotros.</div></li>
+    <li><span class="sw k-fam"></span><div><b>Antepasado directo, sin nombre todavía.</b> Sabemos que existió y qué lugar ocupa, pero no cómo se llamaba.</div></li>
+    <li><span class="sw k-web"></span><div><b>Familia, pero no antepasado.</b> Hermanos, hermanastros y quien se casó con ellos. Son familia de verdad; lo que pasa es que nuestra descendencia no viene por ahí.</div></li>
     <li><span class="sw k-grp"></span><div><b>Hermanos y otras ramas.</b> Solo entran si sus papeles nombran a los antepasados. De momento, ninguno.</div></li>
   </ul>
   <ul class="marks">
@@ -307,9 +317,9 @@ footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);font-fa
 <p class="dek">Dos generaciones, y la de arriba todavía sin nombre.</p>
 <div class="scroller" style="--tree-w:620px;--tree-max:820px">
 <svg viewBox="0 0 820 591" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Árbol de los Ochoa e Izquierdo: José Ochoa Izquierdo, nacido en Linares en 1930 y muerto en Barcelona en 2006, y sus padres, de los que solo se deduce el primer apellido. Todavía no hay ningún acta.">
-<rect x="40" y="60" width="300" height="155" rx="7" fill="var(--card)" stroke="var(--rule)" stroke-width="1.1"/><text x="190.0" y="90" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">Un Ochoa</text><text x="190.0" y="112" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">el padre</text><line x1="56" y1="124" x2="324" y2="124" stroke="var(--rule)" stroke-width=".8"/><text x="56" y="138" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">nombre de pila: no se sabe</text><text x="56" y="157" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">primer apellido Ochoa, por</text><text x="56" y="176" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">la ley de apellidos</text><text x="190.0" y="201" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: deducido de sus apellidos</text>
-<rect x="480" y="60" width="300" height="155" rx="7" fill="var(--card)" stroke="var(--rule)" stroke-width="1.1"/><text x="630.0" y="90" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">Una Izquierdo</text><text x="630.0" y="112" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">la madre</text><line x1="496" y1="124" x2="764" y2="124" stroke="var(--rule)" stroke-width=".8"/><text x="496" y="138" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">nombre de pila: no se sabe</text><text x="496" y="157" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">primer apellido Izquierdo, por</text><text x="496" y="176" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">la ley de apellidos</text><text x="630.0" y="201" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: deducido de sus apellidos</text>
-<rect x="260" y="330" width="300" height="231" rx="7" fill="var(--card)" stroke="var(--accent)" stroke-width="1.6"/><text x="410.0" y="360" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">José Ochoa Izquierdo</text><text x="410.0" y="382" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">la persona de este árbol</text><line x1="276" y1="394" x2="544" y2="394" stroke="var(--rule)" stroke-width=".8"/><text x="276" y="408" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">✱ 1930 · Linares (Jaén)</text><text x="276" y="427" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">† 20-11-2006 · Barcelona</text><text x="276" y="446" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">criado en Jaén</text><text x="276" y="465" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">mili en Melilla</text><text x="276" y="484" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">Barcelona a principios de los 60</text><text x="276" y="503" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">barrio de Verdum</text><text x="276" y="522" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">después, Sant Adrià de Besòs</text><text x="410.0" y="547" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: Familia</text>
+<rect x="40" y="60" width="300" height="155" rx="7" fill="none" stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="6 4"/><text x="190.0" y="90" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">Un Ochoa</text><text x="190.0" y="112" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">el padre</text><line x1="56" y1="124" x2="324" y2="124" stroke="var(--rule)" stroke-width=".8"/><text x="56" y="138" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">nombre de pila: no se sabe</text><text x="56" y="157" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">primer apellido Ochoa, por</text><text x="56" y="176" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">la ley de apellidos</text><text x="190.0" y="201" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: deducido de sus apellidos</text>
+<rect x="480" y="60" width="300" height="155" rx="7" fill="none" stroke="var(--accent)" stroke-width="1.4" stroke-dasharray="6 4"/><text x="630.0" y="90" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">Una Izquierdo</text><text x="630.0" y="112" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">la madre</text><line x1="496" y1="124" x2="764" y2="124" stroke="var(--rule)" stroke-width=".8"/><text x="496" y="138" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">nombre de pila: no se sabe</text><text x="496" y="157" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">primer apellido Izquierdo, por</text><text x="496" y="176" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">la ley de apellidos</text><text x="630.0" y="201" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: deducido de sus apellidos</text>
+<rect x="260" y="330" width="300" height="231" rx="7" fill="var(--doc-fill)" stroke="var(--accent)" stroke-width="1.6"/><text x="410.0" y="360" text-anchor="middle" font-family="var(--body)" font-size="16.5" font-weight="600" fill="var(--ink)">José Ochoa Izquierdo</text><text x="410.0" y="382" text-anchor="middle" font-family="var(--display)" font-size="14" fill="var(--accent)">la persona de este árbol</text><line x1="276" y1="394" x2="544" y2="394" stroke="var(--rule)" stroke-width=".8"/><text x="276" y="408" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">✱ 1930 · Linares (Jaén)</text><text x="276" y="427" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">† 20-11-2006 · Barcelona</text><text x="276" y="446" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">criado en Jaén</text><text x="276" y="465" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">mili en Melilla</text><text x="276" y="484" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">Barcelona a principios de los 60</text><text x="276" y="503" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">barrio de Verdum</text><text x="276" y="522" font-family="var(--sans)" font-size="13.5" fill="var(--muted)">después, Sant Adrià de Besòs</text><text x="410.0" y="547" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">Fuente: Familia</text>
 <path d="M340 137.5 H480" fill="none" stroke="var(--muted)" stroke-width="1.2"/><text x="410.0" y="129.5" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">boda: no se sabe</text><path d="M410.0 137.5 V302" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M410.0 302 H410.0" fill="none" stroke="var(--muted)" stroke-width="1.2"/><path d="M410.0 302 V330" fill="none" stroke="var(--muted)" stroke-width="1.2"/><text x="410" y="30" text-anchor="middle" font-family="var(--sans)" font-size="12" fill="var(--muted)">LOS PADRES · TODAVÍA SIN NINGÚN PAPEL</text>
 </svg>
 
